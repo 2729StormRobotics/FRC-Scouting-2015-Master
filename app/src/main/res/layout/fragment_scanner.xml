@@ -1,0 +1,436 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:fillViewport="true"
+    >
+<RelativeLayout  android:layout_width="match_parent"
+    android:layout_height="2000dp" tools:context="fragments.ScannerFragment"
+    android:background="@android:color/holo_red_dark"
+    android:orientation="vertical"
+    android:textAlignment="center"
+    android:id="@+id/scanner">
+
+
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:background="@color/temp_storage"
+        android:id="@+id/tv_temp_two"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:layout_marginTop="74dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_three"
+        android:background="@color/temp_storage"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/tv_temp_two"
+        android:layout_alignRight="@+id/btn_move"
+        android:layout_alignEnd="@+id/btn_move" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_one"
+        android:background="@color/temp_storage"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/tv_temp_two"
+        android:layout_alignLeft="@+id/btn_move"
+        android:layout_alignStart="@+id/btn_move" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_four"
+        android:layout_marginTop="59dp"
+        android:background="@color/temp_storage"
+        android:layout_below="@+id/tv_temp_one"
+        android:layout_alignLeft="@+id/tv_temp_one"
+        android:layout_alignStart="@+id/tv_temp_one"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_five"
+        android:layout_alignBottom="@+id/tv_temp_four"
+        android:layout_alignLeft="@+id/tv_temp_two"
+        android:layout_alignStart="@+id/tv_temp_two"
+        android:background="@color/temp_storage"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_six"
+        android:layout_alignTop="@+id/tv_temp_five"
+        android:layout_alignLeft="@+id/tv_temp_three"
+        android:layout_alignStart="@+id/tv_temp_three"
+        android:background="@color/temp_storage"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/temp"
+        android:id="@+id/textView"
+        android:textSize="40sp"
+        android:layout_marginTop="160dp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="470dp"
+        android:layout_height="100dp"
+        android:text="@string/scan_str"
+        android:id="@+id/btn_scan"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/tv_temp_thirty"
+        android:layout_alignEnd="@+id/tv_temp_thirty"
+        android:onClick="scan" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_seven"
+        android:background="@color/temp_storage"
+        android:layout_below="@+id/tv_temp_four"
+        android:layout_alignLeft="@+id/tv_temp_four"
+        android:layout_alignStart="@+id/tv_temp_four"
+        android:layout_marginTop="66dp"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_eight"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/tv_temp_seven"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_nine"
+        android:layout_alignBottom="@+id/tv_temp_eight"
+        android:layout_alignLeft="@+id/tv_temp_six"
+        android:layout_alignStart="@+id/tv_temp_six"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_ten"
+        android:layout_marginTop="66dp"
+        android:background="@color/temp_storage"
+        android:layout_below="@+id/tv_temp_seven"
+        android:layout_alignLeft="@+id/tv_temp_seven"
+        android:layout_alignStart="@+id/tv_temp_seven"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_eleven"
+        android:layout_alignBottom="@+id/tv_temp_ten"
+        android:layout_alignLeft="@+id/tv_temp_eight"
+        android:layout_alignStart="@+id/tv_temp_eight"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twelve"
+        android:layout_alignTop="@+id/tv_temp_eleven"
+        android:layout_alignLeft="@+id/tv_temp_nine"
+        android:layout_alignStart="@+id/tv_temp_nine"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_thirteen"
+        android:layout_marginTop="63dp"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/tv_temp_ten"
+        android:layout_alignLeft="@+id/tv_temp_ten"
+        android:layout_alignStart="@+id/tv_temp_ten" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_fourteen"
+        android:layout_alignTop="@+id/tv_temp_thirteen"
+        android:layout_alignLeft="@+id/tv_temp_eleven"
+        android:layout_alignStart="@+id/tv_temp_eleven"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_fifteen"
+        android:layout_alignTop="@+id/tv_temp_fourteen"
+        android:layout_alignLeft="@+id/tv_temp_twelve"
+        android:layout_alignStart="@+id/tv_temp_twelve"
+        android:background="@color/temp_storage"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#FFF" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_sixteen"
+        android:layout_marginTop="66dp"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage"
+        android:layout_below="@+id/tv_temp_thirteen"
+        android:layout_alignLeft="@+id/tv_temp_thirteen"
+        android:layout_alignStart="@+id/tv_temp_thirteen" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_seventeen"
+        android:layout_alignBottom="@+id/tv_temp_sixteen"
+        android:layout_alignLeft="@+id/tv_temp_fourteen"
+        android:layout_alignStart="@+id/tv_temp_fourteen"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_eightteen"
+        android:layout_alignBottom="@+id/tv_temp_seventeen"
+        android:layout_alignLeft="@+id/tv_temp_fifteen"
+        android:layout_alignStart="@+id/tv_temp_fifteen"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_nineteen"
+        android:layout_below="@+id/tv_temp_sixteen"
+        android:layout_alignLeft="@+id/tv_temp_sixteen"
+        android:layout_alignStart="@+id/tv_temp_sixteen"
+        android:layout_marginTop="63dp"
+        android:background="@color/temp_storage"
+        android:singleLine="false"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty"
+        android:layout_alignTop="@+id/tv_temp_nineteen"
+        android:layout_alignLeft="@+id/tv_temp_seventeen"
+        android:layout_alignStart="@+id/tv_temp_seventeen"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_one"
+        android:layout_alignTop="@+id/tv_temp_twenty"
+        android:layout_alignLeft="@+id/tv_temp_eightteen"
+        android:layout_alignStart="@+id/tv_temp_eightteen"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_two"
+        android:layout_below="@+id/tv_temp_nineteen"
+        android:layout_alignLeft="@+id/tv_temp_nineteen"
+        android:layout_alignStart="@+id/tv_temp_nineteen"
+        android:layout_marginTop="69dp"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_three"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage"
+        android:layout_alignTop="@+id/tv_temp_twenty_two"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_four"
+        android:layout_alignTop="@+id/tv_temp_twenty_three"
+        android:layout_alignLeft="@+id/tv_temp_twenty_one"
+        android:layout_alignStart="@+id/tv_temp_twenty_one"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_five"
+        android:layout_marginTop="72dp"
+        android:textStyle="bold"
+        android:textSize="50sp"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage"
+        android:layout_below="@+id/tv_temp_twenty_two"
+        android:layout_alignLeft="@+id/tv_temp_twenty_two"
+        android:layout_alignStart="@+id/tv_temp_twenty_two" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_six"
+        android:layout_alignBottom="@+id/tv_temp_twenty_five"
+        android:layout_alignLeft="@+id/tv_temp_twenty_three"
+        android:layout_alignStart="@+id/tv_temp_twenty_three"
+        android:background="@color/temp_storage"
+        android:textStyle="bold"
+        android:textIsSelectable="false"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_seven"
+        android:layout_alignTop="@+id/tv_temp_twenty_six"
+        android:layout_alignLeft="@+id/tv_temp_twenty_four"
+        android:layout_alignStart="@+id/tv_temp_twenty_four"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_eight"
+        android:layout_below="@+id/tv_temp_twenty_five"
+        android:layout_alignLeft="@+id/tv_temp_twenty_five"
+        android:layout_alignStart="@+id/tv_temp_twenty_five"
+        android:layout_marginTop="63dp"
+        android:background="@color/temp_storage"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:textSize="50sp" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_twenty_nine"
+        android:layout_alignBottom="@+id/tv_temp_twenty_eight"
+        android:layout_alignLeft="@+id/tv_temp_twenty_six"
+        android:layout_alignStart="@+id/tv_temp_twenty_six"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:background="@color/temp_storage" />
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:id="@+id/tv_temp_thirty"
+        android:layout_alignBottom="@+id/tv_temp_twenty_nine"
+        android:layout_alignLeft="@+id/tv_temp_twenty_seven"
+        android:layout_alignStart="@+id/tv_temp_twenty_seven"
+        android:background="@color/temp_storage"
+        android:textSize="50sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="470dp"
+        android:layout_height="100dp"
+        android:text="@string/temptodb"
+        android:id="@+id/btn_move"
+        android:layout_below="@+id/tv_temp_twenty_eight"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="#FFF"
+        android:onClick="addData" />
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/imageView"
+        android:src="@drawable/logo"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/tv_temp_two"
+        android:layout_alignStart="@+id/tv_temp_two"
+        android:layout_alignRight="@+id/tv_temp_two"
+        android:layout_alignEnd="@+id/tv_temp_two" />
+
+
+</RelativeLayout>
+</ScrollView>

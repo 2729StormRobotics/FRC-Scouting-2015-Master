@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Initial Strings -->
+    <string name="app_name">Storm Master</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Scanner Strings -->
+    <string name="temp">Temporary Storage</string>
+    <string name="temptodb">Move from Temporary Storage to Database</string>
+    <string name="scan_str">New Scan</string>
+
+    <!-- Database Strings -->
+    <string name="auto_download">Download Auto XML</string>
+    <string name="tele_download">Download Tele XML</string>
+
+    <!-- Download Strings -->
+    <string name="update">Update Database</string>
+    <string name="clear">Clear Database</string>
+    <string name="title_activity_scanner">ScannerActivity</string>
+
+</resources>

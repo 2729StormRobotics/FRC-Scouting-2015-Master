@@ -1,0 +1,41 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context="fragments.DownloadFragment"
+    android:background="@android:color/holo_red_dark">
+
+
+    <Button
+        android:layout_width="420dp"
+        android:layout_height="100dp"
+        android:text="@string/auto_download"
+        android:id="@+id/btn_auto_down"
+        android:textColor="#FFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:onClick="downloadAutoXML"
+        android:layout_above="@+id/btn_tele_down"
+        android:layout_alignLeft="@+id/btn_tele_down"
+        android:layout_alignStart="@+id/btn_tele_down" />
+
+    <Button
+        android:layout_width="420dp"
+        android:layout_height="100dp"
+        android:text="@string/tele_download"
+        android:id="@+id/btn_tele_down"
+        android:textSize="30sp"
+        android:textColor="#FFF"
+        android:textStyle="bold"
+        android:onClick="downloadTeleXML"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="350dp"
+        android:id="@+id/imageView2"
+        android:src="@drawable/logo"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
