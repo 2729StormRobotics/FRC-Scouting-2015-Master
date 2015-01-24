@@ -1,5 +1,7 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,11 +10,13 @@ import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
 
-import org.lrhsd.storm.frc_scouting_2015_master.adapter.ViewPagerAdapter;
+import android.widget.Toast;
+
 import org.lrhsd.storm.frc_scouting_2015_master.databaseHandler.*;
 import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
 
 public class MainActivity extends FragmentActivity {
+
     //Scouter id for qr
     final String SCOUTER_ID = "@stormscouting ";
 
@@ -30,11 +34,6 @@ public class MainActivity extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        //Looks for viewpager in activity_main.xml
-
-        ViewPager viewpager = (ViewPager) this.findViewById(R.id.pager);
-        viewpager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager()));
         db = new DBHelper(this);
 
 

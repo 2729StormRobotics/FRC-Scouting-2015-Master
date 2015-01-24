@@ -13,6 +13,7 @@ import me.dm7.barcodescanner.zbar.ZBarScannerView;
 public class ScannerActivity extends Activity implements ZBarScannerView.ResultHandler {
     private ZBarScannerView mScannerView;
 
+
     @Override
     public void onCreate(Bundle state) {
         super.onCreate(state);
@@ -36,6 +37,6 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
     @Override
     public void handleResult(Result rawResult) {
         // Do something with the result here
-        Parser.Parse(rawResult);
+        Parser.Parse(rawResult, this);
      }
 }
