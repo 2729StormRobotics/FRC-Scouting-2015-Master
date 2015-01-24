@@ -3,24 +3,14 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import org.lrhsd.storm.frc_scouting_2015_master.adapter.ViewPagerAdapter;
 import org.lrhsd.storm.frc_scouting_2015_master.databaseHandler.*;
 import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
-
-
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
 
 public class MainActivity extends FragmentActivity {
     //Scouter id for qr
