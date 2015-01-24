@@ -17,24 +17,14 @@ import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
 
 public class MainActivity extends FragmentActivity {
 
-    //Scouter id for qr
-    final String SCOUTER_ID = "@stormscouting ";
 
-    //Storage of the strings
-    String[] tempStorage = new String[30];
-
-    //Database for data
-    public static DBHelper db;
-
-    TextView tv;
 
     //Handle pop-ups
-    boolean yes = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        db = new DBHelper(this);
+
 
 
     }
@@ -45,27 +35,7 @@ public class MainActivity extends FragmentActivity {
         startActivity(intent);
 
     }
-    //Clears Database of data
-    public void clearData(View view){
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Clear Database");
-        builder.setMessage("Are you sure you want to do this?");
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                MainActivity.this.yes = true;
-                MainActivity.db.clearDB();
-
-            }
-        }).setNegativeButton("No", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                MainActivity.this.yes = false;
-            }
-        });
-        AlertDialog action = builder.create();
-        action.show();
-    }
+    
 
 }
 
