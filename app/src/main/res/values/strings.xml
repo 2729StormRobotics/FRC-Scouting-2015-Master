@@ -9,8 +9,7 @@
 
     <!-- Scanner Strings -->
     <string name="temp">Temporary Storage</string>
-    <string name="temptodb">Move from Temporary Storage to Database</string>
-    <string name="scan_str">New Scan</string>
+    <string name="scan">Scan</string>
 
     <!-- Database Strings -->
     <string name="auto_download">Download Auto XML</string>
