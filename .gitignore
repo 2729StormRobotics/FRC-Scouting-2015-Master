@@ -1,4 +1,6 @@
-build/
-app/build/
-FRC-Scouting-2015.iws
-.idea/workspace.xml
+.gradle
+/local.properties
+/.idea/workspace.xml
+/.idea/libraries
+.DS_Store
+/build
