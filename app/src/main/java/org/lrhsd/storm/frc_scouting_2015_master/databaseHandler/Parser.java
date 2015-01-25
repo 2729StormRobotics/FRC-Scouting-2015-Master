@@ -47,7 +47,7 @@ public class Parser {
         int robotAuto;
         int numTotesAuto;
         int numContainersAuto;
-        int stackNumAuto;
+        int numStackAuto;
         int toteLevel1;
         int toteLevel2;
         int toteLevel3;
@@ -63,19 +63,19 @@ public class Parser {
         int noodle;
         int coop;
 
-        teamNumber = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        teamNumber = Integer.parseInt(team.substring(0, team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
-        matchnumber = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        matchnumber = Integer.parseInt(team.substring(0, team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
-        red = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        red = Integer.parseInt(team.substring(0, team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
-        robotAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        robotAuto = Integer.parseInt(team.substring(0, team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
-        numTotesAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        numTotesAuto = Integer.parseInt(team.substring(0, team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
-        numContainersAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        numContainersAuto = Integer.parseInt(team.substring(0, team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
-        stackNumAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        numStackAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
         toteLevel1 = Integer.parseInt(team.substring(0,team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
@@ -102,9 +102,55 @@ public class Parser {
         canLevel5 = Integer.parseInt(team.substring(0,team.indexOf(",")));
         team = team.substring(team.indexOf("c") + 1);
         coop = Integer.parseInt(team);
-
-
-
     }
+
+    public static void makeXMLData(
+            int teamNumber,
+            int matchnumber,
+            int red,
+            int robotAuto,
+            int numTotesAuto,
+            int numContainersAuto,
+            int numStackAuto,
+            int toteLevel1,
+            int toteLevel2,
+            int toteLevel3,
+            int toteLevel4,
+            int toteLevel5,
+            int toteLevel6,
+            int canLevel1,
+            int canLevel2,
+            int canLevel3,
+            int canLevel4,
+            int canLevel5,
+            int canLevel6,
+            int noodle,
+            int coop){
+        String record = "<record>";
+        record += "<TeamNumber>"+teamNumber+"</TeamNumber>"+
+                "<MatchNumber>"+matchnumber+"</MatchNumber>"+
+                "<Alliance>"+red+"<//Alliance>"+
+                "<RobotAuto>"+robotAuto+"</RobotAuto>"+
+                "<ToteNumber>"+numTotesAuto+"</ToteNumber>"+
+                "<ContainerNumber>"+numContainersAuto+"</ContainerNumber>"+
+                "<StackNum>"+numStackAuto+"</StackNum>" +
+                "<ToteLevelOne"+toteLevel1+"</ToteLevelOne>"+
+                "<ToteLevelTwo>"+toteLevel2+"</ToteLevelTwo>"+
+                "<ToteLevelThree>"+toteLevel3+"</ToteLevelThree>"+
+                "<ToteLevelFour>"+toteLevel4+"</ToteLevelFour>"+
+                "<ToteLevelFive>"+toteLevel5+"</ToteLevelFive>"+
+                "<ToteLevelSix>"+toteLevel6+"</ToteLevelSix>"+
+                "<ContainerLevelOne"+canLevel1+"</ContainerLevelOne>"+
+                "<ContainerLevelTwo>"+canLevel2+"</ContainerLevelTwo>"+
+                "<ContainerLevelThree>"+canLevel3+"</ContainerLevelThree>"+
+                "<ContainerLevelFour>"+canLevel4+"</ContainerLevelFour>"+
+                "<ContainerLevelFive>"+canLevel5+"</ContainerLevelFive>"+
+                "<ContainerLevelSix>"+canLevel6+"</ContainerLevelSix>"+
+                "<Noodle>"+noodle+"</Noodle>"+
+                "<Co-Opertition>"+coop+"</Co-Opertition>"+
+                "</record>";
+    }
+
+
 
 }
