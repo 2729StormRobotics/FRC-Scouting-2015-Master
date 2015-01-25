@@ -3,7 +3,6 @@ package org.lrhsd.storm.frc_scouting_2015_master.databaseHandler;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.Toast;
 
 import org.lrhsd.storm.frc_scouting_2015_master.MainActivity;
@@ -32,11 +31,80 @@ public class Parser {
             temp=input.substring(0,input.indexOf(":"));
             input=input.substring(input.indexOf(":")+1);
             teams.add(i,temp);
-            Log.d("arrayList"+i,teams.get(i));
+            seperateTeamData(teams.get(i));
+           // Log.d("arrayList"+i,teams.get(i));
             i++;
         }
 
 
         //Log.d("input","1"+input);
     }
+
+    public static void seperateTeamData(String team){
+        int teamNumber;
+        int matchnumber;
+        int red;
+        int robotAuto;
+        int numTotesAuto;
+        int numContainersAuto;
+        int stackNumAuto;
+        int toteLevel1;
+        int toteLevel2;
+        int toteLevel3;
+        int toteLevel4;
+        int toteLevel5;
+        int toteLevel6;
+        int canLevel1;
+        int canLevel2;
+        int canLevel3;
+        int canLevel4;
+        int canLevel5;
+        int canLevel6;
+        int noodle;
+        int coop;
+
+        teamNumber = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        matchnumber = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        red = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        robotAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        numTotesAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        numContainersAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        stackNumAuto = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        toteLevel1 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        toteLevel2 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        toteLevel3 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        toteLevel4 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        toteLevel5 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        canLevel1 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        canLevel2 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        canLevel3 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        canLevel4 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        canLevel5 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        noodle = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        canLevel5 = Integer.parseInt(team.substring(0,team.indexOf(",")));
+        team = team.substring(team.indexOf("c") + 1);
+        coop = Integer.parseInt(team);
+
+
+
+    }
+
 }
