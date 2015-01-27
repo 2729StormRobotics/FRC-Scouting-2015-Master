@@ -1,4 +1,4 @@
-package  org.lrhsd.storm.frc_scouting_2015_master.scanner;
+package org.lrhsd.storm.frc_scouting_2015_master.scanner;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -36,5 +36,5 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
     public void handleResult(Result rawResult) {
         // Do something with the result here
         Parser.Parse(rawResult, this);
-     }
+    }
 }
