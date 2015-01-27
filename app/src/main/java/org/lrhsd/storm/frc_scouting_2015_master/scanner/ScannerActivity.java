@@ -1,11 +1,9 @@
 package  org.lrhsd.storm.frc_scouting_2015_master.scanner;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
-import org.lrhsd.storm.frc_scouting_2015_master.databaseHandler.Parser;
+import org.lrhsd.storm.frc_scouting_2015_master.parser.Parser;
 
 import me.dm7.barcodescanner.zbar.Result;
 import me.dm7.barcodescanner.zbar.ZBarScannerView;

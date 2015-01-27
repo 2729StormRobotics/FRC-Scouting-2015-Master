@@ -1,14 +1,16 @@
-package org.lrhsd.storm.frc_scouting_2015_master.databaseHandler;
+package org.lrhsd.storm.frc_scouting_2015_master.parser;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.widget.Toast;
 
 import com.opencsv.CSVWriter;
 
 import org.lrhsd.storm.frc_scouting_2015_master.MainActivity;
 
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -46,9 +48,13 @@ public class Parser {
 
     public static void makeCSV(ArrayList matches){
         try {
-            CSVWriter writer = new CSVWriter(new FileWriter("match_data.csv", true), '\n');
+            File sdCard = Environment.getExternalStorageDirectory();
+            File dir = new File (sdCard.getAbsolutePath() + "/storm/data");
+            dir.mkdirs();
+            File file = new File(dir, "match_data");
+            CSVWriter writer = new CSVWriter(new FileWriter(file, true), '\n');
             writer.writeAll(matches);
-        } catch (IOException e) {
+            } catch (IOException e) {
             e.printStackTrace();
         }
     }
