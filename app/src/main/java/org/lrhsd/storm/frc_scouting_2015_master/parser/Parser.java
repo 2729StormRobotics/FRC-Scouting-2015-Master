@@ -68,7 +68,7 @@ public class Parser {
        //Log.d("arrayList", matches.get(0)[0]);
         try {
             File sdCard = Environment.getExternalStorageDirectory();
-            File dir = new File(sdCard.getAbsolutePath() + "/storm/data");
+            File dir = new File(sdCard.getAbsolutePath());
             dir.mkdirs();
             File file = new File(dir, "match_data.csv");
             CSVWriter writer;
