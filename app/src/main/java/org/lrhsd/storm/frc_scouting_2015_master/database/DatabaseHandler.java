@@ -1,6 +1,5 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -229,9 +228,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 teamData.add(18,((cursor.getString(18))));
                 teamData.add(19,((cursor.getString(19))));
                 teamData.add(20,((cursor.getString(20))));
-                Log.d("Database", teamData.get(0).toString());
 
-                // Adding contact to list
                 teamDataList.add(teamData);
             } while (cursor.moveToNext());
         }
@@ -257,6 +254,47 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         String count = "SELECT COUNT(*) FROM " + TABLE_TEAM;
         Cursor cursor = db.rawQuery(count, null);
         return cursor.getCount();
+    }
+
+    public List<ArrayList> getSortedTeamData(String columnName){
+        List<ArrayList> teamDataList = new ArrayList<ArrayList>();
+        String selectQuery = "SELECT  * FROM " + TABLE_TEAM + "ORDER BY " + columnName + "ASC" ;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                ArrayList teamData = new ArrayList(  );
+
+                teamData.add(0,((cursor.getString(0))));
+                teamData.add(1,((cursor.getString(1))));
+                teamData.add(2,((cursor.getString(2))));
+                teamData.add(3,((cursor.getString(3))));
+                teamData.add(4,((cursor.getString(4))));
+                teamData.add(5,((cursor.getString(5))));
+                teamData.add(6,((cursor.getString(6))));
+                teamData.add(7,((cursor.getString(7))));
+                teamData.add(8,((cursor.getString(8))));
+                teamData.add(9,((cursor.getString(9))));
+                teamData.add(10,((cursor.getString(10))));
+                teamData.add(11,((cursor.getString(11))));
+                teamData.add(12,((cursor.getString(12))));
+                teamData.add(13,((cursor.getString(13))));
+                teamData.add(14,((cursor.getString(14))));
+                teamData.add(15,((cursor.getString(15))));
+                teamData.add(16,((cursor.getString(16))));
+                teamData.add(17,((cursor.getString(17))));
+                teamData.add(18,((cursor.getString(18))));
+                teamData.add(19,((cursor.getString(19))));
+                teamData.add(20,((cursor.getString(20))));
+
+                teamDataList.add(teamData);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return teamDataList;
     }
 
 
