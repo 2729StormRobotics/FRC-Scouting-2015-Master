@@ -19,5 +19,6 @@
     <string name="update">Update Database</string>
     <string name="clear">Clear Database</string>
     <string name="title_activity_scanner">ScannerActivity</string>
+    <string name="title_activity_sorter">SorterActivity</string>
 
 </resources>
