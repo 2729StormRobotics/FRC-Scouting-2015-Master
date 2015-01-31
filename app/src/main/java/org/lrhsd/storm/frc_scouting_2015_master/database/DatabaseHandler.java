@@ -125,26 +125,26 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             db.beginTransaction();
             String line = "";
             String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
-                    KEY_TEAM_NUMBER + ","
-                    + KEY_MATCH_NUMBER + ","
-                    + KEY_ALLIANCE + ","
-                    + KEY_ROBOT_AUTO + ","
-                    + KEY_NUMBER_TOTES_AUTO + ","
-                    + KEY_NUMBER_CONTAINERS_AUTO + ","
-                    + KEY_NUMBER_TOTES_STACKED_AUTO + ","
-                    + KEY_TOTE_LEVEL1 + ","
-                    + KEY_TOTE_LEVEL2 + ","
-                    + KEY_TOTE_LEVEL3 + ","
-                    + KEY_TOTE_LEVEL4 + ","
-                    + KEY_TOTE_LEVEL5 + ","
-                    + KEY_TOTE_LEVEL6 + ","
-                    + KEY_CAN_LEVEL1 + ","
-                    + KEY_CAN_LEVEL2 + ","
-                    + KEY_CAN_LEVEL3 + ","
-                    + KEY_CAN_LEVEL4 + ","
-                    + KEY_CAN_LEVEL5 + ","
-                    + KEY_CAN_LEVEL6 + ","
-                    + KEY_NOODLE + ","
+                    KEY_TEAM_NUMBER + ", "
+                    + KEY_MATCH_NUMBER + ", "
+                    + KEY_ALLIANCE + ", "
+                    + KEY_ROBOT_AUTO + ", "
+                    + KEY_NUMBER_TOTES_AUTO + ", "
+                    + KEY_NUMBER_CONTAINERS_AUTO + ", "
+                    + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
+                    + KEY_TOTE_LEVEL1 + ", "
+                    + KEY_TOTE_LEVEL2 + ", "
+                    + KEY_TOTE_LEVEL3 + ", "
+                    + KEY_TOTE_LEVEL4 + ", "
+                    + KEY_TOTE_LEVEL5 + ", "
+                    + KEY_TOTE_LEVEL6 + ", "
+                    + KEY_CAN_LEVEL1 + ", "
+                    + KEY_CAN_LEVEL2 + ", "
+                    + KEY_CAN_LEVEL3 + ", "
+                    + KEY_CAN_LEVEL4 + ", "
+                    + KEY_CAN_LEVEL5 + ", "
+                    + KEY_CAN_LEVEL6 + ", "
+                    + KEY_NOODLE + ", "
                     + KEY_COOP +
                     ") values(";
             String str2 = ");";
@@ -207,27 +207,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             do {
                 ArrayList teamData = new ArrayList(  );
 
-                teamData.add(0,String.valueOf((cursor.getInt(0))));
-                teamData.add(1,String.valueOf((cursor.getInt(1))));
-                teamData.add(2,String.valueOf((cursor.getInt(2))));
-                teamData.add(3,String.valueOf((cursor.getInt(3))));
-                teamData.add(4,String.valueOf((cursor.getInt(4))));
-                teamData.add(5,String.valueOf((cursor.getInt(5))));
-                teamData.add(6,String.valueOf((cursor.getInt(6))));
-                teamData.add(7,String.valueOf((cursor.getInt(7))));
-                teamData.add(8,String.valueOf((cursor.getInt(8))));
-                teamData.add(9,String.valueOf((cursor.getInt(9))));
-                teamData.add(10,String.valueOf((cursor.getInt(10))));
-                teamData.add(11,String.valueOf((cursor.getInt(11))));
-                teamData.add(12,String.valueOf((cursor.getInt(12))));
-                teamData.add(13,String.valueOf((cursor.getInt(13))));
-                teamData.add(14,String.valueOf((cursor.getInt(14))));
-                teamData.add(15,String.valueOf((cursor.getInt(15))));
-                teamData.add(16,String.valueOf((cursor.getInt(16))));
-                teamData.add(17,String.valueOf((cursor.getInt(17))));
-                teamData.add(18,String.valueOf((cursor.getInt(18))));
-                teamData.add(19,String.valueOf((cursor.getInt(19))));
-                teamData.add(20,String.valueOf((cursor.getInt(20))));
+                teamData.add(0,((cursor.getString(0))));
+                teamData.add(1,((cursor.getString(1))));
+                teamData.add(2,((cursor.getString(2))));
+                teamData.add(3,((cursor.getString(3))));
+                teamData.add(4,((cursor.getString(4))));
+                teamData.add(5,((cursor.getString(5))));
+                teamData.add(6,((cursor.getString(6))));
+                teamData.add(7,((cursor.getString(7))));
+                teamData.add(8,((cursor.getString(8))));
+                teamData.add(9,((cursor.getString(9))));
+                teamData.add(10,((cursor.getString(10))));
+                teamData.add(11,((cursor.getString(11))));
+                teamData.add(12,((cursor.getString(12))));
+                teamData.add(13,((cursor.getString(13))));
+                teamData.add(14,((cursor.getString(14))));
+                teamData.add(15,((cursor.getString(15))));
+                teamData.add(16,((cursor.getString(16))));
+                teamData.add(17,((cursor.getString(17))));
+                teamData.add(18,((cursor.getString(18))));
+                teamData.add(19,((cursor.getString(19))));
+                teamData.add(20,((cursor.getString(20))));
                 Log.d("Database", teamData.get(0).toString());
 
                 // Adding contact to list
