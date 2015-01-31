@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -227,6 +228,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 teamData.add(18,String.valueOf((cursor.getInt(18))));
                 teamData.add(19,String.valueOf((cursor.getInt(19))));
                 teamData.add(20,String.valueOf((cursor.getInt(20))));
+                Log.d("Database", teamData.get(0).toString());
 
                 // Adding contact to list
                 teamDataList.add(teamData);

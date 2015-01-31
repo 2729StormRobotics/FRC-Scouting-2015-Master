@@ -5,9 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
+import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
 
 public class MainActivity extends FragmentActivity {
+
 
 
     //Handle pop-ups
@@ -26,6 +28,12 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+    public void analyze(View view){
+        DatabaseHandler db = DatabaseHandler.getInstance(this);
+        db.addTeamData();
+        db.getAllTeamData();
+
+    }
 
 }
 
