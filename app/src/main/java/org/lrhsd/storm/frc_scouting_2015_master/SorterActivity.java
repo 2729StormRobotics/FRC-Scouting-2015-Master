@@ -5,6 +5,11 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class SorterActivity extends ActionBarActivity {
 
@@ -36,4 +41,9 @@ public class SorterActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void sorter(String column){
+        List<ArrayList> sortedList = DatabaseHandler.getInstance(this).getSortedTeamData(column);
+    }
+
 }
