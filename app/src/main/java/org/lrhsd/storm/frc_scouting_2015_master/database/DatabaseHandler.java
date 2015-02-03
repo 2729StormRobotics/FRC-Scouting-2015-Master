@@ -256,14 +256,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
-    public List<ArrayList> getSortedTeamData(String columnName){
+    public Cursor getSortedTeamData(String columnName){
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery = "SELECT  * FROM " + TABLE_TEAM + "ORDER BY " + columnName + "ASC" ;
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
         // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
+        /*if (cursor.moveToFirst()) {
             do {
                 ArrayList teamData = new ArrayList(  );
 
@@ -294,7 +294,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         // return contact list
-        return teamDataList;
+        return teamDataList;*/
+        return cursor;
     }
 
 
