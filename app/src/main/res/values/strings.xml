@@ -21,5 +21,28 @@
     <string name="clear">Clear Database</string>
     <string name="title_activity_scanner">ScannerActivity</string>
     <string name="title_activity_sorter">SorterActivity</string>
+    <string-array name="choices">
+        <item>Team Number</item>
+        <item>Match #</item>
+        <item>Alliance</item>
+        <item>Robot in Auto</item>
+        <item>Number of totes in Auto</item>
+        <item>Number of containers in auto</item>
+        <item>Number of stacked totes in Auto</item>
+        <item>Tote level 1</item>
+        <item>Tote level 2</item>
+        <item>Tote level 3</item>
+        <item>Tote level 4</item>
+        <item>Tote level 5</item>
+        <item>Tote level 6</item>
+        <item>Container level 1</item>
+        <item>Container level 2</item>
+        <item>Container level 3</item>
+        <item>Container level 4</item>
+        <item>Container level 5</item>
+        <item>Container level 6</item>
+        <item>Noodle</item>
+        <item>Co-opertition</item>
+    </string-array>
 
 </resources>

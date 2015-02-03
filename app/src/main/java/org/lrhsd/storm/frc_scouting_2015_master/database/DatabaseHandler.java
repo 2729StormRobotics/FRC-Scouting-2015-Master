@@ -26,32 +26,32 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Contacts Table Columns names
     // private static final String KEY_ID = "id";
     //main
-    private static final String KEY_TEAM_NUMBER = "team_number";
-    private static final String KEY_MATCH_NUMBER = "match_number";
-    private static final String KEY_ALLIANCE = "alliance";
+    public static final String KEY_TEAM_NUMBER = "team_number";
+    public static final String KEY_MATCH_NUMBER = "match_number";
+    public static final String KEY_ALLIANCE = "alliance";
     //auto
-    private static final String KEY_ROBOT_AUTO = "robot_auto";
-    // private static final String KEY_TOTE_AUTO = "tote_auto";
-    private static final String KEY_NUMBER_TOTES_AUTO = "number_totes_auto";
-    //  private static final String KEY_CONTAINER_AUTO = "container_auto";
-    private static final String KEY_NUMBER_CONTAINERS_AUTO = "number_containers_auto";
-    //   private static final String KEY_ASSISTED_TOTES_AUTO = "assisted_totes_auto";
-    private static final String KEY_NUMBER_TOTES_STACKED_AUTO = "number_totes_stacked_auto";
-    private static final String KEY_TOTE_LEVEL1 = "tote_level1";
+    public static final String KEY_ROBOT_AUTO = "robot_auto";
+    // public static final String KEY_TOTE_AUTO = "tote_auto";
+    public static final String KEY_NUMBER_TOTES_AUTO = "number_totes_auto";
+    //  public static final String KEY_CONTAINER_AUTO = "container_auto";
+    public static final String KEY_NUMBER_CONTAINERS_AUTO = "number_containers_auto";
+    //   public static final String KEY_ASSISTED_TOTES_AUTO = "assisted_totes_auto";
+    public static final String KEY_NUMBER_TOTES_STACKED_AUTO = "number_totes_stacked_auto";
+    public static final String KEY_TOTE_LEVEL1 = "tote_level1";
     //telop
-    private static final String KEY_TOTE_LEVEL2 = "tote_level2";
-    private static final String KEY_TOTE_LEVEL3 = "tote_level3";
-    private static final String KEY_TOTE_LEVEL4 = "tote_level4";
-    private static final String KEY_TOTE_LEVEL5 = "tote_level5";
-    private static final String KEY_TOTE_LEVEL6 = "tote_level6";
-    private static final String KEY_CAN_LEVEL1 = "can_level1";
-    private static final String KEY_CAN_LEVEL2 = "can_level2";
-    private static final String KEY_CAN_LEVEL3 = "can_level3";
-    private static final String KEY_CAN_LEVEL4 = "can_level4";
-    private static final String KEY_CAN_LEVEL5 = "can_level5";
-    private static final String KEY_CAN_LEVEL6 = "can_level6";
-    private static final String KEY_NOODLE = "noodle";
-    private static final String KEY_COOP = "coop";
+    public static final String KEY_TOTE_LEVEL2 = "tote_level2";
+    public static final String KEY_TOTE_LEVEL3 = "tote_level3";
+    public static final String KEY_TOTE_LEVEL4 = "tote_level4";
+    public static final String KEY_TOTE_LEVEL5 = "tote_level5";
+    public static final String KEY_TOTE_LEVEL6 = "tote_level6";
+    public static final String KEY_CAN_LEVEL1 = "can_level1";
+    public static final String KEY_CAN_LEVEL2 = "can_level2";
+    public static final String KEY_CAN_LEVEL3 = "can_level3";
+    public static final String KEY_CAN_LEVEL4 = "can_level4";
+    public static final String KEY_CAN_LEVEL5 = "can_level5";
+    public static final String KEY_CAN_LEVEL6 = "can_level6";
+    public static final String KEY_NOODLE = "noodle";
+    public static final String KEY_COOP = "coop";
     // All Static variables
     private static DatabaseHandler sInstance = null;
     private Context mCtx;
