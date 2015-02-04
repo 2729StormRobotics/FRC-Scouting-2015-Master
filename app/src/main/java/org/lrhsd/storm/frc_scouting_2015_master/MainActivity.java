@@ -32,6 +32,8 @@ public class MainActivity extends FragmentActivity {
         DatabaseHandler db = DatabaseHandler.getInstance(this);
         db.addTeamData();
         db.getAllTeamData();
+        Intent intent = new Intent(this, SorterActivity.class);
+        startActivity(intent);
 
     }
 
