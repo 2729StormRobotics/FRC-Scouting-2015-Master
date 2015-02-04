@@ -32,6 +32,7 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
         ArrayAdapter<CharSequence> spin_adapt = ArrayAdapter.createFromResource(this, R.array.choices, android.R.layout.simple_spinner_item);
         spin_adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spin_adapt);
+        spinner.setOnItemSelectedListener(this);
 
     }
 
@@ -109,6 +110,27 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
                 break;
             case 14:
                 columnname = DatabaseHandler.KEY_CAN_LEVEL1;
+                break;
+            case 15:
+                columnname = DatabaseHandler.KEY_TOTE_LEVEL2;
+                break;
+            case 16:
+                columnname = DatabaseHandler.KEY_CAN_LEVEL3;
+                break;
+            case 17:
+                columnname = DatabaseHandler.KEY_CAN_LEVEL4;
+                break;
+            case 18:
+                columnname = DatabaseHandler.KEY_CAN_LEVEL5;
+                break;
+            case 19:
+                columnname = DatabaseHandler.KEY_CAN_LEVEL6;
+                break;
+            case 20:
+                columnname = DatabaseHandler.KEY_NOODLE;
+                break;
+            case 21:
+                columnname = DatabaseHandler.KEY_COOP;
                 break;
         }
     }
