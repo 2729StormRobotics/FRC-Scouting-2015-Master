@@ -81,91 +81,91 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
         switch ((int) parent.getItemIdAtPosition(position)) {
             case 0:
                 columnname = DatabaseHandler.KEY_TEAM_NUMBER;
-                sort();
+                 
                 break;
             case 1:
                 columnname = DatabaseHandler.KEY_MATCH_NUMBER;
-                sort();
+                 
                 break;
             case 2:
                 columnname = DatabaseHandler.KEY_ALLIANCE;
-                sort();
+                 
                 break;
             case 3:
                 columnname = DatabaseHandler.KEY_ROBOT_AUTO;
-                sort();
+                 
                 break;
             case 4:
                 columnname = DatabaseHandler.KEY_NUMBER_TOTES_AUTO;
-                sort();
+                 
                 break;
             case 5:
                 columnname = DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO;
-                sort();
+                 
                 break;
             case 6:
                 columnname = DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO;
-                sort();
+                 
                 break;
             case 7:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL1;
-                sort();
+                 
                 break;
             case 8:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL2;
-                sort();
+                 
                 break;
             case 9:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL3;
-                sort();
+                 
                 break;
             case 10:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL3;
-                sort();
+                 
                 break;
             case 11:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL4;
-                sort();
+                 
                 break;
             case 12:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL5;
-                sort();
+                 
                 break;
             case 13:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL6;
-                sort();
+                 
                 break;
             case 14:
                 columnname = DatabaseHandler.KEY_CAN_LEVEL1;
-                sort();
+                 
                 break;
             case 15:
                 columnname = DatabaseHandler.KEY_TOTE_LEVEL2;
-                sort();
+                 
                 break;
             case 16:
                 columnname = DatabaseHandler.KEY_CAN_LEVEL3;
-                sort();
+                 
                 break;
             case 17:
                 columnname = DatabaseHandler.KEY_CAN_LEVEL4;
-                sort();
+                 
                 break;
             case 18:
                 columnname = DatabaseHandler.KEY_CAN_LEVEL5;
-                sort();
+                 
                 break;
             case 19:
                 columnname = DatabaseHandler.KEY_CAN_LEVEL6;
-                sort();
+                 
                 break;
             case 20:
                 columnname = DatabaseHandler.KEY_NOODLE;
-                sort();
+                 
                 break;
             case 21:
                 columnname = DatabaseHandler.KEY_COOP;
-                sort();
+   
                 break;
         }
     }
@@ -173,7 +173,7 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    public void sort(){
+    public void sort(View v){
          cursor = DatabaseHandler.getInstance(this).getSortedTeamData(columnname);
         SimpleCursorAdapter adapt = new SimpleCursorAdapter(this, R.layout.layout, cursor, fromcolumn, toview, 0);
         view.setAdapter(adapt);

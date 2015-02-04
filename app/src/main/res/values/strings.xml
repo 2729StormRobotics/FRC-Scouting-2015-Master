@@ -44,5 +44,6 @@
         <item>Noodle</item>
         <item>Co-opertition</item>
     </string-array>
+    <string name="sort">Sort</string>
 
 </resources>
