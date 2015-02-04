@@ -10,6 +10,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
@@ -20,10 +22,21 @@ import java.util.List;
 
 public class SorterActivity extends ListActivity implements AdapterView.OnItemSelectedListener {
     String columnname = "";
-    String[] fromcolumn = new String[]{};
-    int[] toview = new int[]{};
+    //String array for SimpleCursorAdapter parameters.  Used to obtain the columns of the database to get the data to populate with
+    String[] fromcolumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
+                                       DatabaseHandler.KEY_ROBOT_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_AUTO, DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO,
+                                       DatabaseHandler.KEY_TOTE_LEVEL1, DatabaseHandler.KEY_TOTE_LEVEL2, DatabaseHandler.KEY_TOTE_LEVEL3, DatabaseHandler.KEY_TOTE_LEVEL4,
+                                       DatabaseHandler.KEY_TOTE_LEVEL5, DatabaseHandler.KEY_TOTE_LEVEL6, DatabaseHandler.KEY_CAN_LEVEL1, DatabaseHandler.KEY_CAN_LEVEL2, DatabaseHandler.KEY_CAN_LEVEL3,
+                                       DatabaseHandler.KEY_CAN_LEVEL4, DatabaseHandler.KEY_CAN_LEVEL5, DatabaseHandler.KEY_CAN_LEVEL6, DatabaseHandler.KEY_NOODLE, DatabaseHandler.KEY_COOP};
+    //Integer array for SimpleCursorAdapter parameters.  Used to direct what views get what data
+    int[] toview = new int[]{R.id.team, R.id.match, R.id.alliance, R.id.robot_auto, R.id.totes_auto, R.id.container_auto, R.id.stack_auto, R.id.tote_one, R.id.tote_two, R.id.tote_three, R.id.tote_four, R.id.tote_five,
+                             R.id.tote_six, R.id.cont_one, R.id.cont_two, R.id.cont_three, R.id.cont_four, R.id.cont_five, R.id.cont_six, R.id.noodle, R.id.coop};
+    //Cursor to hold database query results
     Cursor cursor;
+    //To sort the listviews properly
     Spinner spinner;
+    //Listview to populate
+    ListView view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -137,5 +150,10 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+    public void sort(){
+         cursor = DatabaseHandler.getInstance(this).getSortedTeamData(columnname);
+        SimpleCursorAdapter adapt = new SimpleCursorAdapter(this, R.layout.layout, cursor, fromcolumn, toview, 0);
+        view.setAdapter(adapt);
     }
 }
