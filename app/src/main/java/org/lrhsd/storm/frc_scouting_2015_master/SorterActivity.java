@@ -2,9 +2,11 @@ package org.lrhsd.storm.frc_scouting_2015_master;
 
 import android.app.ListActivity;
 import android.database.Cursor;
+import android.media.session.PlaybackState;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,9 +23,9 @@ import java.util.List;
 
 
 public class SorterActivity extends ListActivity implements AdapterView.OnItemSelectedListener {
-    String columnname = "";
+    String columnName = "";
     //String array for SimpleCursorAdapter parameters.  Used to obtain the columns of the database to get the data to populate with
-    String[] fromcolumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
+    String[] fromColumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
                                        DatabaseHandler.KEY_ROBOT_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_AUTO, DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO,
                                        DatabaseHandler.KEY_TOTE_LEVEL1, DatabaseHandler.KEY_TOTE_LEVEL2, DatabaseHandler.KEY_TOTE_LEVEL3, DatabaseHandler.KEY_TOTE_LEVEL4,
                                        DatabaseHandler.KEY_TOTE_LEVEL5, DatabaseHandler.KEY_TOTE_LEVEL6, DatabaseHandler.KEY_CAN_LEVEL1, DatabaseHandler.KEY_CAN_LEVEL2, DatabaseHandler.KEY_CAN_LEVEL3,
@@ -78,104 +80,112 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        switch ((int) parent.getItemIdAtPosition(position)) {
+        columnName= fromColumn[(int)parent.getItemIdAtPosition(position)];
+
+        /*switch ((int) parent.getItemIdAtPosition(position)) {
             case 0:
-                columnname = DatabaseHandler.KEY_TEAM_NUMBER;
+                columnName = DatabaseHandler.KEY_TEAM_NUMBER;
                  
                 break;
             case 1:
-                columnname = DatabaseHandler.KEY_MATCH_NUMBER;
+                columnName = DatabaseHandler.KEY_MATCH_NUMBER;
                  
                 break;
             case 2:
-                columnname = DatabaseHandler.KEY_ALLIANCE;
+                columnName = DatabaseHandler.KEY_ALLIANCE;
                  
                 break;
             case 3:
-                columnname = DatabaseHandler.KEY_ROBOT_AUTO;
+                columnName = DatabaseHandler.KEY_ROBOT_AUTO;
                  
                 break;
             case 4:
-                columnname = DatabaseHandler.KEY_NUMBER_TOTES_AUTO;
+                columnName = DatabaseHandler.KEY_NUMBER_TOTES_AUTO;
                  
                 break;
             case 5:
-                columnname = DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO;
+                columnName = DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO;
                  
                 break;
             case 6:
-                columnname = DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO;
+                columnName = DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO;
                  
                 break;
             case 7:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL1;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL1;
                  
                 break;
             case 8:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL2;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL2;
                  
                 break;
             case 9:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL3;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL3;
                  
                 break;
             case 10:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL3;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL3;
                  
                 break;
             case 11:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL4;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL4;
                  
                 break;
             case 12:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL5;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL5;
                  
                 break;
             case 13:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL6;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL6;
                  
                 break;
             case 14:
-                columnname = DatabaseHandler.KEY_CAN_LEVEL1;
+                columnName = DatabaseHandler.KEY_CAN_LEVEL1;
                  
                 break;
             case 15:
-                columnname = DatabaseHandler.KEY_TOTE_LEVEL2;
+                columnName = DatabaseHandler.KEY_TOTE_LEVEL2;
                  
                 break;
             case 16:
-                columnname = DatabaseHandler.KEY_CAN_LEVEL3;
+                columnName = DatabaseHandler.KEY_CAN_LEVEL3;
                  
                 break;
             case 17:
-                columnname = DatabaseHandler.KEY_CAN_LEVEL4;
+                columnName = DatabaseHandler.KEY_CAN_LEVEL4;
                  
                 break;
             case 18:
-                columnname = DatabaseHandler.KEY_CAN_LEVEL5;
+                columnName = DatabaseHandler.KEY_CAN_LEVEL5;
                  
                 break;
             case 19:
-                columnname = DatabaseHandler.KEY_CAN_LEVEL6;
+                columnName = DatabaseHandler.KEY_CAN_LEVEL6;
                  
                 break;
             case 20:
-                columnname = DatabaseHandler.KEY_NOODLE;
+                columnName = DatabaseHandler.KEY_NOODLE;
                  
                 break;
             case 21:
-                columnname = DatabaseHandler.KEY_COOP;
+                columnName = DatabaseHandler.KEY_COOP;
    
                 break;
-        }
+        }*/
+
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
     public void sort(View v){
-         cursor = DatabaseHandler.getInstance(this).getSortedTeamData(columnname);
-        SimpleCursorAdapter adapt = new SimpleCursorAdapter(this, R.layout.layout, cursor, fromcolumn, toview, 0);
-        view.setAdapter(adapt);
+        Log.d("ColumnName",columnName);
+         cursor = DatabaseHandler.getInstance(this).getSortedTeamData(columnName);
+        Log.d("ColumnName2",columnName);
+       SimpleCursorAdapter adapt = new SimpleCursorAdapter(this, R.layout.layout, cursor, fromColumn, toview);
+        //view.setAdapter(adapt);
+        ListView listView = (ListView)findViewById(R.id.list_item);
+        listView.setAdapter(adapt);
+
     }
 }
