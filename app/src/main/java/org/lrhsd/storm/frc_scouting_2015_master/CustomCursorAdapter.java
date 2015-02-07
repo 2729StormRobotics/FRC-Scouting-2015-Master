@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
@@ -33,6 +32,6 @@ public class CustomCursorAdapter extends CursorAdapter {
     }
 
     public View newView(Context context, Cursor cursor, ViewGroup parent){
-        return LayoutInflater.from(context).inflate(R.layout.databas_list_layout, parent, false);
+        return LayoutInflater.from(context).inflate(R.layout.database_list_layout, parent, false);
     }
 }
