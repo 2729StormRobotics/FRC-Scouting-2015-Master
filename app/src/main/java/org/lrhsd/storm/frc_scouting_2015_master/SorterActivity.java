@@ -1,9 +1,7 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.database.Cursor;
-import android.media.session.PlaybackState;
-import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class SorterActivity extends ListActivity implements AdapterView.OnItemSelectedListener {
+public class SorterActivity extends Activity implements AdapterView.OnItemSelectedListener {
     String columnName = "";
     //String array for SimpleCursorAdapter parameters.  Used to obtain the columns of the database to get the data to populate with
     String[] fromColumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
