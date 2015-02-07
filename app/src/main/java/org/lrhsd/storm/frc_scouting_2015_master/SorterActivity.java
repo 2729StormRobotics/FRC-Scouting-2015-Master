@@ -3,7 +3,6 @@ package org.lrhsd.storm.frc_scouting_2015_master;
 import android.app.Activity;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,15 +10,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
-import java.util.ArrayList;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 public class SorterActivity extends Activity implements AdapterView.OnItemSelectedListener {
@@ -96,6 +92,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
         //view.setAdapter(adapt);
         ListView listView = (ListView)findViewById(R.id.list);
+
         listView.setAdapter(adapt);
 
     }
