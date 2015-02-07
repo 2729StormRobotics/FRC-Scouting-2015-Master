@@ -22,7 +22,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:gravity="center" />
+            android:gravity="center"
+            android:background="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
             android:layout_gravity="fill"
             android:layout_rowSpan="2"
             android:layout_alignTop="@+id/TeamNum"
-            android:gravity="center" />
+            android:gravity="center"
+            android:background="@android:color/black" />
     </GridLayout>
 
 </RelativeLayout>

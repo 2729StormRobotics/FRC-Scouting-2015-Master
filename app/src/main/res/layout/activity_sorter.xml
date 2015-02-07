@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:background="@android:color/black" />
 
     <Button
         android:id="@+id/btn_move"
@@ -36,7 +37,8 @@
         android:layout_below="@+id/btn_move"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:numColumns="1" />
+        android:numColumns="1"
+        android:background="@android:color/black" />
 
 
 </RelativeLayout>
