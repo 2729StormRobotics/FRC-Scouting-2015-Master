@@ -183,7 +183,8 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
         Log.d("ColumnName",columnName);
 
         Log.d("ColumnName2",columnName);
-       ArrayAdapter adapt = new ArrayAdapter(this, R.layout.layout, DatabaseHandler.getInstance(this).getSortedTeamData(columnName));
+       ArrayAdapter adapt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, DatabaseHandler.getInstance(this).getSortedTeamData(columnName));
+
         //view.setAdapter(adapt);
         ListView listView = (ListView)findViewById(R.id.list_item);
         listView.setAdapter(adapt);
