@@ -50,4 +50,15 @@
         android:layout_marginTop="65dp"
         android:nestedScrollingEnabled="false" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear Database"
+        android:id="@+id/ClearDatabase"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:clickable="true"
+        android:enabled="true"
+        android:onClick="clearDatabase" />
+
 </RelativeLayout>

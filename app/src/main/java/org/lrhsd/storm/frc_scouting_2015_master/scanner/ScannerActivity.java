@@ -1,6 +1,7 @@
 package org.lrhsd.storm.frc_scouting_2015_master.scanner;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import org.lrhsd.storm.frc_scouting_2015_master.parser.Parser;
@@ -17,6 +18,7 @@ public class ScannerActivity extends Activity implements ZBarScannerView.ResultH
         super.onCreate(state);
         mScannerView = new ZBarScannerView(this);    // Programmatically initialize the scanner view
         setContentView(mScannerView);                // Set the scanner view as the content view
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
     }
 
     @Override

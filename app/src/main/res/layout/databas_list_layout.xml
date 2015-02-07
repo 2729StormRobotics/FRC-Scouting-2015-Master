@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="53dp"
+        android:background="#FFFFFF">
+
+        <TableRow
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/TeamNum"
+                android:layout_gravity="center_horizontal"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:background="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Text"
+                android:id="@+id/SortColumn"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/TeamNum"
+                android:layout_toEndOf="@+id/TeamNum"
+                android:layout_marginLeft="72dp"
+                android:layout_marginStart="72dp"
+                android:layout_column="6"
+                android:background="#FFFFFF" />
+        </TableRow>
+
+    </TableLayout>
+
+</RelativeLayout>

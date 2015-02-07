@@ -1,6 +1,7 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
 
 import android.app.Activity;
+import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -47,6 +48,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         spin_adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spin_adapt);
         spinner.setOnItemSelectedListener(this);
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
     }
 
@@ -81,97 +83,6 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         columnName= fromColumn[(int)parent.getItemIdAtPosition(position)];
 
-        /*switch ((int) parent.getItemIdAtPosition(position)) {
-            case 0:
-                columnName = DatabaseHandler.KEY_TEAM_NUMBER;
-                 
-                break;
-            case 1:
-                columnName = DatabaseHandler.KEY_MATCH_NUMBER;
-                 
-                break;
-            case 2:
-                columnName = DatabaseHandler.KEY_ALLIANCE;
-                 
-                break;
-            case 3:
-                columnName = DatabaseHandler.KEY_ROBOT_AUTO;
-                 
-                break;
-            case 4:
-                columnName = DatabaseHandler.KEY_NUMBER_TOTES_AUTO;
-                 
-                break;
-            case 5:
-                columnName = DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO;
-                 
-                break;
-            case 6:
-                columnName = DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO;
-                 
-                break;
-            case 7:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL1;
-                 
-                break;
-            case 8:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL2;
-                 
-                break;
-            case 9:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL3;
-                 
-                break;
-            case 10:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL3;
-                 
-                break;
-            case 11:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL4;
-                 
-                break;
-            case 12:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL5;
-                 
-                break;
-            case 13:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL6;
-                 
-                break;
-            case 14:
-                columnName = DatabaseHandler.KEY_CAN_LEVEL1;
-                 
-                break;
-            case 15:
-                columnName = DatabaseHandler.KEY_TOTE_LEVEL2;
-                 
-                break;
-            case 16:
-                columnName = DatabaseHandler.KEY_CAN_LEVEL3;
-                 
-                break;
-            case 17:
-                columnName = DatabaseHandler.KEY_CAN_LEVEL4;
-                 
-                break;
-            case 18:
-                columnName = DatabaseHandler.KEY_CAN_LEVEL5;
-                 
-                break;
-            case 19:
-                columnName = DatabaseHandler.KEY_CAN_LEVEL6;
-                 
-                break;
-            case 20:
-                columnName = DatabaseHandler.KEY_NOODLE;
-                 
-                break;
-            case 21:
-                columnName = DatabaseHandler.KEY_COOP;
-   
-                break;
-        }*/
-
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
@@ -181,10 +92,10 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         Log.d("ColumnName",columnName);
 
         Log.d("ColumnName2",columnName);
-       ArrayAdapter adapt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, DatabaseHandler.getInstance(this).getSortedTeamData(columnName));
+       CustomCursorAdapter adapt = new CustomCursorAdapter(this,DatabaseHandler.getInstance(this).getSortedTeamData(columnName),0,columnName);
 
         //view.setAdapter(adapt);
-        ListView listView = (ListView)findViewById(R.id.list_item);
+        ListView listView = (ListView)findViewById(R.id.list);
         listView.setAdapter(adapt);
 
     }
