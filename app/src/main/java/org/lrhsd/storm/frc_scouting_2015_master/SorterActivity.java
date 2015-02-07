@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
+import java.util.ArrayList;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 
@@ -180,9 +181,9 @@ public class SorterActivity extends ListActivity implements AdapterView.OnItemSe
     }
     public void sort(View v){
         Log.d("ColumnName",columnName);
-         cursor = DatabaseHandler.getInstance(this).getSortedTeamData(columnName);
+
         Log.d("ColumnName2",columnName);
-       SimpleCursorAdapter adapt = new SimpleCursorAdapter(this, R.layout.layout, cursor, fromColumn, toview);
+       ArrayAdapter adapt = new ArrayAdapter(this, R.layout.layout, DatabaseHandler.getInstance(this).getSortedTeamData(columnName));
         //view.setAdapter(adapt);
         ListView listView = (ListView)findViewById(R.id.list_item);
         listView.setAdapter(adapt);
