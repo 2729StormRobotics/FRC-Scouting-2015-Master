@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -78,6 +77,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         columnName= fromColumn[(int)parent.getItemIdAtPosition(position)];
+        sort(view);
 
     }
     @Override

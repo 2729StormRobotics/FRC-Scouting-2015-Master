@@ -1,14 +1,11 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 import android.util.Log;
-
-import org.lrhsd.storm.frc_scouting_2015_master.MainActivity;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -21,7 +18,7 @@ import java.util.List;
 public class DatabaseHandler extends SQLiteOpenHelper {
 
     // Database Version
-    private static final int DATABASE_VERSION = 6;
+    private static final int DATABASE_VERSION = 7;
     // Database Name
     private static final String DATABASE_NAME = "Team_Manager";
     // Contacts table name
@@ -29,7 +26,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Contacts Table Columns names
     // private static final String KEY_ID = "id";
     //main
-    public static final String KEY_TEAM_NUMBER = "team_number";
+    public static final String KEY_TEAM_NUMBER = "_id";
     public static final String KEY_MATCH_NUMBER = "match_number";
     public static final String KEY_ALLIANCE = "alliance";
     //auto
