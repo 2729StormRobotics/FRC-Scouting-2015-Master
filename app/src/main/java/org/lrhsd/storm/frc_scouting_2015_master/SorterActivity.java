@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
@@ -91,7 +92,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
        CustomCursorAdapter adapt = new CustomCursorAdapter(this,DatabaseHandler.getInstance(this).getSortedTeamData(columnName),0,columnName);
 
         //view.setAdapter(adapt);
-        ListView listView = (ListView)findViewById(R.id.list);
+        GridView listView = (GridView)findViewById(R.id.list);
 
         listView.setAdapter(adapt);
 

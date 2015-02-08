@@ -259,10 +259,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public Cursor getSortedTeamData(String columnName){
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if(!columnName.equals(KEY_COOP)){
-                selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC" ;
-        }else{
+        if(columnName.equals(KEY_COOP)||columnName.equals(KEY_ALLIANCE)){
                 selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC" ;
+        }else{
+                selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC" ;
         }
 
         SQLiteDatabase db = this.getWritableDatabase();
