@@ -13,18 +13,20 @@ import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 
 public class CustomCursorAdapter extends CursorAdapter {
     private LayoutInflater cursorInflater;
-    private String columnName;
+    private String _columnName;
+    private int _layout;
 
-    public CustomCursorAdapter(Context context, Cursor cursor, int flags, String column_Name) {
+    public CustomCursorAdapter(Context context, Cursor cursor, int flags, String column_Name,int layout ) {
         super(context,cursor, flags);
         cursorInflater = (LayoutInflater) context.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
-        columnName = column_Name;
+        _columnName = column_Name;
+        _layout=layout;
     }
 
     public void bindView(View view, Context context, Cursor cursor){
         String teamNum = cursor.getString( cursor.getColumnIndex(DatabaseHandler.KEY_TEAM_NUMBER) );
-        String sortColumn = cursor.getString(cursor.getColumnIndex(columnName));
+        String sortColumn = cursor.getString(cursor.getColumnIndex(_columnName));
         TextView textTeamNum = (TextView) view.findViewById(R.id.TeamNum);
         TextView textSortColumn = (TextView) view.findViewById(R.id.SortColumn);
         textTeamNum.setText(teamNum);
@@ -32,6 +34,6 @@ public class CustomCursorAdapter extends CursorAdapter {
     }
 
     public View newView(Context context, Cursor cursor, ViewGroup parent){
-        return LayoutInflater.from(context).inflate(R.layout.database_list_layout, parent, false);
+        return LayoutInflater.from(context).inflate(_layout, parent, false);
     }
 }

@@ -89,8 +89,8 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         Log.d("ColumnName",columnName);
 
         Log.d("ColumnName2",columnName);
-       CustomCursorAdapter adapt = new CustomCursorAdapter(this,DatabaseHandler.getInstance(this).getSortedTeamData(columnName),0,columnName);
-
+       CustomCursorAdapter adapt = new CustomCursorAdapter(this,DatabaseHandler.getInstance(this).getSortedTeamData(columnName),0,columnName,R.layout.database_list_layout);
+        
         //view.setAdapter(adapt);
         GridView listView = (GridView)findViewById(R.id.list);
 
