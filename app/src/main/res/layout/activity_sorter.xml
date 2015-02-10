@@ -12,18 +12,29 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="154dp"
+        android:layout_marginStart="154dp" />
 
     <GridView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/list"
-        android:layout_marginTop="36dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:numColumns="1"
         android:background="#ffffffff"
-        android:layout_below="@+id/spinner" />
+        android:layout_below="@+id/spinner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp" />
+
+    <SearchView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/searchView"
+        android:layout_alignBottom="@+id/spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:queryHint="Search with team number" />
 
 
 </RelativeLayout>

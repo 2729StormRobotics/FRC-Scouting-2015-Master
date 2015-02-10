@@ -269,6 +269,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         return cursor;
     }
+    public Cursor getSearchedData(String team){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + "=" + team;
+        Cursor cursor = db.rawQuery(query, null);
+        return cursor;
+    }
+    public TeamData sendCursorData(Cursor cursor){
+        cursor.moveToFirst();
+
+                TeamData team = new TeamData(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2) > 0, cursor.getInt(3) > 0, cursor.getInt(4), cursor.getInt(5), cursor.getInt(6),
+                                             cursor.getInt(7), cursor.getInt(8), cursor.getInt(9), cursor.getInt(10), cursor.getInt(11), cursor.getInt(12), cursor.getInt(13),
+                                             cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20));
+                return team;
+        }
+    }
 
 
-}
