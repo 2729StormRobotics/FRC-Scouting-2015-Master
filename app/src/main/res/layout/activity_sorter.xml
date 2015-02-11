@@ -11,11 +11,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/spinner"
+        android:layout_marginLeft="84dp"
+        android:layout_marginStart="84dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="154dp"
-        android:layout_marginStart="154dp" />
+        android:layout_toRightOf="@+id/search"
+        android:layout_toEndOf="@+id/search" />
 
     <GridView
         android:layout_width="wrap_content"
@@ -27,15 +27,16 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp" />
 
-    <SearchView
-        android:layout_width="wrap_content"
+    <EditText
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:id="@+id/searchView"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/search"
+        android:hint="Search"
         android:layout_alignBottom="@+id/spinner"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:queryHint="Search with team number"
-        android:onClick="search" />
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

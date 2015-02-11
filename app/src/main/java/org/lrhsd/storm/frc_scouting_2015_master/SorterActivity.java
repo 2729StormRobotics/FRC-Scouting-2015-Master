@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -50,15 +51,21 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         spinner.setOnItemSelectedListener(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        SearchView searchView = (SearchView) findViewById(R.id.searchView);
+        final EditText search  = (EditText) findViewById(R.id.search);
+        search.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+                if(keyCode == KeyEvent.KEYCODE_ENTER){
+                    String team = search.getText().toString();
+                }
+                return true;
+            }
+        });
 
 
     }
-    public void search(View v){
-           SearchView view = (SearchView) findViewById(v.getId());
-           Log.d("Search", view.getQuery().toString());
 
-    }
 
 
 
