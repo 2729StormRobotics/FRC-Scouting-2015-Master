@@ -17,12 +17,6 @@ import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
-    // Database Version
-    private static final int DATABASE_VERSION = 7;
-    // Database Name
-    private static final String DATABASE_NAME = "Team_Manager";
-    // Contacts table name
-    private static final String TABLE_TEAM = "Team_Data";
     // Contacts Table Columns names
     // private static final String KEY_ID = "id";
     //main
@@ -52,6 +46,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     public static final String KEY_CAN_LEVEL6 = "can_level6";
     public static final String KEY_NOODLE = "noodle";
     public static final String KEY_COOP = "coop";
+    // Database Version
+    private static final int DATABASE_VERSION = 7;
+    // Database Name
+    private static final String DATABASE_NAME = "Team_Manager";
+    // Contacts table name
+    private static final String TABLE_TEAM = "Team_Data";
     // All Static variables
     private static DatabaseHandler sInstance = null;
     private Context mCtx;
@@ -172,7 +172,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 sb.append(str[19] + ",");
                 sb.append(str[20]);
                 sb.append(str2);
-                Log.d("sb",sb.toString());
+                Log.d("sb", sb.toString());
                 db.execSQL(sb.toString());
             }
             db.setTransactionSuccessful();
@@ -205,29 +205,29 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                ArrayList teamData = new ArrayList(  );
+                ArrayList teamData = new ArrayList();
 
-                teamData.add(0,((cursor.getString(0))));
-                teamData.add(1,((cursor.getString(1))));
-                teamData.add(2,((cursor.getString(2))));
-                teamData.add(3,((cursor.getString(3))));
-                teamData.add(4,((cursor.getString(4))));
-                teamData.add(5,((cursor.getString(5))));
-                teamData.add(6,((cursor.getString(6))));
-                teamData.add(7,((cursor.getString(7))));
-                teamData.add(8,((cursor.getString(8))));
-                teamData.add(9,((cursor.getString(9))));
-                teamData.add(10,((cursor.getString(10))));
-                teamData.add(11,((cursor.getString(11))));
-                teamData.add(12,((cursor.getString(12))));
-                teamData.add(13,((cursor.getString(13))));
-                teamData.add(14,((cursor.getString(14))));
-                teamData.add(15,((cursor.getString(15))));
-                teamData.add(16,((cursor.getString(16))));
-                teamData.add(17,((cursor.getString(17))));
-                teamData.add(18,((cursor.getString(18))));
-                teamData.add(19,((cursor.getString(19))));
-                teamData.add(20,((cursor.getString(20))));
+                teamData.add(0, ((cursor.getString(0))));
+                teamData.add(1, ((cursor.getString(1))));
+                teamData.add(2, ((cursor.getString(2))));
+                teamData.add(3, ((cursor.getString(3))));
+                teamData.add(4, ((cursor.getString(4))));
+                teamData.add(5, ((cursor.getString(5))));
+                teamData.add(6, ((cursor.getString(6))));
+                teamData.add(7, ((cursor.getString(7))));
+                teamData.add(8, ((cursor.getString(8))));
+                teamData.add(9, ((cursor.getString(9))));
+                teamData.add(10, ((cursor.getString(10))));
+                teamData.add(11, ((cursor.getString(11))));
+                teamData.add(12, ((cursor.getString(12))));
+                teamData.add(13, ((cursor.getString(13))));
+                teamData.add(14, ((cursor.getString(14))));
+                teamData.add(15, ((cursor.getString(15))));
+                teamData.add(16, ((cursor.getString(16))));
+                teamData.add(17, ((cursor.getString(17))));
+                teamData.add(18, ((cursor.getString(18))));
+                teamData.add(19, ((cursor.getString(19))));
+                teamData.add(20, ((cursor.getString(20))));
 
                 teamDataList.add(teamData);
             } while (cursor.moveToNext());
@@ -256,33 +256,35 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor.getCount();
     }
 
-    public Cursor getSortedTeamData(String columnName){
+    public Cursor getSortedTeamData(String columnName) {
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if(columnName.equals(KEY_COOP)||columnName.equals(KEY_ALLIANCE)){
-                selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC" ;
-        }else{
-                selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC" ;
+        if (columnName.equals(KEY_COOP) || columnName.equals(KEY_ALLIANCE)) {
+            selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC";
+        } else {
+            selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC";
         }
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         return cursor;
     }
-    public Cursor getSearchedData(String team){
+
+    public Cursor getSearchedData(String team) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + "=" + team;
         Cursor cursor = db.rawQuery(query, null);
         return cursor;
     }
-    public TeamData sendCursorData(Cursor cursor){
+
+    public TeamData sendCursorData(Cursor cursor) {
         cursor.moveToFirst();
 
-                TeamData team = new TeamData(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2) > 0, cursor.getInt(3) > 0, cursor.getInt(4), cursor.getInt(5), cursor.getInt(6),
-                                             cursor.getInt(7), cursor.getInt(8), cursor.getInt(9), cursor.getInt(10), cursor.getInt(11), cursor.getInt(12), cursor.getInt(13),
-                                             cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20));
-                return team;
-        }
+        TeamData team = new TeamData(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2) > 0, cursor.getInt(3) > 0, cursor.getInt(4), cursor.getInt(5), cursor.getInt(6),
+                cursor.getInt(7), cursor.getInt(8), cursor.getInt(9), cursor.getInt(10), cursor.getInt(11), cursor.getInt(12), cursor.getInt(13),
+                cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20));
+        return team;
     }
+}
 
 

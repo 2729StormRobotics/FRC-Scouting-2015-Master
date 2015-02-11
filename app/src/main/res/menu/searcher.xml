@@ -1,13 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
-    <!--Menu layout. Storm namespace is used for extra functional not included in the standard layout -->
+<?xml version="1.0" encoding="utf-8"?><!--Menu layout. Storm namespace is used for extra functional not included in the standard layout -->
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-      xmlns:storm="http://schemas.android.com/apk/res-auto">
-      <item android:id="@+id/search"
-            android:title="Search for Team Data"
-            android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
-            storm:showAsAction="ifRoom|collapseActionView"
-            storm:actionViewClass="android.support.v7.widget.SearchView"></item>
-
+    xmlns:storm="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/abc_ic_search_api_mtrl_alpha"
+        android:title="Search for Team Data"
+        storm:actionViewClass="android.support.v7.widget.SearchView"
+        storm:showAsAction="ifRoom|collapseActionView"></item>
 
 
 </menu>

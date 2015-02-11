@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.opencsv.CSVWriter;
@@ -35,22 +34,22 @@ public class Parser {
         List<String[]> matches = new ArrayList<String[]>();
         int i = 0;
         while (input.contains(":")) {
-           String temp = input.substring(0, input.indexOf(":"));
+            String temp = input.substring(0, input.indexOf(":"));
             input = input.substring(input.indexOf(":") + 1);
             String tempArray[] = temp.split(",");
-            if(tempArray[2].equals("1")){
+            if (tempArray[2].equals("1")) {
                 tempArray[2] = "Red";
-            }else{
+            } else {
                 tempArray[2] = "Blue";
             }
-            if(tempArray[3].equals("1")){
+            if (tempArray[3].equals("1")) {
                 tempArray[3] = "Yes";
-            }else{
+            } else {
                 tempArray[3] = "No";
             }
-            if(tempArray[20].equals("1")){
+            if (tempArray[20].equals("1")) {
                 tempArray[20] = "Yes";
-            }else{
+            } else {
                 tempArray[20] = "No";
             }
             matches.add(i, tempArray);
@@ -65,37 +64,37 @@ public class Parser {
     }
 
     public static void makeCSV(List<String[]> matches) {
-       //Log.d("arrayList", matches.get(0)[0]);
+        //Log.d("arrayList", matches.get(0)[0]);
         try {
             File sdCard = Environment.getExternalStorageDirectory();
             File dir = new File(sdCard.getAbsolutePath());
             dir.mkdirs();
             File file = new File(dir, "match_data.csv");
             CSVWriter writer;
-            if(!file.exists()){
+            if (!file.exists()) {
                 String[] columns = new String[21];
-                columns[0]="Team Number";
-                columns[1]="Match Number";
-                columns[2]="Alliance";
-                columns[3]="Robot in Auto Zone";
-                columns[4]="Number of Totes in Auto Zone";
-                columns[5]="Number of Containers in Auto Zone";
-                columns[6]="Number of Stack Totes in Auto Zone";
-                columns[7]="Tote Level 1";
-                columns[8]="Tote Level 2";
-                columns[9]="Tote Level 3";
-                columns[10]="Tote Level 4";
-                columns[11]="Tote Level 5";
-                columns[12]="Tote Level 6";
-                columns[13]="Can Level 1";
-                columns[14]="Can Level 2";
-                columns[15]="Can Level 3";
-                columns[16]="Can Level 4";
-                columns[17]="Can Level 5";
-                columns[18]="Can Level 6";
-                columns[19]="Number of Noodles";
-                columns[20]="Coopertition";
-                matches.add(0,columns);
+                columns[0] = "Team Number";
+                columns[1] = "Match Number";
+                columns[2] = "Alliance";
+                columns[3] = "Robot in Auto Zone";
+                columns[4] = "Number of Totes in Auto Zone";
+                columns[5] = "Number of Containers in Auto Zone";
+                columns[6] = "Number of Stack Totes in Auto Zone";
+                columns[7] = "Tote Level 1";
+                columns[8] = "Tote Level 2";
+                columns[9] = "Tote Level 3";
+                columns[10] = "Tote Level 4";
+                columns[11] = "Tote Level 5";
+                columns[12] = "Tote Level 6";
+                columns[13] = "Can Level 1";
+                columns[14] = "Can Level 2";
+                columns[15] = "Can Level 3";
+                columns[16] = "Can Level 4";
+                columns[17] = "Can Level 5";
+                columns[18] = "Can Level 6";
+                columns[19] = "Number of Noodles";
+                columns[20] = "Coopertition";
+                matches.add(0, columns);
             }
             writer = new CSVWriter(new FileWriter(file, true), ',');
             writer.writeAll(matches);
