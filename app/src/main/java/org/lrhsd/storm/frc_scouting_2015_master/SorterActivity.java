@@ -50,19 +50,13 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         spinner.setOnItemSelectedListener(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        final SearchView searchView = (SearchView) findViewById(R.id.searchView);
-        searchView.setOnSearchClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String team = searchView.getQuery().toString();
-                Log.d("SearchText", team);
-
-            }
-        });
+        SearchView searchView = (SearchView) findViewById(R.id.searchView);
 
 
     }
+    public void search(View v){
 
+    }
 
 
 
