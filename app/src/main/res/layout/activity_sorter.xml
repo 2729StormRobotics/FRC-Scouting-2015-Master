@@ -34,7 +34,8 @@
         android:layout_alignBottom="@+id/spinner"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:queryHint="Search with team number" />
+        android:queryHint="Search with team number"
+        android:onClick="search" />
 
 
 </RelativeLayout>
