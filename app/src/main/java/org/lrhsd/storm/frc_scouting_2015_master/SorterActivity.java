@@ -55,6 +55,8 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
     }
     public void search(View v){
+           SearchView view = (SearchView) findViewById(v.getId());
+           Log.d("Search", view.getQuery().toString());
 
     }
 
