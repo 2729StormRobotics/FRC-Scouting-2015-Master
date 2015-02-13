@@ -249,13 +249,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return true;
     }
 
-    public int getNumRows() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String count = "SELECT COUNT(*) FROM " + TABLE_TEAM;
-        Cursor cursor = db.rawQuery(count, null);
-        return cursor.getCount();
-    }
-
     public Cursor getSortedTeamData(String columnName) {
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
@@ -268,6 +261,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
         return cursor;
+    }
+
+    public void getOneTeamsData(String teamNumber){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
+        Cursor c = db.rawQuery(selectQuery,null);
+        ArrayList<String[]> teamsData;
+        TeamData team = new TeamData();
+        if (c.moveToFirst()) {
+            do {
+                String[] teamData = new String[];
+                for (int i = 0; i < 21; i ++){
+                    teamData[i] = c.getString(i);
+
+                }
+                teamsData.add(teamData);
+
+            }while (c.moveToNext());
+        }
+        team.setMatches(teamsData);
+        team.teamReport();
     }
 
     public Cursor getSearchedData(String team) {
