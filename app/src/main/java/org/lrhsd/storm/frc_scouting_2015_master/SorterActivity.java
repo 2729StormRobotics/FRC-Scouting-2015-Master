@@ -54,6 +54,8 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     String team = search.getText().toString();
+                    Log.d("Searched data", team);
+                    
                 }
                 return true;
             }

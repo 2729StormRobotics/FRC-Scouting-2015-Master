@@ -262,4 +262,6 @@ public class TeamData {
     public void setCoop(int coop) {
         this.coop = coop;
     }
+
+    public String[] getTeamReport(){return null;}
 }
