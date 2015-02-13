@@ -263,9 +263,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public void getOneTeamsData(String team){
+    public void getOneTeamsData(String teamNumber){
         SQLiteDatabase db = this.getWritableDatabase();
-        String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + team + "";
+        String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
         Cursor c = db.rawQuery(selectQuery,null);
         ArrayList<String[]> teamsData;
         TeamData team = new TeamData();
