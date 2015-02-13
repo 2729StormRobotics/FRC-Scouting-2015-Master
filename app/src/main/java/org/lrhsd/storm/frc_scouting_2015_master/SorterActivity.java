@@ -78,14 +78,14 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         columnName= fromColumn[(int)parent.getItemIdAtPosition(position)];
-        sort(view);
+        //sort(view);
 
     }
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
-    public void sort(View v){
+   /* public void sort(View v){
         Log.d("ColumnName",columnName);
 
         Log.d("ColumnName2",columnName);
@@ -96,5 +96,5 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
         listView.setAdapter(adapt);
 
-    }
+    }*/
 }
