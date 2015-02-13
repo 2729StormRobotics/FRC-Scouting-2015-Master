@@ -60,7 +60,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
                     int team = Integer.parseInt(search.getText().toString());
                     Log.d("Searched data", String.valueOf(team));
 
-                    
+
                 }
                 return true;
             }
