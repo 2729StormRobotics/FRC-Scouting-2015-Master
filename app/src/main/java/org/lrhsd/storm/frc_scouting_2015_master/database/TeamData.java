@@ -1,5 +1,7 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
+import java.util.ArrayList;
+
 public class TeamData {
 
     //private variables
@@ -32,6 +34,8 @@ public class TeamData {
 
     int noodle = 0;
     int coop = 0;
+
+    ArrayList<String[]> matches = new ArrayList<String[]>();
 
 
     public TeamData(int team_number, int match_number, boolean alliance_red) {
@@ -264,4 +268,17 @@ public class TeamData {
     }
 
     public String[] getTeamReport(){return null;}
+
+    public void teamReport(){
+
+    }
+
+    public ArrayList<String[]> getMatches(){
+        return matches;
+    }
+
+    public void setMatches(ArrayList<String[]> data){
+        matches = data;
+    }
+
 }
