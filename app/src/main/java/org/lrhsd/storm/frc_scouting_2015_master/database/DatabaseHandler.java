@@ -76,6 +76,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // Creating Tables
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //creates table
         String CREATE_TEAM = "CREATE TABLE " + TABLE_TEAM + "("
                 + KEY_TEAM_NUMBER + " INTEGER,"
                 + KEY_MATCH_NUMBER + " INTEGER,"
@@ -251,6 +252,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public Cursor getSortedTeamData(String columnName) {
+        //gets sorted data by a column name
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
         if (columnName.equals(KEY_COOP) || columnName.equals(KEY_ALLIANCE)) {
@@ -265,7 +267,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     }
 
     public HashMap<String, Integer> getRankedColumn(String column){
-
+        //returns a hashmap with a rank of the team and their rank of that column
         Cursor cursor = getSortedTeamData(column);
         HashMap<String,Integer> hashMap = new HashMap<>();
 

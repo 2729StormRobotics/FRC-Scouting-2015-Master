@@ -21,6 +21,8 @@ import me.dm7.barcodescanner.zbar.Result;
 
 public class Parser {
 
+    //this class parses the data from the qr code string and saves it to a csv file
+
     public static void Parse(Result result, Activity activity) {
         String input = result.getContents();
         //Log.d("Parser input", input);

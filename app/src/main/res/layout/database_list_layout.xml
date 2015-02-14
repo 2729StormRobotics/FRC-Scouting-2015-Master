@@ -2,43 +2,40 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="15dp">
 
 
-    <GridLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/TeamNum"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="15dp" />
 
-        <TextView
-            android:id="@+id/TeamNum"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_gravity="fill"
-            android:layout_rowSpan="2"
-            android:autoText="false"
-            android:background="#ffffffff"
-            android:gravity="center"
-            android:text="New Text"
-            android:textColor="@android:color/black" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/SortColumn"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/TeamNum"
+        android:layout_toEndOf="@+id/TeamNum"
+        android:layout_marginRight="15dp" />
 
-        <TextView
-            android:id="@+id/SortColumn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/TeamNum"
-            android:layout_column="3"
-            android:layout_gravity="fill"
-            android:layout_rowSpan="2"
-            android:autoText="false"
-            android:background="#ffffffff"
-            android:gravity="center"
-            android:text="New Text"
-            android:textColor="@android:color/black" />
-    </GridLayout>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/Rank"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/SortColumn"
+        android:layout_toEndOf="@+id/SortColumn"
+        android:layout_marginRight="15dp" />
 </RelativeLayout>
