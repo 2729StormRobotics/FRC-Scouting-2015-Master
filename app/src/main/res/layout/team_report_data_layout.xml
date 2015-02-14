@@ -15,18 +15,163 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textView21"
+        android:id="@+id/column_robot_auto"
         android:layout_below="@+id/spinner_matches"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textView22"
-        android:layout_below="@+id/textView21"
+        android:id="@+id/column_number_totes_auto"
+        android:layout_below="@+id/column_robot_auto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_number_containers_auto"
+        android:layout_below="@+id/column_number_totes_auto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_number_totes_stacked_auto"
+        android:layout_below="@+id/column_number_containers_auto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_tote_level_1"
+        android:layout_below="@+id/column_number_totes_stacked_auto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_tote_level_2"
+        android:layout_below="@+id/column_tote_level_1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_tote_level_3"
+        android:layout_below="@+id/column_tote_level_2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_tote_level_4"
+        android:layout_below="@+id/column_tote_level_3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_tote_level_5"
+        android:layout_below="@+id/column_tote_level_4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_tote_level_6"
+        android:layout_below="@+id/column_tote_level_5"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_can_level_1"
+        android:layout_below="@+id/column_tote_level_6"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_can_level_2"
+        android:layout_below="@+id/column_can_level_1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_can_level_3"
+        android:layout_below="@+id/column_can_level_2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_can_level_4"
+        android:layout_below="@+id/column_can_level_3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginRight="25dp" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_can_level_5"
+        android:layout_below="@+id/column_can_level_4"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -35,8 +180,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textView23"
-        android:layout_below="@+id/textView22"
+        android:id="@+id/column_can_level_6"
+        android:layout_below="@+id/column_can_level_5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -45,8 +190,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textView24"
-        android:layout_below="@+id/textView23"
+        android:id="@+id/column_noodle"
+        android:layout_below="@+id/column_can_level_6"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -55,529 +200,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/textView25"
-        android:layout_below="@+id/textView24"
+        android:id="@+id/column_coop"
+        android:layout_below="@+id/column_noodle"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView26"
-        android:layout_below="@+id/textView25"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView27"
-        android:layout_below="@+id/textView26"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView28"
-        android:layout_below="@+id/textView27"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView29"
-        android:layout_below="@+id/textView28"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView30"
-        android:layout_below="@+id/textView29"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView31"
-        android:layout_below="@+id/textView30"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView32"
-        android:layout_below="@+id/textView31"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView33"
-        android:layout_below="@+id/textView32"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView34"
-        android:layout_below="@+id/textView33"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView35"
-        android:layout_below="@+id/textView34"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView36"
-        android:layout_below="@+id/textView35"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView37"
-        android:layout_below="@+id/textView36"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView38"
-        android:layout_below="@+id/textView37"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView39"
-        android:layout_below="@+id/textView38"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView40"
-        android:layout_above="@+id/textView22"
-        android:layout_toRightOf="@+id/textView21"
-        android:layout_toEndOf="@+id/textView21" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView41"
-        android:layout_above="@+id/textView23"
-        android:layout_toRightOf="@+id/textView21"
-        android:layout_toEndOf="@+id/textView21" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView42"
-        android:layout_above="@+id/textView24"
-        android:layout_toRightOf="@+id/textView22"
-        android:layout_toEndOf="@+id/textView22" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView43"
-        android:layout_above="@+id/textView25"
-        android:layout_toRightOf="@+id/textView23"
-        android:layout_toEndOf="@+id/textView23" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView44"
-        android:layout_above="@+id/textView26"
-        android:layout_toRightOf="@+id/textView24"
-        android:layout_toEndOf="@+id/textView24" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView45"
-        android:layout_above="@+id/textView27"
-        android:layout_toRightOf="@+id/textView25"
-        android:layout_toEndOf="@+id/textView25" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView46"
-        android:layout_above="@+id/textView28"
-        android:layout_toRightOf="@+id/textView26"
-        android:layout_toEndOf="@+id/textView26" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView47"
-        android:layout_above="@+id/textView29"
-        android:layout_toRightOf="@+id/textView27"
-        android:layout_toEndOf="@+id/textView27" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView48"
-        android:layout_above="@+id/textView30"
-        android:layout_toRightOf="@+id/textView28"
-        android:layout_toEndOf="@+id/textView28" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView49"
-        android:layout_above="@+id/textView31"
-        android:layout_toRightOf="@+id/textView29"
-        android:layout_toEndOf="@+id/textView29" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView50"
-        android:layout_above="@+id/textView32"
-        android:layout_toRightOf="@+id/textView30"
-        android:layout_toEndOf="@+id/textView30" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView51"
-        android:layout_above="@+id/textView33"
-        android:layout_toRightOf="@+id/textView31"
-        android:layout_toEndOf="@+id/textView31" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView52"
-        android:layout_above="@+id/textView34"
-        android:layout_toRightOf="@+id/textView32"
-        android:layout_toEndOf="@+id/textView32" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView53"
-        android:layout_above="@+id/textView35"
-        android:layout_toRightOf="@+id/textView33"
-        android:layout_toEndOf="@+id/textView33" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView54"
-        android:layout_above="@+id/textView36"
-        android:layout_toRightOf="@+id/textView34"
-        android:layout_toEndOf="@+id/textView34" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView55"
-        android:layout_above="@+id/textView37"
-        android:layout_alignLeft="@+id/textView54"
-        android:layout_alignStart="@+id/textView54" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView56"
-        android:layout_above="@+id/textView38"
-        android:layout_toRightOf="@+id/textView36"
-        android:layout_toEndOf="@+id/textView36" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView57"
-        android:layout_above="@+id/textView39"
-        android:layout_toRightOf="@+id/textView37"
-        android:layout_toEndOf="@+id/textView37" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView58"
-        android:layout_alignBottom="@+id/textView39"
-        android:layout_toRightOf="@+id/textView38"
-        android:layout_toEndOf="@+id/textView38" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView59"
-        android:layout_above="@+id/textView41"
-        android:layout_toRightOf="@+id/textView40"
-        android:layout_toEndOf="@+id/textView40" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView60"
-        android:layout_above="@+id/textView42"
-        android:layout_toRightOf="@+id/textView40"
-        android:layout_toEndOf="@+id/textView40" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView61"
-        android:layout_above="@+id/textView43"
-        android:layout_toRightOf="@+id/textView41"
-        android:layout_toEndOf="@+id/textView41" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView62"
-        android:layout_above="@+id/textView44"
-        android:layout_toRightOf="@+id/textView42"
-        android:layout_toEndOf="@+id/textView42" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView63"
-        android:layout_above="@+id/textView45"
-        android:layout_toRightOf="@+id/textView43"
-        android:layout_toEndOf="@+id/textView43" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView64"
-        android:layout_above="@+id/textView46"
-        android:layout_toRightOf="@+id/textView44"
-        android:layout_toEndOf="@+id/textView44" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView65"
-        android:layout_above="@+id/textView47"
-        android:layout_toRightOf="@+id/textView45"
-        android:layout_toEndOf="@+id/textView45" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView66"
-        android:layout_above="@+id/textView48"
-        android:layout_toRightOf="@+id/textView46"
-        android:layout_toEndOf="@+id/textView46" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView67"
-        android:layout_alignBottom="@+id/textView48"
-        android:layout_toRightOf="@+id/textView47"
-        android:layout_toEndOf="@+id/textView47" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView68"
-        android:layout_above="@+id/textView50"
-        android:layout_toRightOf="@+id/textView48"
-        android:layout_toEndOf="@+id/textView48" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView69"
-        android:layout_above="@+id/textView51"
-        android:layout_toRightOf="@+id/textView49"
-        android:layout_toEndOf="@+id/textView49" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView70"
-        android:layout_above="@+id/textView52"
-        android:layout_toRightOf="@+id/textView50"
-        android:layout_toEndOf="@+id/textView50" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView71"
-        android:layout_above="@+id/textView53"
-        android:layout_toRightOf="@+id/textView51"
-        android:layout_toEndOf="@+id/textView51" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView72"
-        android:layout_above="@+id/textView54"
-        android:layout_toRightOf="@+id/textView52"
-        android:layout_toEndOf="@+id/textView52" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView73"
-        android:layout_above="@+id/textView55"
-        android:layout_toRightOf="@+id/textView53"
-        android:layout_toEndOf="@+id/textView53" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView74"
-        android:layout_above="@+id/textView56"
-        android:layout_toRightOf="@+id/textView54"
-        android:layout_toEndOf="@+id/textView54" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView75"
-        android:layout_above="@+id/textView57"
-        android:layout_toRightOf="@+id/textView55"
-        android:layout_toEndOf="@+id/textView55" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView76"
-        android:layout_above="@+id/textView58"
-        android:layout_toRightOf="@+id/textView56"
-        android:layout_toEndOf="@+id/textView56" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/textView77"
-        android:layout_alignBottom="@+id/textView58"
-        android:layout_toRightOf="@+id/textView57"
-        android:layout_toEndOf="@+id/textView57" />
 
 </RelativeLayout>
