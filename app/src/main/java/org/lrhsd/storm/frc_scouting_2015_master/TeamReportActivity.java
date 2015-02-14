@@ -8,6 +8,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ScrollView;
 
+import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
+
 
 public class TeamReportActivity extends ActionBarActivity {
 
@@ -40,7 +43,8 @@ public class TeamReportActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void addToScrollView(){
+    public void addToScrollView(TeamData team,String teamNum,int matchNum){
+        team.teamReport(teamNum,matchNum,this);
         ScrollView scroll = (ScrollView) findViewById(R.id.scrollView1);
         View view = LayoutInflater.from(this).inflate(R.layout.team_report_data_layout,null);
         scroll.addView(view);

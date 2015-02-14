@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 import android.util.Log;
 
+import org.lrhsd.storm.frc_scouting_2015_master.TeamReportActivity;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -61,6 +63,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mCtx = context;
     }
+
 
     public static DatabaseHandler getInstance(Context context) {
 
@@ -296,7 +299,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }while (c.moveToNext());
         }
         team.setMatches(teamsData);
-        team.teamReport(teamNumber);
+
+        TeamReportActivity act = new TeamReportActivity();
+        ArrayList<String> teamMatches = new ArrayList<String>();
+        for(int i=0;i<teamsData.size();i++){
+            teamMatches.add(i,teamsData.get(i)[1]);
+        }
+        act.addToScrollView(team,teamNumber,1);
     }
 
     public Cursor getSearchedData(String team) {
