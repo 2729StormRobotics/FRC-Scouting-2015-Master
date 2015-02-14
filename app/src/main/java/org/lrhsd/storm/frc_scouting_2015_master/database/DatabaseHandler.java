@@ -271,7 +271,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
-                String[] teamData = new String[];
+                String[] teamData = new String[21];
                 for (int i = 0; i < 21; i ++){
                     teamData[i] = c.getString(i);
 
@@ -281,7 +281,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }while (c.moveToNext());
         }
         team.setMatches(teamsData);
-        team.teamReport();
+        team.teamReport("TODO");
     }
 
     public Cursor getSearchedData(String team) {
