@@ -281,7 +281,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return hashMap;
     }
 
-    public void getOneTeamsData(String teamNumber){
+    public void getOneTeamsData(String teamNumber,TeamReportActivity act){
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
         Cursor c = db.rawQuery(selectQuery,null);
@@ -299,12 +299,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }while (c.moveToNext());
         }
         team.setMatches(teamsData);
-
-        TeamReportActivity act = new TeamReportActivity();
         ArrayList<String> teamMatches = new ArrayList<String>();
         for(int i=0;i<teamsData.size();i++){
             teamMatches.add(i,teamsData.get(i)[1]);
         }
+
         act.addToScrollView(team,teamNumber,1);
     }
 

@@ -44,6 +44,7 @@ public class TeamReportActivity extends ActionBarActivity {
     }
 
     public void addToScrollView(TeamData team,String teamNum,int matchNum){
+        DatabaseHandler.getInstance(this).getOneTeamsData(teamNum,this);
         team.teamReport(teamNum,matchNum,this);
         ScrollView scroll = (ScrollView) findViewById(R.id.scrollView1);
         View view = LayoutInflater.from(this).inflate(R.layout.team_report_data_layout,null);
