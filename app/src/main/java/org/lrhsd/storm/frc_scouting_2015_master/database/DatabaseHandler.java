@@ -305,6 +305,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         }
 
         act.addToScrollView(team,teamNumber,1);
+        Spinner spin = (Spinner)act.findViewById(R.id.spinner_matches);
+        ArrayAdapter<String> adap = new ArrayAdapter<String>(act, android.R.layout.simple_spinner_item, teamMatches);
+        spin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spin.setAdapter(adap);
+
+
     }
 
     public Cursor getSearchedData(String team) {
