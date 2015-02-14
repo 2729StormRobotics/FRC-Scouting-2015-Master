@@ -269,8 +269,15 @@ public class TeamData {
 
     public String[] getTeamReport(){return null;}
 
-    public void teamReport(){
+    public void teamReport(String team){
+        String[] teamMatchs = new String[this.matches.size()];
+        for(int t=0;t<this.matches.size();t++){
+            for(int k=0;k<this.matches.get(t).length;k++) {
+                this.matches.get(t)[k] = teamMatchs[k];
+            }
+        }
 
+        
     }
 
     public ArrayList<String[]> getMatches(){
