@@ -281,9 +281,43 @@ public class TeamData {
     public void teamReport(String team, int matchNum, TeamReportActivity act){
 
         TextView teamNum = (TextView) act.findViewById(R.id.team_report_team_number);
+        TextView robotAuto = (TextView) act.findViewById(R.id.column_robot_auto);
+        TextView numTotesAuto = (TextView) act.findViewById(R.id.column_number_totes_auto);
+        TextView numContainAuto = (TextView) act.findViewById(R.id.column_number_containers_auto);
+        TextView numStackedTotesAuto = (TextView) act.findViewById(R.id.column_number_totes_stacked_auto);
+        TextView toteLevel1 = (TextView) act.findViewById(R.id.column_tote_level_1);
+        TextView toteLevel2 = (TextView) act.findViewById(R.id.column_tote_level_2);
+        TextView toteLevel3 = (TextView) act.findViewById(R.id.column_tote_level_3);
+        TextView toteLevel4 = (TextView) act.findViewById(R.id.column_tote_level_4);
+        TextView toteLevel5 = (TextView) act.findViewById(R.id.column_tote_level_5);
+        TextView toteLevel6 = (TextView) act.findViewById(R.id.column_tote_level_6);
+        TextView canLevel1 = (TextView) act.findViewById(R.id.column_can_level_1);
+        TextView canLevel2 = (TextView) act.findViewById(R.id.column_can_level_2);
+        TextView canLevel3 = (TextView) act.findViewById(R.id.column_can_level_3);
+        TextView canLevel4 = (TextView) act.findViewById(R.id.column_can_level_4);
+        TextView canLevel5 = (TextView) act.findViewById(R.id.column_can_level_5);
+        TextView canLevel6 = (TextView) act.findViewById(R.id.column_can_level_6);
+        TextView noodle = (TextView) act.findViewById(R.id.column_noodle);
+        TextView coop = (TextView) act.findViewById(R.id.column_coop);
         teamNum.setText(team);
-       // this.getMatches().get(matchNum)[0]
-        
+        robotAuto.setText(this.getMatches().get(matchNum)[3]);
+        numTotesAuto.setText(this.getMatches().get(matchNum)[4]);
+        numContainAuto.setText(this.getMatches().get(matchNum)[5]);
+        numStackedTotesAuto.setText(this.getMatches().get(matchNum)[6]);
+        toteLevel1.setText(this.getMatches().get(matchNum)[7]);
+        toteLevel2.setText(this.getMatches().get(matchNum)[8]);
+        toteLevel3.setText(this.getMatches().get(matchNum)[9]);
+        toteLevel4.setText(this.getMatches().get(matchNum)[10]);
+        toteLevel5.setText(this.getMatches().get(matchNum)[11]);
+        toteLevel6.setText(this.getMatches().get(matchNum)[12]);
+        canLevel1.setText(this.getMatches().get(matchNum)[13]);
+        canLevel2.setText(this.getMatches().get(matchNum)[14]);
+        canLevel3.setText(this.getMatches().get(matchNum)[15]);
+        canLevel4.setText(this.getMatches().get(matchNum)[16]);
+        canLevel5.setText(this.getMatches().get(matchNum)[17]);
+        canLevel6.setText(this.getMatches().get(matchNum)[18]);
+        noodle.setText(this.getMatches().get(matchNum)[19]);
+        coop.setText(this.getMatches().get(matchNum)[20]);
     }
 
     public ArrayList<String[]> getMatches(){
