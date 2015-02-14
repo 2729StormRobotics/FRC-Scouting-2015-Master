@@ -2,8 +2,11 @@ package org.lrhsd.storm.frc_scouting_2015_master;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ScrollView;
 
 
 public class TeamReportActivity extends ActionBarActivity {
@@ -35,5 +38,11 @@ public class TeamReportActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void addToScrollView(){
+        ScrollView scroll = (ScrollView) findViewById(R.id.scrollView1);
+        View view = LayoutInflater.from(this).inflate(R.layout.team_report_data_layout,null);
+        scroll.addView(view);
     }
 }

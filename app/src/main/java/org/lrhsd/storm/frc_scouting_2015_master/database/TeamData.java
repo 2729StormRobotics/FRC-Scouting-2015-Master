@@ -1,5 +1,10 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
+import android.view.LayoutInflater;
+import android.widget.TextView;
+
+import org.lrhsd.storm.frc_scouting_2015_master.R;
+
 import java.util.ArrayList;
 
 public class TeamData {
@@ -271,14 +276,9 @@ public class TeamData {
 
     public String[] getTeamReport(){return null;}
 
-    public void teamReport(String team){
-        String[] teamMatchs = new String[this.matches.size()];
-        for(int t=0;t<this.matches.size();t++){
-            for(int k=0;k<this.matches.get(t).length;k++) {
-                this.matches.get(t)[k] = teamMatchs[k];
-            }
-        }
-
+    public void teamReport(String team,int matchNum){
+        
+       // this.getMatches().get(matchNum)[0]
         
     }
 
