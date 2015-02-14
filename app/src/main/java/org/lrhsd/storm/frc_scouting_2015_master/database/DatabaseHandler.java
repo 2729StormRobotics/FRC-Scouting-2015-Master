@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class DatabaseHandler extends SQLiteOpenHelper {
+public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnItemSelectedListener {
 
     // Contacts Table Columns names
     // private static final String KEY_ID = "id";
@@ -58,6 +58,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     // All Static variables
     private static DatabaseHandler sInstance = null;
     private Context mCtx;
+    private String matchNum;
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -304,11 +305,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             teamMatches.add(i,teamsData.get(i)[1]);
         }
 
-        act.addToScrollView(team,teamNumber,1);
         Spinner spin = (Spinner)act.findViewById(R.id.spinner_matches);
         ArrayAdapter<String> adap = new ArrayAdapter<String>(act, android.R.layout.simple_spinner_item, teamMatches);
         spin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adap);
+        act.addToScrollView(team,teamNumber,1);
+
 
 
     }
@@ -327,6 +329,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                 cursor.getInt(7), cursor.getInt(8), cursor.getInt(9), cursor.getInt(10), cursor.getInt(11), cursor.getInt(12), cursor.getInt(13),
                 cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20));
         return team;
+    }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        matchNum = parent.getItemIdAtPosition(position);
+
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }
 
