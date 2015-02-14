@@ -267,7 +267,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
         Cursor c = db.rawQuery(selectQuery,null);
-        ArrayList<String[]> teamsData;
+        ArrayList<String[]> teamsData = new ArrayList<>();
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
