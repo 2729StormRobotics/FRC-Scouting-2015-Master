@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -263,6 +264,18 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public HashMap<String, Integer> getRankedColumn(String column){
+
+        Cursor cursor = getSortedTeamData(column);
+        HashMap<String,Integer> hashMap = new HashMap<>();
+
+        for(int i = 0; i < cursor.getCount();i++){
+            String teamNumber = cursor.getString(0);
+            hashMap.put(teamNumber, i + 1);
+        }
+        return hashMap;
+    }
+
     public void getOneTeamsData(String teamNumber){
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
@@ -281,7 +294,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             }while (c.moveToNext());
         }
         team.setMatches(teamsData);
-        team.teamReport("TODO");
+        team.teamReport(teamNumber);
     }
 
     public Cursor getSearchedData(String team) {
