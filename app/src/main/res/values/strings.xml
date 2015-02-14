@@ -21,6 +21,7 @@
     <string name="clear">Clear Database</string>
     <string name="title_activity_scanner">ScannerActivity</string>
     <string name="title_activity_sorter">SorterActivity</string>
+
     <string-array name="choices">
         <item>Team Number</item>
         <item>Match #</item>
@@ -44,6 +45,8 @@
         <item>Noodle</item>
         <item>Co-opertition</item>
     </string-array>
+
     <string name="sort">Sort</string>
+    <string name="title_activity_team_report">TeamReportActivity</string>
 
 </resources>

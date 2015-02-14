@@ -2,6 +2,7 @@ package org.lrhsd.storm.frc_scouting_2015_master;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
 
 import java.util.ArrayList;
 
@@ -38,7 +40,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     Spinner spinner;
     //Listview to populate
     ListView view;
-    Context context = this;
+    Context context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +59,12 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
             public boolean onKey(View v, int keyCode, KeyEvent event) {
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    int team = Integer.parseInt(search.getText().toString());
-                    Log.d("Searched data", String.valueOf(team));
+                    String team = search.getText().toString();
+                    DatabaseHandler.getInstance(context).getOneTeamsData(team);
+                    ArrayList<Integer> list = new ArrayList<Integer>();
+                    ArrayAdapter<Integer> ad = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, list);
+                    Spinner spin = (Spinner)findViewById(R.id.spinner_matches);
+                    spin.setAdapter(ad);
 
 
                 }
