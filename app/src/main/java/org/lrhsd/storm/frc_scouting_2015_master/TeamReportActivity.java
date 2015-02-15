@@ -14,6 +14,8 @@ import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
 
 import java.util.ArrayList;
 
+import de.greenrobot.event.EventBus;
+
 
 public class TeamReportActivity extends ActionBarActivity {
 
@@ -21,6 +23,16 @@ public class TeamReportActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_report_layout);
+        String team = EventBus.getDefault().removeStickyEvent(String.class);
+        DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsData(team,this);
+        ArrayList<Integer> teamMatches = EventBus.getDefault().removeStickyEvent(ArrayList.class);
+        TeamData teamData = EventBus.getDefault().removeStickyEvent(TeamData.class);
+        ArrayAdapter<Integer> ad = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_item, teamMatches);
+        Spinner spin = (Spinner)findViewById(R.id.spinner2);
+        spin.setAdapter(ad);
+        //Make right here call addToScrollView
+        //Make the matchNum the match number selected from the spinner
+        //addToScrollView(teamData,team,matchNum);
     }
 
     public void addToScrollView(TeamData team,String teamNum,int matchNum){
@@ -29,13 +41,5 @@ public class TeamReportActivity extends ActionBarActivity {
         ScrollView scroll = (ScrollView) findViewById(R.id.scrollView1);
         View view = LayoutInflater.from(this).inflate(R.layout.team_report_data_layout,null);
         scroll.addView(view);
-    }
-    public void addScrollview(ArrayList<String> teamMatches,TeamData team,String teamNumber){
-        Log.d("this",""+this);
-        Spinner spin = (Spinner)findViewById(R.id.spinner2);
-        ArrayAdapter<String> adap = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, teamMatches);
-        adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin.setAdapter(adap);
-        this.addToScrollView(team, teamNumber, 1);
     }
 }

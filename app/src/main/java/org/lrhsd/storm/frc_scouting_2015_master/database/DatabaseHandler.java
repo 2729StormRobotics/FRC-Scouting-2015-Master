@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import de.greenrobot.event.EventBus;
+
 public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnItemSelectedListener {
 
     // Contacts Table Columns names
@@ -310,8 +312,9 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         for(int i=0;i<teamsData.size();i++){
             teamMatches.add(i,teamsData.get(i)[1]);
         }
-
-        act.addScrollview(teamMatches, team, teamNumber);
+        EventBus.getDefault().postSticky(teamMatches);
+        EventBus.getDefault().post(team);
+        //act.addScrollview(teamMatches, team, teamNumber);
     }
 
     public Cursor getSearchedData(String team) {

@@ -22,6 +22,8 @@ import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
 
 import java.util.ArrayList;
 
+import de.greenrobot.event.EventBus;
+
 
 public class SorterActivity extends Activity implements AdapterView.OnItemSelectedListener {
     String columnName = "";
@@ -59,39 +61,14 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     String team = search.getText().toString();
+                    EventBus.getDefault().postSticky(team);
                     Intent intent = new Intent(getApplicationContext(),TeamReportActivity.class);
                     startActivity(intent);
-                    DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsData(team,new TeamReportActivity());
-                    ArrayList<Integer> list = new ArrayList<Integer>();
-                    ArrayAdapter<Integer> ad = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_item, list);
-                    Spinner spin = (Spinner)findViewById(R.id.spinner2);
-                    spin.setAdapter(ad);
+
                 }
                 return true;
             }
         });
-
-
-    }
-
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public void sorter(String column) {
-
     }
 
     @Override
