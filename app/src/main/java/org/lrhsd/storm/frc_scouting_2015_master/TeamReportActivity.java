@@ -29,6 +29,7 @@ public class TeamReportActivity extends ActionBarActivity {
         ArrayAdapter<Integer> ad = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_item, teamMatches);
         Spinner spin = (Spinner) findViewById(R.id.spinner2);
         spin.setAdapter(ad);
+        addToScrollView(teamData, team, Integer.parseInt(DatabaseHandler.matchNum));
         //Make right here call addToScrollView
         //Make the matchNum the match number selected from the spinner
         //addToScrollView(teamData,team,matchNum);
