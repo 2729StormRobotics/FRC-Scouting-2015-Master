@@ -1,18 +1,14 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 import android.util.Log;
-import android.widget.AdapterView;
-import android.widget.Spinner;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 
-import org.lrhsd.storm.frc_scouting_2015_master.R;
 import org.lrhsd.storm.frc_scouting_2015_master.TeamReportActivity;
 
 import java.io.BufferedReader;
@@ -278,39 +274,54 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         return cursor;
     }
 
-    public HashMap<String, Integer> getRankedColumn(String column){
+    public HashMap<String, Integer> getRankedColumn(String column) {
         //returns a hashmap with a rank of the team and their rank of that column
         Cursor cursor = getSortedTeamData(column);
-        HashMap<String,Integer> hashMap = new HashMap<>();
+        HashMap<String, Integer> hashMap = new HashMap<>();
 
-        for(int i = 0; i < cursor.getCount();i++){
+        for (int i = 0; i < cursor.getCount(); i++) {
             String teamNumber = cursor.getString(0);
             hashMap.put(teamNumber, i + 1);
         }
         return hashMap;
     }
 
-    public void getOneTeamsData(String teamNumber,TeamReportActivity act){
+    public boolean checkIfTeamIsInDatabase(String team) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String selectQuery = "SELECT * FROM "+ TABLE_TEAM +" WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
-        Cursor c = db.rawQuery(selectQuery,null);
+        String selectQuery = "SELECT * FROM " + TABLE_TEAM;
+        Cursor c = db.rawQuery(selectQuery, null);
+        if (c.moveToFirst()) {
+            do {
+                if (c.getString(0).equals(team)) {
+                    return true;
+                }
+
+            } while (c.moveToNext());
+        }
+        return false;
+    }
+
+    public void getOneTeamsData(String teamNumber, TeamReportActivity act) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
+        Cursor c = db.rawQuery(selectQuery, null);
         ArrayList<String[]> teamsData = new ArrayList<>();
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
                 String[] teamData = new String[21];
-                for (int i = 0; i < 21; i ++){
+                for (int i = 0; i < 21; i++) {
                     teamData[i] = c.getString(i);
 
                 }
                 teamsData.add(teamData);
 
-            }while (c.moveToNext());
+            } while (c.moveToNext());
         }
         team.setMatches(teamsData);
         ArrayList<String> teamMatches = new ArrayList<String>();
-        for(int i=0;i<teamsData.size();i++){
-            teamMatches.add(i,teamsData.get(i)[1]);
+        for (int i = 0; i < teamsData.size(); i++) {
+            teamMatches.add(i, teamsData.get(i)[1]);
         }
         EventBus.getDefault().postSticky(teamMatches);
         EventBus.getDefault().post(team);
@@ -332,6 +343,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20));
         return team;
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         matchNum = Long.toString(parent.getItemIdAtPosition(position));

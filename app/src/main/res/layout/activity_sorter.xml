@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffffff"
-    tools:context="org.lrhsd.storm.frc_scouting_2015_master.SorterActivity"
-    android:padding="15dp">
+    android:padding="15dp"
+    tools:context="org.lrhsd.storm.frc_scouting_2015_master.SorterActivity">
 
     <Spinner
         android:id="@+id/spinner"
@@ -26,12 +26,12 @@
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/spinner"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:ems="10"
         android:hint="Search Team #"
-        android:inputType="textPersonName"
-        android:layout_alignBottom="@+id/spinner"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:inputType="textPersonName" />
 
 
 </RelativeLayout>

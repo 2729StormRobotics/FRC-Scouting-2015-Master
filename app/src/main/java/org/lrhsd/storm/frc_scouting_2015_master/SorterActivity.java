@@ -1,14 +1,12 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,9 +16,6 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
-import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
-
-import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 
@@ -61,10 +56,11 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     String team = search.getText().toString();
-                    EventBus.getDefault().postSticky(team);
-                    Intent intent = new Intent(getApplicationContext(),TeamReportActivity.class);
-                    startActivity(intent);
-
+                    if (DatabaseHandler.getInstance(getApplicationContext()).checkIfTeamIsInDatabase(team)) {
+                        EventBus.getDefault().postSticky(team);
+                        Intent intent = new Intent(getApplicationContext(), TeamReportActivity.class);
+                        startActivity(intent);
+                    }
                 }
                 return true;
             }

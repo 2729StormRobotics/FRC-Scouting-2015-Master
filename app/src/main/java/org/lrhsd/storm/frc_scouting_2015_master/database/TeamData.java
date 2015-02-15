@@ -1,7 +1,5 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.widget.TextView;
 
 import org.lrhsd.storm.frc_scouting_2015_master.R;
@@ -41,7 +39,6 @@ public class TeamData {
 
     int noodle = 0;
     int coop = 0;
-
 
 
     ArrayList<String[]> matches = new ArrayList<String[]>();
@@ -276,9 +273,11 @@ public class TeamData {
         this.coop = coop;
     }
 
-    public String[] getTeamReport(){return null;}
+    public String[] getTeamReport() {
+        return null;
+    }
 
-    public void teamReport(String team, int matchNum, TeamReportActivity act){
+    public void teamReport(String team, int matchNum, TeamReportActivity act) {
 
         TextView teamNum = (TextView) act.findViewById(R.id.team_report_team_number);
         TextView robotAuto = (TextView) act.findViewById(R.id.column_robot_auto);
@@ -320,11 +319,11 @@ public class TeamData {
         coop.setText(this.getMatches().get(matchNum)[20]);
     }
 
-    public ArrayList<String[]> getMatches(){
+    public ArrayList<String[]> getMatches() {
         return matches;
     }
 
-    public void setMatches(ArrayList<String[]> data){
+    public void setMatches(ArrayList<String[]> data) {
         matches = data;
     }
 

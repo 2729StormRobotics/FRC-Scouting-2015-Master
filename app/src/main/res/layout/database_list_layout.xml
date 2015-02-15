@@ -7,25 +7,25 @@
 
 
     <TextView
+        android:id="@+id/TeamNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/TeamNum"
-        android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginRight="15dp" />
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="15dp"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/SortColumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
-        android:id="@+id/SortColumn"
         android:layout_alignParentTop="true"
-        android:layout_toRightOf="@+id/TeamNum"
+        android:layout_marginRight="15dp"
         android:layout_toEndOf="@+id/TeamNum"
-        android:layout_marginRight="15dp" />
+        android:layout_toRightOf="@+id/TeamNum"
+        android:text="Large Text"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>
