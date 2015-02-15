@@ -40,7 +40,6 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     Spinner spinner;
     //Listview to populate
     ListView view;
-    Context context = getApplicationContext();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,13 +59,13 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
 
                 if (keyCode == KeyEvent.KEYCODE_ENTER) {
                     String team = search.getText().toString();
-                    DatabaseHandler.getInstance(context).getOneTeamsData(team);
+                    Intent intent = new Intent(getApplicationContext(),TeamReportActivity.class);
+                    startActivity(intent);
+                    DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsData(team,new TeamReportActivity());
                     ArrayList<Integer> list = new ArrayList<Integer>();
-                    ArrayAdapter<Integer> ad = new ArrayAdapter<Integer>(context, android.R.layout.simple_spinner_item, list);
-                    Spinner spin = (Spinner)findViewById(R.id.spinner_matches);
+                    ArrayAdapter<Integer> ad = new ArrayAdapter<Integer>(getApplicationContext(), android.R.layout.simple_spinner_item, list);
+                    Spinner spin = (Spinner)findViewById(R.id.spinner2);
                     spin.setAdapter(ad);
-
-
                 }
                 return true;
             }

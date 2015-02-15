@@ -1,6 +1,7 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -289,7 +290,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     public void getOneTeamsData(String teamNumber,TeamReportActivity act){
         SQLiteDatabase db = this.getWritableDatabase();
-        String selectQuery = "SELECT * FROM WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
+        String selectQuery = "SELECT * FROM "+ TABLE_TEAM +" WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
         Cursor c = db.rawQuery(selectQuery,null);
         ArrayList<String[]> teamsData = new ArrayList<>();
         TeamData team = new TeamData();
@@ -310,14 +311,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             teamMatches.add(i,teamsData.get(i)[1]);
         }
 
-        Spinner spin = (Spinner)act.findViewById(R.id.spinner2);
-        ArrayAdapter<String> adap = new ArrayAdapter<String>(act, android.R.layout.simple_spinner_item, teamMatches);
-        adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spin.setAdapter(adap);
-        act.addToScrollView(team,teamNumber,1);
-
-
-
+        act.addScrollview(teamMatches, team, teamNumber);
     }
 
     public Cursor getSearchedData(String team) {
