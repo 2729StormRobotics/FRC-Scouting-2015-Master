@@ -6,7 +6,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.AdapterView;
+import android.widget.Spinner;
+import android.view.View;
+import android.widget.ArrayAdapter;
 
+import org.lrhsd.storm.frc_scouting_2015_master.R;
 import org.lrhsd.storm.frc_scouting_2015_master.TeamReportActivity;
 
 import java.io.BufferedReader;
@@ -305,9 +310,9 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             teamMatches.add(i,teamsData.get(i)[1]);
         }
 
-        Spinner spin = (Spinner)act.findViewById(R.id.spinner_matches);
+        Spinner spin = (Spinner)act.findViewById(R.id.spinner2);
         ArrayAdapter<String> adap = new ArrayAdapter<String>(act, android.R.layout.simple_spinner_item, teamMatches);
-        spin.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adap.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adap);
         act.addToScrollView(team,teamNumber,1);
 
@@ -332,9 +337,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     }
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        matchNum = parent.getItemIdAtPosition(position);
-
-
+        matchNum = Long.toString(parent.getItemIdAtPosition(position));
     }
 
     @Override
