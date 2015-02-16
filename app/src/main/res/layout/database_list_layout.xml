@@ -29,6 +29,8 @@
         android:layout_toRightOf="@+id/TeamNum"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:textAlignment="textEnd"
+        android:gravity="end" />
 
 </RelativeLayout>
