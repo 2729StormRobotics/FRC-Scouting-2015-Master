@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffffff"
+    android:background="@android:color/black"
     android:padding="15dp"
     tools:context="org.lrhsd.storm.frc_scouting_2015_master.SorterActivity">
 
@@ -19,7 +19,7 @@
         android:layout_below="@+id/spinner"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="48dp"
-        android:background="#ffffffff"
+        android:background="@android:color/black"
         android:numColumns="1" />
 
     <EditText
