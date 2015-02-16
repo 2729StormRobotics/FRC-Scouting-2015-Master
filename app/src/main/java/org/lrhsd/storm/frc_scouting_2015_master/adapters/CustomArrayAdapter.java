@@ -13,7 +13,7 @@ public class CustomArrayAdapter<T> extends ArrayAdapter<T>
 {
     public CustomArrayAdapter(Context ctx, ArrayList<T> objects)
     {
-        super(ctx, android.R.layout.simple_spinner_item, objects);
+        super(ctx, android.R.layout.simple_dropdown_item_1line, objects);
     }
 
     //other constructors
