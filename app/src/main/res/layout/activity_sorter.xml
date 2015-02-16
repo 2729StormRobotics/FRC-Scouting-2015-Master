@@ -26,12 +26,12 @@
         android:id="@+id/search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/spinner"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
         android:ems="10"
         android:hint="Search Team #"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:layout_alignTop="@+id/list"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>
