@@ -304,24 +304,24 @@ public class TeamData {
         teamNum.setText(team);
         //Log.d("getMatchesinTeamReport",teamData.getMatches().get(0)[3]);
        // Log.d("MatchNum",""+matchNum);
-        robotAuto.setText("Robot Auto"+"\n"+teamData.getMatches().get(matchNum)[3]);
-        numTotesAuto.setText("Number of Totes Auto"+"\n"+teamData.getMatches().get(matchNum)[4]);
-        numContainAuto.setText("Number of Container Auto"+"\n"+teamData.getMatches().get(matchNum)[5]);
-        numStackedTotesAuto.setText("Number of Stacked Totes in Auto"+"\n"+teamData.getMatches().get(matchNum)[6]);
-        toteLevel1.setText("Tote Level 1"+"\n"+teamData.getMatches().get(matchNum)[7]);
-        toteLevel2.setText("Tote Level 2"+"\n"+teamData.getMatches().get(matchNum)[8]);
-        toteLevel3.setText("Tote Level 3"+"\n"+teamData.getMatches().get(matchNum)[9]);
-        toteLevel4.setText("Tote Level 4"+"\n"+teamData.getMatches().get(matchNum)[10]);
-        toteLevel5.setText("Tote Level 5"+"\n"+teamData.getMatches().get(matchNum)[11]);
+        robotAuto.setText("Robot Auto:"+"\n"+teamData.getMatches().get(matchNum)[3]);
+        numTotesAuto.setText("Number of Totes Auto:"+"\n"+teamData.getMatches().get(matchNum)[4]);
+        numContainAuto.setText("Number of Container Auto:"+"\n"+teamData.getMatches().get(matchNum)[5]);
+        numStackedTotesAuto.setText("Number of Stacked Totes in Auto:"+"\n"+teamData.getMatches().get(matchNum)[6]);
+        toteLevel1.setText("Tote Level 1:"+"\n"+teamData.getMatches().get(matchNum)[7]);
+        toteLevel2.setText("Tote Level 2:"+"\n"+teamData.getMatches().get(matchNum)[8]);
+        toteLevel3.setText("Tote Level 3:"+"\n"+teamData.getMatches().get(matchNum)[9]);
+        toteLevel4.setText("Tote Level 4:"+"\n"+teamData.getMatches().get(matchNum)[10]);
+        toteLevel5.setText("Tote Level 5:"+"\n"+teamData.getMatches().get(matchNum)[11]);
         toteLevel6.setText("Tote Level 6"+"\n"+teamData.getMatches().get(matchNum)[12]);
-        canLevel1.setText("Can Level 1"+"\n"+teamData.getMatches().get(matchNum)[13]);
-        canLevel2.setText("Can Level 2"+"\n"+teamData.getMatches().get(matchNum)[14]);
-        canLevel3.setText("Can Level 3"+"\n"+teamData.getMatches().get(matchNum)[15]);
-        canLevel4.setText("Can Level 4"+"\n"+teamData.getMatches().get(matchNum)[16]);
-        canLevel5.setText("Can Level 5"+"\n"+teamData.getMatches().get(matchNum)[17]);
-        canLevel6.setText("Can Level 6"+"\n"+teamData.getMatches().get(matchNum)[18]);
-        noodle.setText("Noodle"+"\n"+teamData.getMatches().get(matchNum)[19]);
-        coop.setText("Coop"+"\n"+teamData.getMatches().get(matchNum)[20]);
+        canLevel1.setText("Can Level 1:"+"\n"+teamData.getMatches().get(matchNum)[13]);
+        canLevel2.setText("Can Level 2:"+"\n"+teamData.getMatches().get(matchNum)[14]);
+        canLevel3.setText("Can Level 3:"+"\n"+teamData.getMatches().get(matchNum)[15]);
+        canLevel4.setText("Can Level 4:"+"\n"+teamData.getMatches().get(matchNum)[16]);
+        canLevel5.setText("Can Level 5:"+"\n"+teamData.getMatches().get(matchNum)[17]);
+        canLevel6.setText("Can Level 6:"+"\n"+teamData.getMatches().get(matchNum)[18]);
+        noodle.setText("Noodle:"+"\n"+teamData.getMatches().get(matchNum)[19]);
+        coop.setText("Coop:"+"\n"+teamData.getMatches().get(matchNum)[20]);
     }
 
     public ArrayList<String[]> getMatches() {

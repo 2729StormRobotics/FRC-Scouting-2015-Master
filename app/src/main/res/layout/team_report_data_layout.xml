@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="15dp">
+    android:padding="15dp"
+    android:background="#ff000000"
+    android:theme="@style/AppTheme">
 
     <TextView
         android:id="@+id/column_robot_auto"
@@ -12,7 +14,8 @@
         android:layout_alignParentStart="true"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_number_totes_auto"
@@ -23,7 +26,8 @@
         android:layout_below="@+id/column_robot_auto"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_number_containers_auto"
@@ -34,7 +38,8 @@
         android:layout_below="@+id/column_number_totes_auto"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_number_totes_stacked_auto"
@@ -45,7 +50,8 @@
         android:layout_below="@+id/column_number_containers_auto"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_tote_level_1"
@@ -56,7 +62,8 @@
         android:layout_below="@+id/column_number_totes_stacked_auto"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_tote_level_2"
@@ -67,7 +74,8 @@
         android:layout_below="@+id/column_tote_level_1"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_tote_level_3"
@@ -78,7 +86,8 @@
         android:layout_below="@+id/column_tote_level_2"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_tote_level_4"
@@ -89,7 +98,8 @@
         android:layout_below="@+id/column_tote_level_3"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_tote_level_5"
@@ -100,7 +110,8 @@
         android:layout_below="@+id/column_tote_level_4"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_tote_level_6"
@@ -111,7 +122,8 @@
         android:layout_below="@+id/column_tote_level_5"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_can_level_1"
@@ -122,7 +134,8 @@
         android:layout_below="@+id/column_tote_level_6"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_can_level_2"
@@ -133,7 +146,8 @@
         android:layout_below="@+id/column_can_level_1"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_can_level_3"
@@ -144,7 +158,8 @@
         android:layout_below="@+id/column_can_level_2"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_can_level_4"
@@ -155,7 +170,8 @@
         android:layout_below="@+id/column_can_level_3"
         android:layout_marginRight="25dp"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
 
     <TextView
@@ -166,7 +182,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/column_can_level_4"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_can_level_6"
@@ -176,7 +193,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/column_can_level_5"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_noodle"
@@ -186,7 +204,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/column_can_level_6"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
     <TextView
         android:id="@+id/column_coop"
@@ -196,7 +215,8 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/column_noodle"
         android:text="Small Text"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffffff" />
 
 
 </RelativeLayout>
