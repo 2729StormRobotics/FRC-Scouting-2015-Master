@@ -15,7 +15,10 @@ import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import org.lrhsd.storm.frc_scouting_2015_master.adapters.CustomArrayAdapter;
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+
+import java.util.ArrayList;
 
 import de.greenrobot.event.EventBus;
 
@@ -28,6 +31,12 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
             DatabaseHandler.KEY_TOTE_LEVEL1, DatabaseHandler.KEY_TOTE_LEVEL2, DatabaseHandler.KEY_TOTE_LEVEL3, DatabaseHandler.KEY_TOTE_LEVEL4,
             DatabaseHandler.KEY_TOTE_LEVEL5, DatabaseHandler.KEY_TOTE_LEVEL6, DatabaseHandler.KEY_CAN_LEVEL1, DatabaseHandler.KEY_CAN_LEVEL2, DatabaseHandler.KEY_CAN_LEVEL3,
             DatabaseHandler.KEY_CAN_LEVEL4, DatabaseHandler.KEY_CAN_LEVEL5, DatabaseHandler.KEY_CAN_LEVEL6, DatabaseHandler.KEY_NOODLE, DatabaseHandler.KEY_COOP};
+    ArrayList<String> columnNames = new ArrayList<String>();
+
+    public void setColumnNames(ArrayList<String> columnNames) {
+        this.columnNames = columnNames;
+    }
+
     //Integer array for SimpleCursorAdapter parameters.  Used to direct what views get what data
     int[] toview = new int[]{R.id.team, R.id.match, R.id.alliance, R.id.robot_auto, R.id.totes_auto, R.id.container_auto, R.id.stack_auto, R.id.tote_one, R.id.tote_two, R.id.tote_three, R.id.tote_four, R.id.tote_five,
             R.id.tote_six, R.id.cont_one, R.id.cont_two, R.id.cont_three, R.id.cont_four, R.id.cont_five, R.id.cont_six, R.id.noodle, R.id.coop};
@@ -41,10 +50,31 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        columnNames.add("Team Number");
+        columnNames.add("Match Number");
+        columnNames.add("Alliance");
+        columnNames.add("Robot in Auto");
+        columnNames.add("Number of Totes in Auto");
+        columnNames.add("Number of Container Totes in Auto");
+        columnNames.add("Number of Stacked Totes");
+        columnNames.add("Tote Level 1");
+        columnNames.add("Tote Level 2");
+        columnNames.add("Tote Level 3");
+        columnNames.add("Tote Level 4");
+        columnNames.add("Tote Level 5");
+        columnNames.add("Tote Level 6");
+        columnNames.add("Container Level 1");
+        columnNames.add("Container Level 2");
+        columnNames.add("Container Level 3");
+        columnNames.add("Container Level 4");
+        columnNames.add("Container Level 5");
+        columnNames.add("Container Level 6");
+        columnNames.add("Noodle");
+        columnNames.add("Coop");
+
         setContentView(R.layout.activity_sorter);
         spinner = (Spinner) findViewById(R.id.spinner);
-        ArrayAdapter<CharSequence> spin_adapt = ArrayAdapter.createFromResource(this, R.array.choices, android.R.layout.simple_spinner_item);
-        spin_adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        CustomArrayAdapter<CharSequence> spin_adapt = new CustomArrayAdapter (this, columnNames);
         spinner.setAdapter(spin_adapt);
         spinner.setOnItemSelectedListener(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);

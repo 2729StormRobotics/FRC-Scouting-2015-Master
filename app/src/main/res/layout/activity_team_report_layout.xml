@@ -28,6 +28,7 @@
         android:id="@+id/scrollView1"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="367dp" />
+        android:layout_marginBottom="175dp"
+        android:fillViewport="false" />
 
 </RelativeLayout>

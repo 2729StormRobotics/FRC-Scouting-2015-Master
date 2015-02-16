@@ -333,7 +333,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public ArrayList<String> getTeamMatches(){
         ArrayList<String> teamMatches = new ArrayList<String>();
         for (int i = 0; i < teamsData.size(); i++) {
-            teamMatches.add(i, teamsData.get(i)[1]);
+            teamMatches.add(i,"Match: "+teamsData.get(i)[1]);
         }
         return teamMatches;
     }

@@ -302,8 +302,8 @@ public class TeamData {
         TextView noodle = (TextView) act.findViewById(R.id.column_noodle);
         TextView coop = (TextView) act.findViewById(R.id.column_coop);
         teamNum.setText(team);
-        //Log.d("getMatchesinTeamReport",teamData.getMatches().get(0)[3]);
-       // Log.d("MatchNum",""+matchNum);
+        Log.d("getMatchesinTeamReport",teamData.getMatches().get(0)[3]);
+        Log.d("MatchNum",""+matchNum);
         robotAuto.setText("Robot Auto:"+"\n"+teamData.getMatches().get(matchNum)[3]);
         numTotesAuto.setText("Number of Totes Auto:"+"\n"+teamData.getMatches().get(matchNum)[4]);
         numContainAuto.setText("Number of Container Auto:"+"\n"+teamData.getMatches().get(matchNum)[5]);
