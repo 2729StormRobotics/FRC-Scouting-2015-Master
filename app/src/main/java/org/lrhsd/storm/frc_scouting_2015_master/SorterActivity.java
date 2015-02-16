@@ -43,7 +43,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     //Cursor to hold database query results
     Cursor cursor;
     //To sort the listviews properly
-    Spinner spinner;
+
     //Listview to populate
     ListView view;
 
@@ -73,8 +73,8 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         columnNames.add("Coop");
 
         setContentView(R.layout.activity_sorter);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        CustomArrayAdapter<CharSequence> spin_adapt = new CustomArrayAdapter (this, columnNames);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        CustomArrayAdapter<CharSequence> spin_adapt = new CustomArrayAdapter (getApplicationContext(), columnNames);
         spinner.setAdapter(spin_adapt);
         spinner.setOnItemSelectedListener(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
