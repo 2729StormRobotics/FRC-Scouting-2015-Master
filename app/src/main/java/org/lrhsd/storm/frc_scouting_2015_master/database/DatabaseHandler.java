@@ -63,6 +63,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     private static DatabaseHandler sInstance = null;
     private Context mCtx;
     private String matchNum;
+    private ArrayList<String[]> teamsData;
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -301,11 +302,11 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         return false;
     }
 
-    public void getOneTeamsData(String teamNumber, TeamReportActivity act) {
+    public ArrayList<String[]> getOneTeamsData(String teamNumber) {
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
         Cursor c = db.rawQuery(selectQuery, null);
-        ArrayList<String[]> teamsData = new ArrayList<>();
+        teamsData = new ArrayList<>();
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
@@ -318,14 +319,23 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
             } while (c.moveToNext());
         }
-        team.setMatches(teamsData);
+       // Log.d("teamsdata From DataBaseHand",""+teamsData);
         ArrayList<String> teamMatches = new ArrayList<String>();
         for (int i = 0; i < teamsData.size(); i++) {
             teamMatches.add(i, teamsData.get(i)[1]);
         }
-        EventBus.getDefault().postSticky(teamMatches);
-        EventBus.getDefault().post(team);
-        //act.addScrollview(teamMatches, team, teamNumber);
+
+        EventBus.getDefault().postSticky(team);
+        //Log.d("teamsdata From DataBaseHand2",""+teamsData);
+        EventBus.getDefault().postSticky(teamsData);
+        return teamsData;
+    }
+    public ArrayList<String> getTeamMatches(){
+        ArrayList<String> teamMatches = new ArrayList<String>();
+        for (int i = 0; i < teamsData.size(); i++) {
+            teamMatches.add(i, teamsData.get(i)[1]);
+        }
+        return teamMatches;
     }
 
     public Cursor getSearchedData(String team) {
