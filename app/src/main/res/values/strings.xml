@@ -49,4 +49,7 @@
     <string name="sort">Sort</string>
     <string name="title_activity_team_report">TeamReportActivity</string>
 
+    <string name="website">www.stormroboticsnj.org</string>
+    <string name="twitter">twitter.com/stormroboticsnj</string>
+
 </resources>
