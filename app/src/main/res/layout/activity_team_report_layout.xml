@@ -17,10 +17,36 @@
         android:id="@+id/spinner2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#000"
         android:layout_below="@+id/team_report_team_number"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="false"
-        android:background="#000" />
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="105dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:id="@+id/EnterReport"
+        android:layout_below="@+id/team_report_team_number"
+        android:layout_toLeftOf="@+id/searchReport"
+        android:layout_toStartOf="@+id/searchReport"
+        android:layout_marginTop="50dp"
+        android:onClick="enter" />
+
+    <EditText
+        android:id="@+id/searchReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Search Team #"
+        android:textColor="#ffffffff"
+        android:textColorHint="#ffffff"
+        android:inputType="text"
+        android:digits="0,1,2,3,4,5,6,7,8,9"
+        android:layout_alignTop="@+id/EnterReport"
+        android:layout_alignLeft="@+id/team_report_team_number"
+        android:layout_alignStart="@+id/team_report_team_number" />
 
     <ScrollView
         android:layout_width="wrap_content"
@@ -29,6 +55,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="175dp"
-        android:fillViewport="false" />
+        android:fillViewport="false"
+        android:layout_below="@+id/spinner2"/>
 
 </RelativeLayout>

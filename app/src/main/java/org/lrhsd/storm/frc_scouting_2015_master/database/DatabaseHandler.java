@@ -16,6 +16,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -304,7 +305,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     public ArrayList<String[]> getOneTeamsData(String teamNumber) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber + "";
+        String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
         teamsData = new ArrayList<>();
         TeamData team = new TeamData();
@@ -319,22 +320,58 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
             } while (c.moveToNext());
         }
-       // Log.d("teamsdata From DataBaseHand",""+teamsData);
-        ArrayList<String> teamMatches = new ArrayList<String>();
-        for (int i = 0; i < teamsData.size(); i++) {
-            teamMatches.add(i, teamsData.get(i)[1]);
-        }
 
         EventBus.getDefault().postSticky(team);
         //Log.d("teamsdata From DataBaseHand2",""+teamsData);
         EventBus.getDefault().postSticky(teamsData);
         return teamsData;
     }
+    public String[] getOneTeamsDataSummary(String teamNumber){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
+        Cursor c = db.rawQuery(selectQuery, null);
+        int[] dataInt = new int[17];
+        ArrayList<Integer[]> teamsDataSum = new ArrayList<Integer[]>();
+        if (c.moveToFirst()) {
+            do {
+                Integer[] teamData = new Integer[21];
+                for (int i = 0; i < 21; i++) {
+                    teamData[i] = c.getInt(i);
+
+                }
+                teamsDataSum.add(teamData);
+            } while (c.moveToNext());
+        }
+        for(int i=0; i<teamsDataSum.size(); i++){
+            for(int t=3; t<20; t++){
+                dataInt[t-3]=dataInt[t-3]+teamsDataSum.get(i)[t];
+            }
+        }
+        String[] dataString = new String[19];
+        for(int i=0;i<17;i++){
+            dataString[i] = String.valueOf(dataInt[i]);
+        }
+        int numNo = 0;
+        int numYes = 0;
+        if (c.moveToFirst()) {
+            do {
+               if(c.getString(20).equals("No")){
+                   numNo++;
+               }else{
+                   numYes++;
+               }
+            } while (c.moveToNext());
+        }
+        dataString[17]=String.valueOf(numNo);
+        dataString[18]=String.valueOf(numYes);
+        return dataString;
+    }
     public ArrayList<String> getTeamMatches(){
         ArrayList<String> teamMatches = new ArrayList<String>();
         for (int i = 0; i < teamsData.size(); i++) {
             teamMatches.add(i,"Match: "+teamsData.get(i)[1]);
         }
+        teamMatches.add(teamMatches.size(),"Summary");
         return teamMatches;
     }
 
