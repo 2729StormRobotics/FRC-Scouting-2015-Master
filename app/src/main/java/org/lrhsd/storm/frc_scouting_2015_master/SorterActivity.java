@@ -28,7 +28,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     //String array for SimpleCursorAdapter parameters.  Used to obtain the columns of the database to get the data to populate with
     String[] fromColumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
             DatabaseHandler.KEY_ROBOT_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_AUTO, DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO,
-            DatabaseHandler.KEY_TOTE_LEVEL1, DatabaseHandler.KEY_TOTE_LEVEL2, DatabaseHandler.KEY_TOTE_LEVEL3, DatabaseHandler.KEY_TOTE_LEVEL4,
+            DatabaseHandler.KEY_CONTAINERS_CENTER_AUTO, DatabaseHandler.KEY_TOTE_LEVEL1, DatabaseHandler.KEY_TOTE_LEVEL2, DatabaseHandler.KEY_TOTE_LEVEL3, DatabaseHandler.KEY_TOTE_LEVEL4,
             DatabaseHandler.KEY_TOTE_LEVEL5, DatabaseHandler.KEY_TOTE_LEVEL6, DatabaseHandler.KEY_CAN_LEVEL1, DatabaseHandler.KEY_CAN_LEVEL2, DatabaseHandler.KEY_CAN_LEVEL3,
             DatabaseHandler.KEY_CAN_LEVEL4, DatabaseHandler.KEY_CAN_LEVEL5, DatabaseHandler.KEY_CAN_LEVEL6, DatabaseHandler.KEY_NOODLE, DatabaseHandler.KEY_COOP};
     ArrayList<String> columnNames = new ArrayList<String>();
@@ -49,6 +49,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         columnNames.add("Number of Totes in Auto");
         columnNames.add("Number of Container Totes in Auto");
         columnNames.add("Number of Stacked Totes");
+        columnNames.add("Number of containers in center");
         columnNames.add("Tote Level 1");
         columnNames.add("Tote Level 2");
         columnNames.add("Tote Level 3");
