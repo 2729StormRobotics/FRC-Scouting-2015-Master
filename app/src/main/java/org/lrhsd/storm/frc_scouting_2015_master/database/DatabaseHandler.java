@@ -57,7 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_COOP = "coop";
     public static final String KEY_NOTES = "notes";
     // Database Version
-    private static final int DATABASE_VERSION = 8;
+    private static final int DATABASE_VERSION = 9;
     // Database Name
     private static final String DATABASE_NAME = "Team_Manager";
     // Contacts table name
@@ -340,12 +340,12 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
-        int[] dataInt = new int[1];
+        int[] dataInt = new int[18];
         ArrayList<Integer[]> teamsDataSum = new ArrayList<Integer[]>();
         if (c.moveToFirst()) {
             do {
-                Integer[] teamData = new Integer[21];
-                for (int i = 0; i < 21; i++) {
+                Integer[] teamData = new Integer[22];
+                for (int i = 0; i < 22; i++) {
                     teamData[i] = c.getInt(i);
 
                 }
@@ -353,27 +353,28 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             } while (c.moveToNext());
         }
         for(int i=0; i<teamsDataSum.size(); i++){
-            for(int t=3; t<20; t++){
+            for(int t=3; t<21; t++){
                 dataInt[t-3]=dataInt[t-3]+teamsDataSum.get(i)[t];
             }
         }
-        String[] dataString = new String[19];
-        for(int i=0;i<17;i++){
+        String[] dataString = new String[21];
+        for(int i=0;i<18;i++){
             dataString[i] = String.valueOf(dataInt[i]);
         }
         int numNo = 0;
         int numYes = 0;
         if (c.moveToFirst()) {
             do {
-               if(c.getString(20).equals("No")){
+               if(c.getString(21).equals("No")){
                    numNo++;
                }else{
                    numYes++;
                }
             } while (c.moveToNext());
         }
-        dataString[17]=String.valueOf(numNo);
-        dataString[18]=String.valueOf(numYes);
+        dataString[18]=String.valueOf(numNo);
+        dataString[19]=String.valueOf(numYes);
+        dataString[20]=c.getString(22);
         return dataString;
     }
     public ArrayList<String> getTeamMatches(){
