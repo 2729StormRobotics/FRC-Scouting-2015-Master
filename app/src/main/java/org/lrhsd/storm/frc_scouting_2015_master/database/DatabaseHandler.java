@@ -147,7 +147,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     + KEY_NUMBER_TOTES_AUTO + ", "
                     + KEY_NUMBER_CONTAINERS_AUTO + ", "
                     + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
-                    + KEY_CONTAINERS_CENTER_AUTO + ","
+                    + KEY_CONTAINERS_CENTER_AUTO + ", "
                     + KEY_TOTE_LEVEL1 + ", "
                     + KEY_TOTE_LEVEL2 + ", "
                     + KEY_TOTE_LEVEL3 + ", "
