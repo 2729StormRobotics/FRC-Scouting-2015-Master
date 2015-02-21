@@ -23,6 +23,7 @@ public class TeamData {
     int number_containers_auto = 0;
     //  boolean assisted_totes_auto = false;
     int number_totes_stacked_auto = 0;
+    int containers_center = 0;
 
 
     int toteLevel1 = 0;
@@ -41,6 +42,7 @@ public class TeamData {
 
     int noodle = 0;
     int coop = 0;
+    String notes = "";
 
 
     ArrayList<String[]> matches = new ArrayList<String[]>();
@@ -60,11 +62,27 @@ public class TeamData {
     }
 
 
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+    public int getContainers_center() {
+        return containers_center;
+    }
+
+    public void setContainers_center(int containers_center) {
+        this.containers_center = containers_center;
+    }
+
     public TeamData(int team_number, int match_number, boolean alliance_red, boolean robot_auto,
                     int number_totes_auto, int number_containers_auto,
-                    int number_totes_stacked_auto, int tote_level1, int tote_level2, int tote_level3,
+                    int number_totes_stacked_auto, int containers_center, int tote_level1, int tote_level2, int tote_level3,
                     int tote_level4, int tote_level5, int tote_level6, int can_level1, int can_level2,
-                    int can_level3, int can_level4, int can_level5, int can_level6, int noodle, int coop
+                    int can_level3, int can_level4, int can_level5, int can_level6, int noodle, int coop, String notes
     ) {
         this.team_number = team_number;
         this.match_number = match_number;
@@ -76,6 +94,8 @@ public class TeamData {
         this.number_containers_auto = number_containers_auto;
         // this.assisted_totes_auto = assisted_totes_auto;
         this.number_totes_stacked_auto = number_totes_stacked_auto;
+        this.containers_center = containers_center;
+
 
         this.toteLevel1 = tote_level1;
         this.toteLevel2 = tote_level2;
@@ -93,6 +113,7 @@ public class TeamData {
 
         this.noodle = noodle;
         this.coop = coop;
+        this.notes = notes;
 
 
     }

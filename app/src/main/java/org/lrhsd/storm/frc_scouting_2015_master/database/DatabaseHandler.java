@@ -39,7 +39,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_NUMBER_CONTAINERS_AUTO = "number_containers_auto";
     //   public static final String KEY_ASSISTED_TOTES_AUTO = "assisted_totes_auto";
     public static final String KEY_NUMBER_TOTES_STACKED_AUTO = "number_totes_stacked_auto";
-    public static final String KEY_NUMBER_CAN_CENTER = "number_cans_center";
+    public static final String KEY_CONTAINERS_CENTER_AUTO = "containers_center_auto";
     public static final String KEY_TOTE_LEVEL1 = "tote_level1";
     //telop
     public static final String KEY_TOTE_LEVEL2 = "tote_level2";
@@ -55,7 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_CAN_LEVEL6 = "can_level6";
     public static final String KEY_NOODLE = "noodle";
     public static final String KEY_COOP = "coop";
-    public static final String KEY_NOTES = "Notes";
+    public static final String KEY_NOTES = "notes";
     // Database Version
     private static final int DATABASE_VERSION = 8;
     // Database Name
@@ -97,7 +97,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_NUMBER_TOTES_AUTO + " INTEGER,"
                 + KEY_NUMBER_CONTAINERS_AUTO + " INTEGER,"
                 + KEY_NUMBER_TOTES_STACKED_AUTO + " INTEGER,"
-                + KEY_NUMBER_CAN_CENTER + " INTEGER,"
+                + KEY_CONTAINERS_CENTER_AUTO + " INTEGER,"
                 + KEY_TOTE_LEVEL1 + " INTEGER,"
                 + KEY_TOTE_LEVEL2 + " INTEGER,"
                 + KEY_TOTE_LEVEL3 + " INTEGER,"
@@ -147,6 +147,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     + KEY_NUMBER_TOTES_AUTO + ", "
                     + KEY_NUMBER_CONTAINERS_AUTO + ", "
                     + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
+                    + KEY_CONTAINERS_CENTER_AUTO + ","
                     + KEY_TOTE_LEVEL1 + ", "
                     + KEY_TOTE_LEVEL2 + ", "
                     + KEY_TOTE_LEVEL3 + ", "
@@ -160,7 +161,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     + KEY_CAN_LEVEL5 + ", "
                     + KEY_CAN_LEVEL6 + ", "
                     + KEY_NOODLE + ", "
-                    + KEY_COOP +
+                    + KEY_COOP +   ", "
+                    + KEY_NOTES +
                     ") values(";
             String str2 = ");";
             while ((line = buffer.readLine()) != null) {
@@ -186,7 +188,9 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 sb.append(str[17] + ",");
                 sb.append(str[18] + ",");
                 sb.append(str[19] + ",");
-                sb.append(str[20]);
+                sb.append(str[20] + ",");
+                sb.append(str[21] + ",");
+                sb.append(str[22]);
                 sb.append(str2);
                 Log.d("sb", sb.toString());
                 db.execSQL(sb.toString());
@@ -244,6 +248,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 teamData.add(18, ((cursor.getString(18))));
                 teamData.add(19, ((cursor.getString(19))));
                 teamData.add(20, ((cursor.getString(20))));
+                teamData.add(21, ((cursor.getString(21))));
+                teamData.add(22, ((cursor.getString(22))));
 
                 teamDataList.add(teamData);
             } while (cursor.moveToNext());
@@ -315,8 +321,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
-                String[] teamData = new String[21];
-                for (int i = 0; i < 21; i++) {
+                String[] teamData = new String[23];
+                for (int i = 0; i < 23; i++) {
                     teamData[i] = c.getString(i);
 
                 }
@@ -334,7 +340,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
-        int[] dataInt = new int[17];
+        int[] dataInt = new int[1];
         ArrayList<Integer[]> teamsDataSum = new ArrayList<Integer[]>();
         if (c.moveToFirst()) {
             do {
@@ -391,7 +397,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
         TeamData team = new TeamData(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2) > 0, cursor.getInt(3) > 0, cursor.getInt(4), cursor.getInt(5), cursor.getInt(6),
                 cursor.getInt(7), cursor.getInt(8), cursor.getInt(9), cursor.getInt(10), cursor.getInt(11), cursor.getInt(12), cursor.getInt(13),
-                cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20));
+                cursor.getInt(14), cursor.getInt(15), cursor.getInt(16), cursor.getInt(17), cursor.getInt(18), cursor.getInt(19), cursor.getInt(20), cursor.getInt(21), cursor.getString(22));
         return team;
     }
 
