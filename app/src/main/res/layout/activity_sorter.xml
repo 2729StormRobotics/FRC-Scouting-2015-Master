@@ -6,24 +6,24 @@
     android:padding="15dp"
     tools:context="org.lrhsd.storm.frc_scouting_2015_master.SorterActivity">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="200dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:background="#000" />
-
     <GridView
         android:id="@+id/list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/spinner"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
         android:background="@android:color/black"
-        android:numColumns="1" />
+        android:numColumns="1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/search" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#000" />
 
     <EditText
         android:id="@+id/search"
@@ -31,12 +31,23 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="Search Team #"
-        android:inputType="textPersonName"
-        android:layout_alignTop="@+id/list"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
         android:textColor="#ffffffff"
-        android:textColorHint="#ffffff"/>
+        android:textColorHint="#ffffff"
+        android:inputType="text"
+        android:digits="0,1,2,3,4,5,6,7,8,9"
+        android:layout_below="@+id/spinner"
+        android:layout_alignRight="@+id/list"
+        android:layout_alignEnd="@+id/list" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Enter"
+        android:id="@+id/searchEnter"
+        android:layout_below="@+id/spinner"
+        android:layout_toLeftOf="@+id/search"
+        android:onClick="enter"
+        android:nestedScrollingEnabled="false" />
 
 
 </RelativeLayout>

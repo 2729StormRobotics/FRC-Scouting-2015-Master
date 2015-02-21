@@ -5,17 +5,17 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
+
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
 import org.lrhsd.storm.frc_scouting_2015_master.adapters.CustomArrayAdapter;
+import org.lrhsd.storm.frc_scouting_2015_master.adapters.CustomCursorAdapter;
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 
 import java.util.ArrayList;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import de.greenrobot.event.EventBus;
 
 
-public class SorterActivity extends Activity implements AdapterView.OnItemSelectedListener {
+public class SorterActivity extends Activity implements AdapterView.OnItemSelectedListener{
     String columnName = "";
     //String array for SimpleCursorAdapter parameters.  Used to obtain the columns of the database to get the data to populate with
     String[] fromColumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
@@ -37,15 +37,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         this.columnNames = columnNames;
     }
 
-    //Integer array for SimpleCursorAdapter parameters.  Used to direct what views get what data
-    int[] toview = new int[]{R.id.team, R.id.match, R.id.alliance, R.id.robot_auto, R.id.totes_auto, R.id.container_auto, R.id.stack_auto, R.id.tote_one, R.id.tote_two, R.id.tote_three, R.id.tote_four, R.id.tote_five,
-            R.id.tote_six, R.id.cont_one, R.id.cont_two, R.id.cont_three, R.id.cont_four, R.id.cont_five, R.id.cont_six, R.id.noodle, R.id.coop};
-    //Cursor to hold database query results
-    Cursor cursor;
-    //To sort the listviews properly
-    Spinner spinner;
-    //Listview to populate
-    ListView view;
+    EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,29 +65,26 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         columnNames.add("Coop");
 
         setContentView(R.layout.activity_sorter);
-        spinner = (Spinner) findViewById(R.id.spinner);
-        CustomArrayAdapter<CharSequence> spin_adapt = new CustomArrayAdapter (this, columnNames);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        CustomArrayAdapter<CharSequence> spin_adapt = new CustomArrayAdapter (getApplicationContext(), columnNames);
         spinner.setAdapter(spin_adapt);
         spinner.setOnItemSelectedListener(this);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        final EditText search = (EditText) findViewById(R.id.search);
-        search.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
+        search = (EditText) findViewById(R.id.search);
 
-                if (keyCode == KeyEvent.KEYCODE_ENTER) {
-                    String team = search.getText().toString();
-                    if (DatabaseHandler.getInstance(getApplicationContext()).checkIfTeamIsInDatabase(team)) {
-                        EventBus.getDefault().postSticky(team);
-                        Intent intent = new Intent(getApplicationContext(), TeamReportActivity.class);
-                        startActivity(intent);
-                    }
-                }
-                return true;
-            }
-        });
     }
+
+    public void enter(View v){
+        String team = search.getText().toString();
+        if (DatabaseHandler.getInstance(getApplicationContext()).checkIfTeamIsInDatabase(team)) {
+            EventBus.getDefault().postSticky(team);
+            Intent intent = new Intent(getApplicationContext(), TeamReportActivity.class);
+            startActivity(intent);
+        }
+    }
+
+
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -110,12 +99,8 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     }
 
     public void sort(View v) {
-        Log.d("ColumnName", columnName);
-
-        Log.d("ColumnName2", columnName);
         CustomCursorAdapter adapt = new CustomCursorAdapter(this, DatabaseHandler.getInstance(this).getSortedTeamData(columnName), 0, columnName, R.layout.database_list_layout);
 
-        //view.setAdapter(adapt);
         GridView listView = (GridView) findViewById(R.id.list);
 
         listView.setAdapter(adapt);
