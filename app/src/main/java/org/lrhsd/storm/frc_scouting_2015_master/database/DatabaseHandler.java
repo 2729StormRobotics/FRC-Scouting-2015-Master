@@ -97,7 +97,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_NUMBER_TOTES_AUTO + " INTEGER,"
                 + KEY_NUMBER_CONTAINERS_AUTO + " INTEGER,"
                 + KEY_NUMBER_TOTES_STACKED_AUTO + " INTEGER,"
-                + KEY_NUMBER_CANS_CENTER + " INTEGER,"
+                + KEY_NUMBER_CAN_CENTER + " INTEGER,"
                 + KEY_TOTE_LEVEL1 + " INTEGER,"
                 + KEY_TOTE_LEVEL2 + " INTEGER,"
                 + KEY_TOTE_LEVEL3 + " INTEGER,"
@@ -112,7 +112,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_CAN_LEVEL6 + " INTEGER,"
                 + KEY_NOODLE + " INTEGER,"
                 + KEY_COOP + " INTEGER,"
-                + KEY_NOTES + " VARCHAR"
+                + KEY_NOTES + " TEXT"
                 + ")";
         db.execSQL(CREATE_TEAM);
     }
