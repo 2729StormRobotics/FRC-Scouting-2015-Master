@@ -38,6 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_NUMBER_CONTAINERS_AUTO = "number_containers_auto";
     //   public static final String KEY_ASSISTED_TOTES_AUTO = "assisted_totes_auto";
     public static final String KEY_NUMBER_TOTES_STACKED_AUTO = "number_totes_stacked_auto";
+    public static final String KEY_NUMBER_CAN_CENTER = "number_cans_center";
     public static final String KEY_TOTE_LEVEL1 = "tote_level1";
     //telop
     public static final String KEY_TOTE_LEVEL2 = "tote_level2";
@@ -53,8 +54,9 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_CAN_LEVEL6 = "can_level6";
     public static final String KEY_NOODLE = "noodle";
     public static final String KEY_COOP = "coop";
+    public static final String KEY_NOTES = "Notes";
     // Database Version
-    private static final int DATABASE_VERSION = 7;
+    private static final int DATABASE_VERSION = 8;
     // Database Name
     private static final String DATABASE_NAME = "Team_Manager";
     // Contacts table name
@@ -94,6 +96,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_NUMBER_TOTES_AUTO + " INTEGER,"
                 + KEY_NUMBER_CONTAINERS_AUTO + " INTEGER,"
                 + KEY_NUMBER_TOTES_STACKED_AUTO + " INTEGER,"
+                + KEY_NUMBER_CANS_CENTER + " INTEGER,"
                 + KEY_TOTE_LEVEL1 + " INTEGER,"
                 + KEY_TOTE_LEVEL2 + " INTEGER,"
                 + KEY_TOTE_LEVEL3 + " INTEGER,"
@@ -107,7 +110,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_CAN_LEVEL5 + " INTEGER,"
                 + KEY_CAN_LEVEL6 + " INTEGER,"
                 + KEY_NOODLE + " INTEGER,"
-                + KEY_COOP + " INTEGER"
+                + KEY_COOP + " INTEGER,"
+                + KEY_NOTES + " VARCHAR"
                 + ")";
         db.execSQL(CREATE_TEAM);
     }
