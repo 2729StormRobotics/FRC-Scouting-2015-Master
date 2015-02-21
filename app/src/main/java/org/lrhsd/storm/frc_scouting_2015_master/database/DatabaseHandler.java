@@ -321,8 +321,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
-                String[] teamData = new String[21];
-                for (int i = 0; i < 21; i++) {
+                String[] teamData = new String[23];
+                for (int i = 0; i < 23; i++) {
                     teamData[i] = c.getString(i);
 
                 }
@@ -340,7 +340,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
-        int[] dataInt = new int[17];
+        int[] dataInt = new int[1];
         ArrayList<Integer[]> teamsDataSum = new ArrayList<Integer[]>();
         if (c.moveToFirst()) {
             do {
