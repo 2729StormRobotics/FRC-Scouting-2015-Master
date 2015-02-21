@@ -57,166 +57,176 @@
         android:id="@+id/column_tote_level_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_number_totes_stacked_auto"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_Containers_Center"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:id="@+id/column_tote_level_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_tote_level_1"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_tote_level_1"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_tote_level_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_tote_level_2"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_tote_level_2"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_tote_level_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_tote_level_3"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_tote_level_3"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_tote_level_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_tote_level_4"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_tote_level_4"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_tote_level_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_tote_level_5"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_tote_level_5"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_can_level_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_tote_level_6"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_tote_level_6"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_can_level_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_can_level_1"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_can_level_1"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_can_level_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_can_level_2"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_can_level_2"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_can_level_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_can_level_3"
-        android:layout_marginRight="25dp"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_can_level_3"
+        android:layout_alignParentLeft="true" />
 
 
     <TextView
         android:id="@+id/column_can_level_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_can_level_4"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_can_level_4"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_can_level_6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_can_level_5"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_can_level_5"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_noodle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_can_level_6"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_can_level_6"
+        android:layout_alignParentLeft="true" />
 
     <TextView
         android:id="@+id/column_coop"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_noodle"
         android:text="Small Text"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:textColor="#ffffffff" />
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/column_noodle"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/RobotInfo"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/column_coop"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/column_Containers_Center"
+        android:layout_below="@+id/column_number_totes_stacked_auto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>
