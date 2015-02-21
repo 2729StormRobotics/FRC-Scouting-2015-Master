@@ -74,7 +74,7 @@ public class Parser {
             File file = new File(dir, "match_data.csv");
             CSVWriter writer;
             if (!file.exists()) {
-                String[] columns = new String[21];
+                String[] columns = new String[23];
                 columns[0] = "Team Number";
                 columns[1] = "Match Number";
                 columns[2] = "Alliance";
@@ -82,20 +82,22 @@ public class Parser {
                 columns[4] = "Number of Totes in Auto Zone";
                 columns[5] = "Number of Containers in Auto Zone";
                 columns[6] = "Number of Stack Totes in Auto Zone";
-                columns[7] = "Tote Level 1";
-                columns[8] = "Tote Level 2";
-                columns[9] = "Tote Level 3";
-                columns[10] = "Tote Level 4";
-                columns[11] = "Tote Level 5";
-                columns[12] = "Tote Level 6";
-                columns[13] = "Can Level 1";
-                columns[14] = "Can Level 2";
-                columns[15] = "Can Level 3";
-                columns[16] = "Can Level 4";
-                columns[17] = "Can Level 5";
-                columns[18] = "Can Level 6";
-                columns[19] = "Number of Noodles";
-                columns[20] = "Coopertition";
+                columns[7] = "Containers from Center";
+                columns[8] = "Tote Level 1";
+                columns[9] = "Tote Level 2";
+                columns[10] = "Tote Level 3";
+                columns[11] = "Tote Level 4";
+                columns[12] = "Tote Level 5";
+                columns[13] = "Tote Level 6";
+                columns[14] = "Can Level 1";
+                columns[15] = "Can Level 2";
+                columns[16] = "Can Level 3";
+                columns[17] = "Can Level 4";
+                columns[18] = "Can Level 5";
+                columns[19] = "Can Level 6";
+                columns[20] = "Number of Noodles";
+                columns[21] = "Coopertition";
+                columns[22] = "Notes";
                 matches.add(0, columns);
             }
             writer = new CSVWriter(new FileWriter(file, true), ',');

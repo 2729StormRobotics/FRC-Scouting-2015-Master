@@ -57,7 +57,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_COOP = "coop";
     public static final String KEY_NOTES = "notes";
     // Database Version
-    private static final int DATABASE_VERSION = 9;
+    private static final int DATABASE_VERSION = 1;
     // Database Name
     private static final String DATABASE_NAME = "Team_Manager";
     // Contacts table name
@@ -115,6 +115,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_NOTES + " TEXT"
                 + ")";
         db.execSQL(CREATE_TEAM);
+       // Log.d("Number of Rows",getNumRows()+"");
     }
 
     // Upgrading database
@@ -189,6 +190,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 sb.append(str[18] + ",");
                 sb.append(str[19] + ",");
                 sb.append(str[20] + ",");
+                Log.d("str20",str[20]);
                 sb.append(str[21] + ",");
                 sb.append(str[22]);
                 sb.append(str2);
@@ -326,6 +328,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     teamData[i] = c.getString(i);
 
                 }
+                Log.d("teamData21",teamData[21]);
+                Log.d("teamData22",teamData[22]);
                 teamsData.add(teamData);
 
             } while (c.moveToNext());
@@ -340,12 +344,13 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
-        int[] dataInt = new int[18];
+        //Log.d("Cursor",c+"");
+        int[] dataInt = new int[19];
         ArrayList<Integer[]> teamsDataSum = new ArrayList<Integer[]>();
         if (c.moveToFirst()) {
             do {
-                Integer[] teamData = new Integer[22];
-                for (int i = 0; i < 22; i++) {
+                Integer[] teamData = new Integer[23];
+                for (int i = 0; i < 23; i++) {
                     teamData[i] = c.getInt(i);
 
                 }
@@ -353,8 +358,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             } while (c.moveToNext());
         }
         for(int i=0; i<teamsDataSum.size(); i++){
-            for(int t=3; t<21; t++){
-                dataInt[t-3]=dataInt[t-3]+teamsDataSum.get(i)[t];
+            for(int t=4; t<22; t++){
+                dataInt[t-4]=dataInt[t-4]+teamsDataSum.get(i)[t];
             }
         }
         String[] dataString = new String[21];
@@ -374,7 +379,13 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         }
         dataString[18]=String.valueOf(numNo);
         dataString[19]=String.valueOf(numYes);
-        dataString[20]=c.getString(22);
+        String notes = "";
+        if (c.moveToFirst()) {
+            do {
+                notes=notes+c.getString(22)+"\n";
+            } while (c.moveToNext());
+        }
+        dataString[20]=notes;
         return dataString;
     }
     public ArrayList<String> getTeamMatches(){

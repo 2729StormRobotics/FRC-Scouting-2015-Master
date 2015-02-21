@@ -54,6 +54,17 @@
         android:textColor="#ffffffff" />
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Center Containers"
+        android:id="@+id/column_Containers_Center"
+        android:layout_below="@+id/column_number_totes_stacked_auto"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="#ffffffff" />
+
+    <TextView
         android:id="@+id/column_tote_level_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -216,17 +227,8 @@
         android:id="@+id/RobotInfo"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/column_coop"
-        android:layout_alignParentLeft="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Small Text"
-        android:id="@+id/column_Containers_Center"
-        android:layout_below="@+id/column_number_totes_stacked_auto"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textColor="#ffffffff" />
 
 
 </RelativeLayout>
