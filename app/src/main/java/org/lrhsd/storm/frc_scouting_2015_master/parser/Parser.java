@@ -49,10 +49,10 @@ public class Parser {
             } else {
                 tempArray[3] = "No";
             }
-            if (tempArray[20].equals("1")) {
-                tempArray[20] = "Yes";
+            if (tempArray[21].equals("1")) {
+                tempArray[21] = "Yes";
             } else {
-                tempArray[20] = "No";
+                tempArray[21] = "No";
             }
             matches.add(i, tempArray);
             //Log.d("arrayList" + i,matches.get(i)[0]);
@@ -79,9 +79,9 @@ public class Parser {
                 columns[1] = "Match Number";
                 columns[2] = "Alliance";
                 columns[3] = "Robot in Auto Zone";
-                columns[4] = "Number of Totes in Auto Zone";
-                columns[5] = "Number of Containers in Auto Zone";
-                columns[6] = "Number of Stack Totes in Auto Zone";
+                columns[4] = "Totes in Auto";
+                columns[5] = "Containers in Auto";
+                columns[6] = "Stack Totes in Auto";
                 columns[7] = "Containers from Center";
                 columns[8] = "Tote Level 1";
                 columns[9] = "Tote Level 2";

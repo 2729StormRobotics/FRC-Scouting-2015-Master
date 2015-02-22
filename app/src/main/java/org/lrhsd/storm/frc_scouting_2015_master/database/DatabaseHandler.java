@@ -194,7 +194,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 sb.append(str[21] + ",");
                 sb.append(str[22]);
                 sb.append(str2);
-                Log.d("sb", sb.toString());
+                //Log.d("sb", sb.toString());
                 db.execSQL(sb.toString());
             }
             db.setTransactionSuccessful();
@@ -277,7 +277,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         //gets sorted data by a column name
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if (columnName.equals(KEY_COOP) || columnName.equals(KEY_ALLIANCE)) {
+        if (columnName.equals(KEY_ALLIANCE)||columnName.equals(KEY_ROBOT_AUTO)||columnName.equals(KEY_COOP)) {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC";
         } else {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC";
