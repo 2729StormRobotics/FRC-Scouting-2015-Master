@@ -277,7 +277,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         //gets sorted data by a column name
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if (columnName.equals(KEY_ALLIANCE)||columnName.equals(KEY_ROBOT_AUTO)||columnName.equals(KEY_COOP)) {
+        if (columnName.equals(KEY_ALLIANCE)||columnName.equals(KEY_ROBOT_AUTO)||columnName.equals(KEY_COOP)||columnName.equals(KEY_ROBOT_AUTO)) {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC";
         } else {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC";
