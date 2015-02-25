@@ -340,7 +340,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         EventBus.getDefault().postSticky(teamsData);
         return teamsData;
     }
-    public String[] getOneTeamsDataSummary(String teamNumber){
+    public String[] getOneTeamsDataSummary(String teamNumber) {
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
@@ -357,38 +357,53 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 teamsDataSum.add(teamData);
             } while (c.moveToNext());
         }
-        for(int i=0; i<teamsDataSum.size(); i++){
-            for(int t=4; t<22; t++){
-                dataInt[t-4]=dataInt[t-4]+teamsDataSum.get(i)[t];
+        for (int i = 0; i < teamsDataSum.size(); i++) {
+            for (int t = 5; t < 22; t++) {
+                dataInt[t - 4] = dataInt[t - 4] + teamsDataSum.get(i)[t];
             }
         }
         String[] dataString = new String[21];
-        for(int i=0;i<18;i++){
+        for (int i = 1; i < 18; i++) {
             dataString[i] = String.valueOf(dataInt[i]);
         }
         int numNo = 0;
         int numYes = 0;
+        int robotNumYes = 0;
+        int robotNumNo = 0;
         if (c.moveToFirst()) {
             do {
-               if(c.getString(21).equals("No")){
-                   numNo++;
-               }else{
-                   numYes++;
-               }
+                if (c.getString(3).equals("No")) {
+                    robotNumNo++;
+                } else {
+                    robotNumYes++;
+                }
             } while (c.moveToNext());
+            if (c.moveToFirst()) {
+                do {
+                    if (c.getString(21).equals("No")) {
+                        numNo++;
+                    } else {
+                        numYes++;
+                    }
+                } while (c.moveToNext());
+            }
+            dataString[0] = "Yes: " + String.valueOf(robotNumYes) + " No: " + String.valueOf(robotNumNo);
+            dataString[18] = String.valueOf(numNo);
+            dataString[19] = String.valueOf(numYes);
+            String notes = "";
+            if (c.moveToFirst()) {
+                do {
+                    notes = notes + c.getString(22) + "\n";
+                } while (c.moveToNext());
+            }
+            dataString[20] = notes;
+
         }
-        dataString[18]=String.valueOf(numNo);
-        dataString[19]=String.valueOf(numYes);
-        String notes = "";
-        if (c.moveToFirst()) {
-            do {
-                notes=notes+c.getString(22)+"\n";
-            } while (c.moveToNext());
-        }
-        dataString[20]=notes;
+
         return dataString;
     }
-    public ArrayList<String> getTeamMatches(){
+
+        public ArrayList<String> getTeamMatches(){
         ArrayList<String> teamMatches = new ArrayList<String>();
         for (int i = 0; i < teamsData.size(); i++) {
             teamMatches.add(i,"Match: "+teamsData.get(i)[1]);
