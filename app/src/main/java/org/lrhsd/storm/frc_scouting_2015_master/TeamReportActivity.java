@@ -89,7 +89,7 @@ public class TeamReportActivity extends ActionBarActivity implements AdapterView
         }else if(matchNum==-2) {
             String[] teamDataSum;
             team.setMatches(_teamsData);
-            teamDataSum = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsDataAverage(teamNum);
+            teamDataSum = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsDataAverage(teamNum,team);
             team.teamReportSum(teamNum, view, this, teamDataSum);
         }else{
             team.setMatches(_teamsData);

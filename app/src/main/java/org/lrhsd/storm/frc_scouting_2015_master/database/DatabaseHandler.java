@@ -404,15 +404,15 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         return dataString;
     }
 
-    public String[] getOneTeamsAverageDataSummary(String teamNumber, TeamData teamData) {
+    public String[] getOneTeamsDataAverage(String teamNumber, TeamData teamData) {
 
       String[] dataString = getOneTeamsDataSummary(teamNumber);
 
-        int[] dataInt = new int[22];
+        double[] dataDouble = new double[22];
 
-        for(int i = 0; i < dataString.length; i ++){
-            dataInt[i] = Integer.parseInt(dataString[i]) / teamData.getMatches().size();
-            dataString[i] = String.valueOf(dataInt[i]);
+        for(int i = 0; i < dataString.length-1; i ++){
+            dataDouble[i] = Integer.parseInt(dataString[i]) / (double)teamData.getMatches().size();
+            dataString[i] = String.format("%.3f",dataDouble[i]);
         }
        return  dataString;
     }
@@ -423,7 +423,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             teamMatches.add(i,"Match: "+teamsData.get(i)[1]);
         }
         teamMatches.add(teamMatches.size(),"Summary");
-            teamMatches.add(getTeamMatches().size(),"Average");
+        teamMatches.add(teamMatches.size(),"Average");
         return teamMatches;
     }
 
