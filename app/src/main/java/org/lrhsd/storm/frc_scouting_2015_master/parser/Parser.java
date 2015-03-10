@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Environment;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.opencsv.CSVWriter;
@@ -54,6 +55,9 @@ public class Parser {
             } else {
                 tempArray[21] = "No";
             }
+           /* if (tempArray[22].equals("")){
+                tempArray[22] = "No Notes";
+            }*/
             matches.add(i, tempArray);
             //Log.d("arrayList" + i,matches.get(i)[0]);
             i++;
@@ -97,6 +101,7 @@ public class Parser {
                 columns[19] = "Can Level 6";
                 columns[20] = "Number of Noodles";
                 columns[21] = "Coopertition";
+                //Log.d("Column22",columns[22]);
                 columns[22] = "Notes";
                 matches.add(0, columns);
             }

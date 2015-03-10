@@ -165,7 +165,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     + KEY_COOP +   ", "
                     + KEY_NOTES +
                     ") values(";
-            String str2 = ");";
+            String str2 = " );";
             while ((line = buffer.readLine()) != null) {
                 StringBuilder sb = new StringBuilder(str1);
                 String[] str = line.split(",");
@@ -190,7 +190,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 sb.append(str[18] + ",");
                 sb.append(str[19] + ",");
                 sb.append(str[20] + ",");
-                Log.d("str20",str[20]);
+                Log.d("str20",str[22]);
                 sb.append(str[21] + ",");
                 sb.append(str[22]);
                 sb.append(str2);
@@ -362,8 +362,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 dataInt[t - 4] = dataInt[t - 4] + teamsDataSum.get(i)[t];
             }
         }
-        String[] dataString = new String[21];
-        for (int i = 1; i < 18; i++) {
+        String[] dataString = new String[22];
+        for (int i = 2; i < 19; i++) {
             dataString[i] = String.valueOf(dataInt[i]);
         }
         int numNo = 0;
@@ -387,16 +387,17 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     }
                 } while (c.moveToNext());
             }
-            dataString[0] = "Yes: " + String.valueOf(robotNumYes) + " No: " + String.valueOf(robotNumNo);
-            dataString[18] = String.valueOf(numNo);
-            dataString[19] = String.valueOf(numYes);
+            dataString[0] = String.valueOf(robotNumNo);
+            dataString[1] = String.valueOf(robotNumYes);
+            dataString[19] = String.valueOf(numNo);
+            dataString[20] = String.valueOf(numYes);
             String notes = "";
             if (c.moveToFirst()) {
                 do {
                     notes = notes + c.getString(22) + "\n";
                 } while (c.moveToNext());
             }
-            dataString[20] = notes;
+            dataString[21] = notes;
 
         }
 
@@ -409,6 +410,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             teamMatches.add(i,"Match: "+teamsData.get(i)[1]);
         }
         teamMatches.add(teamMatches.size(),"Summary");
+            teamMatches.add(getTeamMatches().size(),"Average");
         return teamMatches;
     }
 

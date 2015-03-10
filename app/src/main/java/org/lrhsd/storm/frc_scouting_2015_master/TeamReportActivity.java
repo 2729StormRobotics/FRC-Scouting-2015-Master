@@ -58,9 +58,14 @@ public class TeamReportActivity extends ActionBarActivity implements AdapterView
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         //Log.d("TeamMatches.get",_teamMatches.get((int)parent.getItemIdAtPosition(position)));
         matchNum = _teamMatches.get((int) parent.getItemIdAtPosition(position));
-        if(matchNum.equals("Summary")){
+        if(matchNum.equals("Summary")) {
             scroll.removeAllViews();
-            addToScrollView(teamData, _team,-1);
+            addToScrollView(teamData, _team, -1);
+        }else if(matchNum.equals("Average")){
+
+            scroll.removeAllViews();
+            addToScrollView(teamData, _team, -2);
+
         }else{
             scroll.removeAllViews();
             addToScrollView(teamData, _team, _teamMatches.indexOf(matchNum));
@@ -77,9 +82,14 @@ public class TeamReportActivity extends ActionBarActivity implements AdapterView
         Log.d("teamNum",teamNum);
 
         View view = LayoutInflater.from(this).inflate(R.layout.team_report_data_layout, null);
-        if(matchNum<0){
+        if(matchNum==-1){
             String[] teamDataSum;
             teamDataSum = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsDataSummary(teamNum);
+            team.teamReportSum(teamNum, view, this, teamDataSum);
+        }else if(matchNum==-2) {
+            String[] teamDataSum;
+            team.setMatches(_teamsData);
+            teamDataSum = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsDataAverage(teamNum);
             team.teamReportSum(teamNum, view, this, teamDataSum);
         }else{
             team.setMatches(_teamsData);
