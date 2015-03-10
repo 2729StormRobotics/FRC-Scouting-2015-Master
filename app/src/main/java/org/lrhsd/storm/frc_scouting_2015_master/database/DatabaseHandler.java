@@ -403,6 +403,19 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         return dataString;
     }
 
+    public String[] getOneTeamsAverageDataSummary(String teamNumber, TeamData teamData) {
+
+      String[] dataString = getOneTeamsDataSummary(teamNumber);
+
+        int[] dataInt = new int[22];
+
+        for(int i = 0; i < dataString.length; i ++){
+            dataInt[i] = Integer.parseInt(dataString[i]) / teamData.getMatches().size();
+            dataString[i] = String.valueOf(dataInt[i]);
+        }
+       return  dataString;
+    }
+
         public ArrayList<String> getTeamMatches(){
         ArrayList<String> teamMatches = new ArrayList<String>();
         for (int i = 0; i < teamsData.size(); i++) {
