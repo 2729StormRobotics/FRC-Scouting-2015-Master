@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="org.lrhsd.storm.frc_scouting_2015_master" >
+    package="org.lrhsd.storm.frc_scouting_2015_master">
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -10,13 +10,13 @@
         android:allowBackup="true"
         android:icon="@drawable/logo_2"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".scanner.ScannerActivity"
             android:label="@string/title_activity_scanner" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,8 +25,10 @@
         </activity>
         <activity
             android:name=".SorterActivity"
-            android:label="@string/title_activity_sorter" >
-        </activity>
+            android:label="@string/title_activity_sorter" />
+        <activity
+            android:name=".TeamReportActivity"
+            android:label="@string/title_activity_team_report"></activity>
     </application>
 
 </manifest>

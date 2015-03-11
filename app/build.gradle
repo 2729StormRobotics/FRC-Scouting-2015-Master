@@ -24,4 +24,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'me.dm7.barcodescanner:zbar:1.6'
     compile 'com.opencsv:opencsv:3.1'
+    compile files('src/eventbus-2.4.0.jar')
 }

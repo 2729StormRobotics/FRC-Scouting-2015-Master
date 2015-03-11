@@ -21,6 +21,7 @@
     <string name="clear">Clear Database</string>
     <string name="title_activity_scanner">ScannerActivity</string>
     <string name="title_activity_sorter">SorterActivity</string>
+
     <string-array name="choices">
         <item>Team Number</item>
         <item>Match #</item>
@@ -29,6 +30,7 @@
         <item>Number of totes in Auto</item>
         <item>Number of containers in auto</item>
         <item>Number of stacked totes in Auto</item>
+        <item>Number of containers in center</item>
         <item>Tote level 1</item>
         <item>Tote level 2</item>
         <item>Tote level 3</item>
@@ -44,6 +46,11 @@
         <item>Noodle</item>
         <item>Co-opertition</item>
     </string-array>
+
     <string name="sort">Sort</string>
+    <string name="title_activity_team_report">TeamReportActivity</string>
+
+    <string name="website">www.stormroboticsnj.org</string>
+    <string name="twitter">twitter.com/stormroboticsnj</string>
 
 </resources>

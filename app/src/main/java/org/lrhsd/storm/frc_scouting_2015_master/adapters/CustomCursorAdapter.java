@@ -1,4 +1,4 @@
-package org.lrhsd.storm.frc_scouting_2015_master;
+package org.lrhsd.storm.frc_scouting_2015_master.adapters;
 
 
 import android.content.Context;
@@ -9,12 +9,16 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+import org.lrhsd.storm.frc_scouting_2015_master.R;
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+
+import java.util.HashMap;
 
 public class CustomCursorAdapter extends CursorAdapter {
     private LayoutInflater cursorInflater;
     private String _columnName;
     private int _layout;
+    private HashMap map;
 
     public CustomCursorAdapter(Context context, Cursor cursor, int flags, String column_Name, int layout) {
         super(context, cursor, flags);
@@ -26,7 +30,13 @@ public class CustomCursorAdapter extends CursorAdapter {
 
     public void bindView(View view, Context context, Cursor cursor) {
         String teamNum = cursor.getString(cursor.getColumnIndex(DatabaseHandler.KEY_TEAM_NUMBER));
-        String sortColumn = cursor.getString(cursor.getColumnIndex(_columnName));
+        String sortColumn;
+        /*if(cursor.getColumnIndex(_columnName)<7&&cursor.getColumnIndex(_columnName)>5){
+            sortColumn = (String) map.get(cursor.getString(cursor.getColumnIndex(_columnName)));
+        }else{*/
+            sortColumn = cursor.getString(cursor.getColumnIndex(_columnName));
+        //}
+
         TextView textTeamNum = (TextView) view.findViewById(R.id.TeamNum);
         TextView textSortColumn = (TextView) view.findViewById(R.id.SortColumn);
         textTeamNum.setText(teamNum);

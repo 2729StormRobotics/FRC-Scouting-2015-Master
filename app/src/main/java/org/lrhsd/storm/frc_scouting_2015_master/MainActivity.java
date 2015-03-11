@@ -12,7 +12,6 @@ import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
 public class MainActivity extends FragmentActivity {
 
 
-
     //Handle pop-ups
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    public void analyze(View view){
+    public void analyze(View view) {
         clearDatabase();
         DatabaseHandler db = DatabaseHandler.getInstance(this);
         db.addTeamData();
@@ -40,7 +39,7 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    public void clearDatabase(){
+    public void clearDatabase() {
         DatabaseHandler.getInstance(getApplicationContext()).clearTable();
     }
 
