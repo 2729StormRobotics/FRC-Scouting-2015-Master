@@ -120,7 +120,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     }
 
     public void addTeamData(List<String[]> matches) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        Log.d("bitch got called", matches.get(0)[0]);
+            SQLiteDatabase db = this.getWritableDatabase();
 
             String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
                     KEY_TEAM_NUMBER + ", "
@@ -149,7 +150,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     ") values(";
             String str2 = " );";
 
-            for(int i = 0; i < matches.size() - 1;i++){
+            for(int i = 0; i < matches.size();i++){
                 StringBuilder sb = new StringBuilder(str1);
                 sb.append(matches.get(i)[0] + ",");
                 sb.append(matches.get(i)[1] + ",");
@@ -173,13 +174,11 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 sb.append(matches.get(i)[19] + ",");
                 sb.append(matches.get(i)[20] + ",");
                 sb.append(matches.get(i)[21] + ",");
-                sb.append(matches.get(i)[22]);
+                sb.append("'"+matches.get(i)[22]+"'");
                 sb.append(str2);
+                //Log.d("SQL",sb.toString());
                 db.execSQL(sb.toString());
             }
-
-
-
 
     }
 

@@ -3,6 +3,7 @@ package org.lrhsd.storm.frc_scouting_2015_master.parser;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Toast;
 
 import org.lrhsd.storm.frc_scouting_2015_master.MainActivity;
@@ -37,7 +38,7 @@ public class Parser {
             String temp = input.substring(0, input.indexOf(":"));
             input = input.substring(input.indexOf(":") + 1);
             String tempArray[] = temp.split(",");
-            if (tempArray[2].equals("1")) {
+          /*  if (tempArray[2].equals("1")) {
                 tempArray[2] = "Red";
             } else {
                 tempArray[2] = "Blue";
@@ -51,7 +52,7 @@ public class Parser {
                 tempArray[21] = "Yes";
             } else {
                 tempArray[21] = "No";
-            }
+            }*/
            /* if (tempArray[22].equals("")){
                 tempArray[22] = "No Notes";
             }*/
