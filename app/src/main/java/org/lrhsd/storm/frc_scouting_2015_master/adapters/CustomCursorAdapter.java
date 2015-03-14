@@ -12,6 +12,7 @@ import android.widget.TextView;
 import org.lrhsd.storm.frc_scouting_2015_master.R;
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CustomCursorAdapter extends CursorAdapter {
@@ -26,6 +27,7 @@ public class CustomCursorAdapter extends CursorAdapter {
                 Context.LAYOUT_INFLATER_SERVICE);
         _columnName = column_Name;
         _layout = layout;
+
     }
 
     public void bindView(View view, Context context, Cursor cursor) {
@@ -39,11 +41,7 @@ public class CustomCursorAdapter extends CursorAdapter {
 
         TextView textTeamNum = (TextView) view.findViewById(R.id.TeamNum);
         TextView textSortColumn = (TextView) view.findViewById(R.id.SortColumn);
-        TextView staticTeam = (TextView)view.findViewById(R.id.staticTeamNum);
-        TextView staticMatch = (TextView)view.findViewById(R.id.staticSortColumn);
 
-        staticTeam.setText("Team Number");
-        staticMatch.setText(_columnName);
         textTeamNum.setText(teamNum);
         if (textTeamNum.length() < 4) {
             int diff = 4 - textTeamNum.length();

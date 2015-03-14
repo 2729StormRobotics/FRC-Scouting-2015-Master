@@ -25,6 +25,7 @@ import de.greenrobot.event.EventBus;
 
 public class SorterActivity extends Activity implements AdapterView.OnItemSelectedListener{
     String columnName = "";
+    int rowIndex;
     //String array for SimpleCursorAdapter parameters.  Used to obtain the columns of the database to get the data to populate with
     String[] fromColumn = new String[]{DatabaseHandler.KEY_TEAM_NUMBER, DatabaseHandler.KEY_MATCH_NUMBER, DatabaseHandler.KEY_ALLIANCE,
             DatabaseHandler.KEY_ROBOT_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_AUTO, DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO,
@@ -46,10 +47,10 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         columnNames.add("Match Number");
         columnNames.add("Alliance");
         columnNames.add("Robot in Auto");
-        columnNames.add("Number of Totes in Auto");
-        columnNames.add("Number of Container Totes in Auto");
-        columnNames.add("Number of Stacked Totes");
-        columnNames.add("Number of containers in center");
+        columnNames.add("Totes in Auto");
+        columnNames.add("Container Totes in Auto");
+        columnNames.add("Stacked Totes");
+        columnNames.add("Containers in center");
         columnNames.add("Tote Level 1");
         columnNames.add("Tote Level 2");
         columnNames.add("Tote Level 3");
@@ -90,6 +91,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         columnName = fromColumn[(int) parent.getItemIdAtPosition(position)];
+        rowIndex = (int) parent.getItemIdAtPosition(position);
         sort(view);
 
     }
@@ -100,9 +102,8 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
     }
 
     public void sort(View v) {
-        CustomCursorAdapter adapt = new CustomCursorAdapter(this, DatabaseHandler.getInstance(this).getSortedTeamData(columnName), 0, columnName, R.layout.database_list_layout);
-
         GridView listView = (GridView) findViewById(R.id.list);
+        CustomCursorAdapter adapt = new CustomCursorAdapter(this, DatabaseHandler.getInstance(this).getSortedTeamData(columnName), 0, columnName, R.layout.database_list_layout);
 
         listView.setAdapter(adapt);
 

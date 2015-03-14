@@ -187,50 +187,57 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         db.delete(TABLE_TEAM, null, null);
     }
 
-    public List<ArrayList> getAllTeamData() {
-        List<ArrayList> teamDataList = new ArrayList<ArrayList>();
-        // Select All Query
-        String selectQuery = "SELECT  * FROM " + TABLE_TEAM;
+        public List<TeamData> getAllTeamData () {
+            List<TeamData> teamDataList = new ArrayList<TeamData>();
+            // Select All Query
+            String selectQuery = "SELECT  * FROM " + TABLE_TEAM;
 
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery(selectQuery, null);
+            SQLiteDatabase db = this.getWritableDatabase();
+            Cursor cursor = db.rawQuery(selectQuery, null);
 
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                ArrayList teamData = new ArrayList();
+            // looping through all rows and adding to list
+            if (cursor.moveToFirst()) {
+                do {
+                    TeamData teamData = new TeamData();
+                    //main
+                    teamData.setTeamNumber(cursor.getInt(0));
+                    teamData.setMatchNumber(cursor.getInt(1));
+                    teamData.setAlliance(cursor.getInt(2) > 0);
+                    //Auto
+                    teamData.setRobotAuto(cursor.getInt(3) > 0);
+                    teamData.setNumberTotesAuto(cursor.getInt(4));
+                    teamData.setNumberContainersAuto(cursor.getInt(5));
+                    teamData.setNumberStackedTotesAuto(cursor.getInt(6));
+                    teamData.setContainers_center(cursor.getInt(7));
 
-                teamData.add(0, ((cursor.getString(0))));
-                teamData.add(1, ((cursor.getString(1))));
-                teamData.add(2, ((cursor.getString(2))));
-                teamData.add(3, ((cursor.getString(3))));
-                teamData.add(4, ((cursor.getString(4))));
-                teamData.add(5, ((cursor.getString(5))));
-                teamData.add(6, ((cursor.getString(6))));
-                teamData.add(7, ((cursor.getString(7))));
-                teamData.add(8, ((cursor.getString(8))));
-                teamData.add(9, ((cursor.getString(9))));
-                teamData.add(10, ((cursor.getString(10))));
-                teamData.add(11, ((cursor.getString(11))));
-                teamData.add(12, ((cursor.getString(12))));
-                teamData.add(13, ((cursor.getString(13))));
-                teamData.add(14, ((cursor.getString(14))));
-                teamData.add(15, ((cursor.getString(15))));
-                teamData.add(16, ((cursor.getString(16))));
-                teamData.add(17, ((cursor.getString(17))));
-                teamData.add(18, ((cursor.getString(18))));
-                teamData.add(19, ((cursor.getString(19))));
-                teamData.add(20, ((cursor.getString(20))));
-                teamData.add(21, ((cursor.getString(21))));
-                teamData.add(22, ((cursor.getString(22))));
+                    //Tele-op
 
-                teamDataList.add(teamData);
-            } while (cursor.moveToNext());
+                    teamData.setToteLevel1(cursor.getInt(8));
+                    teamData.setToteLevel2(cursor.getInt(9));
+                    teamData.setToteLevel3(cursor.getInt(10));
+                    teamData.setToteLevel4(cursor.getInt(11));
+                    teamData.setToteLevel5(cursor.getInt(12));
+                    teamData.setToteLevel6(cursor.getInt(13));
+                    teamData.setCanLevel1(cursor.getInt(14));
+                    teamData.setCanLevel2(cursor.getInt(15));
+                    teamData.setCanLevel3(cursor.getInt(16));
+                    teamData.setCanLevel4(cursor.getInt(17));
+                    teamData.setCanLevel5(cursor.getInt(18));
+                    teamData.setCanLevel6(cursor.getInt(19));
+
+                    teamData.setNoodle(cursor.getInt(20));
+                    teamData.setCoop(cursor.getInt(21));
+                    teamData.setNotes(cursor.getString(22));
+
+
+                    // Adding contact to list
+                    teamDataList.add(teamData);
+                } while (cursor.moveToNext());
+            }
+
+            // return contact list
+            return teamDataList;
         }
-
-        // return contact list
-        return teamDataList;
-    }
 
     public boolean checkIfEmpty() {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -358,10 +365,10 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     }
                 } while (c.moveToNext());
             }
-            dataString[0] = String.valueOf(robotNumNo);
-            dataString[1] = String.valueOf(robotNumYes);
-            dataString[19] = String.valueOf(numNo);
-            dataString[20] = String.valueOf(numYes);
+            dataString[0] = String.valueOf(robotNumYes);
+            dataString[1] = String.valueOf(robotNumNo);
+            dataString[19] = String.valueOf(numYes);
+            dataString[20] = String.valueOf(numNo);
             String notes = "";
             if (c.moveToFirst()) {
                 do {

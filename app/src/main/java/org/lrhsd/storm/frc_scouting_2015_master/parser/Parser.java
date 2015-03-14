@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import org.lrhsd.storm.frc_scouting_2015_master.MainActivity;
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,8 +32,11 @@ public class Parser {
             Toast.makeText((Context) activity.getApplicationContext(), (CharSequence) "Scan a Valid QR Code", Toast.LENGTH_LONG).show();
             return;
         }
+
         input = input.substring(input.indexOf(" ") + 1);
         List<String[]> matches = new ArrayList<String[]>();
+        //checks to see if team is in database already
+
         int i = 0;
         while (input.contains(":")) {
             String temp = input.substring(0, input.indexOf(":"));
@@ -59,6 +63,19 @@ public class Parser {
             matches.add(i, tempArray);
             //Log.d("arrayList" + i,matches.get(i)[0]);
             i++;
+        }
+        if(!DatabaseHandler.getInstance(act.getApplicationContext()).checkIfEmpty()){
+            String teamNum = matches.get(0)[0];
+            String matchNum = matches.get(0)[1];
+            List<TeamData> teamDataList = DatabaseHandler.getInstance(act.getApplicationContext()).getAllTeamData();
+            for (TeamData cn : teamDataList) {
+                if (cn.getTeamNumber() == Integer.parseInt(teamNum) && cn.getMatchNumber() == Integer.parseInt(matchNum)) {
+                    Intent t = new Intent(activity, MainActivity.class);
+                    activity.startActivity(t);
+                    Toast.makeText((Context) activity.getApplicationContext(), (CharSequence) "Scan a New QR Code", Toast.LENGTH_LONG).show();
+                    return;
+                }
+            }
         }
         makeDatabase(matches);
         Intent intent = new Intent(activity, MainActivity.class);
