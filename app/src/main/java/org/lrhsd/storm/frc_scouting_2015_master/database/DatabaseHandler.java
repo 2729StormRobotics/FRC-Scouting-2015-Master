@@ -4,19 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
-import org.lrhsd.storm.frc_scouting_2015_master.TeamReportActivity;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -128,18 +119,9 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         onCreate(db);
     }
 
-    public void addTeamData() {
+    public void addTeamData(List<String[]> matches) {
         SQLiteDatabase db = this.getWritableDatabase();
-        File sdCard = Environment.getExternalStorageDirectory();
-        File dir = new File(sdCard.getAbsolutePath());
-        dir.mkdirs();
-        File file = new File(dir, "match_data.csv");
 
-        try {
-            FileReader fileReader = new FileReader(file);
-            BufferedReader buffer = new BufferedReader(fileReader);
-            db.beginTransaction();
-            String line = "";
             String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
                     KEY_TEAM_NUMBER + ", "
                     + KEY_MATCH_NUMBER + ", "
@@ -166,48 +148,38 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     + KEY_NOTES +
                     ") values(";
             String str2 = " );";
-            while ((line = buffer.readLine()) != null) {
+
+            for(int i = 0; i < matches.size() - 1;i++){
                 StringBuilder sb = new StringBuilder(str1);
-                String[] str = line.split(",");
-                sb.append(str[0] + ",");
-                sb.append(str[1] + ",");
-                sb.append(str[2] + ",");
-                sb.append(str[3] + ",");
-                sb.append(str[4] + ",");
-                sb.append(str[5] + ",");
-                sb.append(str[6] + ",");
-                sb.append(str[7] + ",");
-                sb.append(str[8] + ",");
-                sb.append(str[9] + ",");
-                sb.append(str[10] + ",");
-                sb.append(str[11] + ",");
-                sb.append(str[12] + ",");
-                sb.append(str[13] + ",");
-                sb.append(str[14] + ",");
-                sb.append(str[15] + ",");
-                sb.append(str[16] + ",");
-                sb.append(str[17] + ",");
-                sb.append(str[18] + ",");
-                sb.append(str[19] + ",");
-                sb.append(str[20] + ",");
-                Log.d("str20",str[22]);
-                sb.append(str[21] + ",");
-                sb.append(str[22]);
+                sb.append(matches.get(i)[0] + ",");
+                sb.append(matches.get(i)[1] + ",");
+                sb.append(matches.get(i)[2] + ",");
+                sb.append(matches.get(i)[3] + ",");
+                sb.append(matches.get(i)[4] + ",");
+                sb.append(matches.get(i)[5] + ",");
+                sb.append(matches.get(i)[6] + ",");
+                sb.append(matches.get(i)[7] + ",");
+                sb.append(matches.get(i)[8] + ",");
+                sb.append(matches.get(i)[9] + ",");
+                sb.append(matches.get(i)[10] + ",");
+                sb.append(matches.get(i)[11] + ",");
+                sb.append(matches.get(i)[12] + ",");
+                sb.append(matches.get(i)[13] + ",");
+                sb.append(matches.get(i)[14] + ",");
+                sb.append(matches.get(i)[15] + ",");
+                sb.append(matches.get(i)[16] + ",");
+                sb.append(matches.get(i)[17] + ",");
+                sb.append(matches.get(i)[18] + ",");
+                sb.append(matches.get(i)[19] + ",");
+                sb.append(matches.get(i)[20] + ",");
+                sb.append(matches.get(i)[21] + ",");
+                sb.append(matches.get(i)[22]);
                 sb.append(str2);
-                //Log.d("sb", sb.toString());
                 db.execSQL(sb.toString());
             }
-            db.setTransactionSuccessful();
-            db.endTransaction();
 
-            // Inserting Row
-        /*db.insert(TABLE_TEAM, null, values);*/
-            db.close(); // Closing database connection
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
+
 
     }
 
