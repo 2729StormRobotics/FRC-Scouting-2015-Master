@@ -1,10 +1,13 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
+import android.widget.Toast;
 
 import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
 import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
@@ -38,8 +41,25 @@ public class MainActivity extends FragmentActivity {
 
 
     public void clearDatabase(View view) {
-        DatabaseHandler.getInstance(getApplicationContext()).clearTable();
+        new AlertDialog.Builder(this)
+                .setTitle("Exit")
+                .setMessage("Are you sure you want to exit?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseHandler.getInstance(getApplicationContext()).clearTable();
+                        Toast.makeText(getApplicationContext(), "Data Cleared", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
     }
 
-}
+    }
+
+
 
