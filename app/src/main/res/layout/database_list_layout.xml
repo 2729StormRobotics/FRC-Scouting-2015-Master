@@ -8,21 +8,21 @@
 
 
     <TextView
-        android:id="@+id/TeamNum"
+        android:id="@+id/staticTeamNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Large Text"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffffff"
-        android:layout_alignTop="@+id/SortColumn"
+        android:layout_alignTop="@+id/staticSortColumn"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="56dp"
         android:layout_marginStart="56dp" />
 
     <TextView
-        android:id="@+id/SortColumn"
+        android:id="@+id/staticSortColumn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="54dp"
@@ -34,5 +34,30 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:id="@+id/TeamNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/staticTeamNum"
+        android:layout_alignLeft="@+id/staticTeamNum"
+        android:layout_alignStart="@+id/staticTeamNum"
+        android:layout_marginTop="54dp" />
+
+    <TextView
+        android:id="@+id/SortColumn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Large Text"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffffff"
+        android:layout_alignTop="@+id/TeamNum"
+        android:layout_alignLeft="@+id/staticSortColumn"
+        android:layout_alignStart="@+id/staticSortColumn" />
 
 </RelativeLayout>
