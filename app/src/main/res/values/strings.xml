@@ -11,6 +11,7 @@
     <string name="temp">Temporary Storage</string>
     <string name="scan">Scan</string>
     <string name="Analyze">Analyze</string>
+    <string name="cleardb">Clear Database</string>
 
     <!-- Database Strings -->
     <string name="auto_download">Download Auto XML</string>

@@ -35,7 +35,9 @@ public class MainActivity extends FragmentActivity {
 
     }
 
-    public void clearDatabase() {
+
+
+    public void clearDatabase(View view) {
         DatabaseHandler.getInstance(getApplicationContext()).clearTable();
     }
 
