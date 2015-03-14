@@ -39,6 +39,11 @@ public class CustomCursorAdapter extends CursorAdapter {
 
         TextView textTeamNum = (TextView) view.findViewById(R.id.TeamNum);
         TextView textSortColumn = (TextView) view.findViewById(R.id.SortColumn);
+        TextView staticTeam = (TextView)view.findViewById(R.id.staticTeamNum);
+        TextView staticMatch = (TextView)view.findViewById(R.id.staticSortColumn);
+
+        staticTeam.setText("Team Number");
+        staticMatch.setText(_columnName);
         textTeamNum.setText(teamNum);
         if (textTeamNum.length() < 4) {
             int diff = 4 - textTeamNum.length();
