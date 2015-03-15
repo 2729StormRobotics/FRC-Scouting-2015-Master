@@ -4,10 +4,16 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.os.Environment;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
+import com.opencsv.CSVWriter;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -59,6 +65,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     private String matchNum;
     private ArrayList<String[]> teamsData;
 
+    private final static int COLUMN_COUNT = 23;
+
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
         this.mCtx = context;
@@ -106,7 +114,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 + KEY_NOTES + " TEXT"
                 + ")";
         db.execSQL(CREATE_TEAM);
-       // Log.d("Number of Rows",getNumRows()+"");
+        // Log.d("Number of Rows",getNumRows()+"");
     }
 
     // Upgrading database
@@ -121,64 +129,64 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     public void addTeamData(List<String[]> matches) {
         Log.d("bitch got called", matches.get(0)[0]);
-            SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase db = this.getWritableDatabase();
 
-            String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
-                    KEY_TEAM_NUMBER + ", "
-                    + KEY_MATCH_NUMBER + ", "
-                    + KEY_ALLIANCE + ", "
-                    + KEY_ROBOT_AUTO + ", "
-                    + KEY_NUMBER_TOTES_AUTO + ", "
-                    + KEY_NUMBER_CONTAINERS_AUTO + ", "
-                    + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
-                    + KEY_CONTAINERS_CENTER_AUTO + ", "
-                    + KEY_TOTE_LEVEL1 + ", "
-                    + KEY_TOTE_LEVEL2 + ", "
-                    + KEY_TOTE_LEVEL3 + ", "
-                    + KEY_TOTE_LEVEL4 + ", "
-                    + KEY_TOTE_LEVEL5 + ", "
-                    + KEY_TOTE_LEVEL6 + ", "
-                    + KEY_CAN_LEVEL1 + ", "
-                    + KEY_CAN_LEVEL2 + ", "
-                    + KEY_CAN_LEVEL3 + ", "
-                    + KEY_CAN_LEVEL4 + ", "
-                    + KEY_CAN_LEVEL5 + ", "
-                    + KEY_CAN_LEVEL6 + ", "
-                    + KEY_NOODLE + ", "
-                    + KEY_COOP +   ", "
-                    + KEY_NOTES +
-                    ") values(";
-            String str2 = " );";
+        String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
+                KEY_TEAM_NUMBER + ", "
+                + KEY_MATCH_NUMBER + ", "
+                + KEY_ALLIANCE + ", "
+                + KEY_ROBOT_AUTO + ", "
+                + KEY_NUMBER_TOTES_AUTO + ", "
+                + KEY_NUMBER_CONTAINERS_AUTO + ", "
+                + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
+                + KEY_CONTAINERS_CENTER_AUTO + ", "
+                + KEY_TOTE_LEVEL1 + ", "
+                + KEY_TOTE_LEVEL2 + ", "
+                + KEY_TOTE_LEVEL3 + ", "
+                + KEY_TOTE_LEVEL4 + ", "
+                + KEY_TOTE_LEVEL5 + ", "
+                + KEY_TOTE_LEVEL6 + ", "
+                + KEY_CAN_LEVEL1 + ", "
+                + KEY_CAN_LEVEL2 + ", "
+                + KEY_CAN_LEVEL3 + ", "
+                + KEY_CAN_LEVEL4 + ", "
+                + KEY_CAN_LEVEL5 + ", "
+                + KEY_CAN_LEVEL6 + ", "
+                + KEY_NOODLE + ", "
+                + KEY_COOP + ", "
+                + KEY_NOTES +
+                ") values(";
+        String str2 = " );";
 
-            for(int i = 0; i < matches.size();i++){
-                StringBuilder sb = new StringBuilder(str1);
-                sb.append(matches.get(i)[0] + ",");
-                sb.append(matches.get(i)[1] + ",");
-                sb.append(matches.get(i)[2] + ",");
-                sb.append(matches.get(i)[3] + ",");
-                sb.append(matches.get(i)[4] + ",");
-                sb.append(matches.get(i)[5] + ",");
-                sb.append(matches.get(i)[6] + ",");
-                sb.append(matches.get(i)[7] + ",");
-                sb.append(matches.get(i)[8] + ",");
-                sb.append(matches.get(i)[9] + ",");
-                sb.append(matches.get(i)[10] + ",");
-                sb.append(matches.get(i)[11] + ",");
-                sb.append(matches.get(i)[12] + ",");
-                sb.append(matches.get(i)[13] + ",");
-                sb.append(matches.get(i)[14] + ",");
-                sb.append(matches.get(i)[15] + ",");
-                sb.append(matches.get(i)[16] + ",");
-                sb.append(matches.get(i)[17] + ",");
-                sb.append(matches.get(i)[18] + ",");
-                sb.append(matches.get(i)[19] + ",");
-                sb.append(matches.get(i)[20] + ",");
-                sb.append(matches.get(i)[21] + ",");
-                sb.append("'"+matches.get(i)[22]+"'");
-                sb.append(str2);
-                //Log.d("SQL",sb.toString());
-                db.execSQL(sb.toString());
-            }
+        for (int i = 0; i < matches.size(); i++) {
+            StringBuilder sb = new StringBuilder(str1);
+            sb.append(matches.get(i)[0] + ",");
+            sb.append(matches.get(i)[1] + ",");
+            sb.append(matches.get(i)[2] + ",");
+            sb.append(matches.get(i)[3] + ",");
+            sb.append(matches.get(i)[4] + ",");
+            sb.append(matches.get(i)[5] + ",");
+            sb.append(matches.get(i)[6] + ",");
+            sb.append(matches.get(i)[7] + ",");
+            sb.append(matches.get(i)[8] + ",");
+            sb.append(matches.get(i)[9] + ",");
+            sb.append(matches.get(i)[10] + ",");
+            sb.append(matches.get(i)[11] + ",");
+            sb.append(matches.get(i)[12] + ",");
+            sb.append(matches.get(i)[13] + ",");
+            sb.append(matches.get(i)[14] + ",");
+            sb.append(matches.get(i)[15] + ",");
+            sb.append(matches.get(i)[16] + ",");
+            sb.append(matches.get(i)[17] + ",");
+            sb.append(matches.get(i)[18] + ",");
+            sb.append(matches.get(i)[19] + ",");
+            sb.append(matches.get(i)[20] + ",");
+            sb.append(matches.get(i)[21] + ",");
+            sb.append("'" + matches.get(i)[22] + "'");
+            sb.append(str2);
+            //Log.d("SQL",sb.toString());
+            db.execSQL(sb.toString());
+        }
 
     }
 
@@ -187,57 +195,96 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         db.delete(TABLE_TEAM, null, null);
     }
 
-        public List<TeamData> getAllTeamData () {
-            List<TeamData> teamDataList = new ArrayList<TeamData>();
-            // Select All Query
-            String selectQuery = "SELECT  * FROM " + TABLE_TEAM;
+    public List<TeamData> getAllTeamData() {
+        List<TeamData> teamDataList = new ArrayList<TeamData>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_TEAM;
 
-            SQLiteDatabase db = this.getWritableDatabase();
-            Cursor cursor = db.rawQuery(selectQuery, null);
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
 
-            // looping through all rows and adding to list
-            if (cursor.moveToFirst()) {
-                do {
-                    TeamData teamData = new TeamData();
-                    //main
-                    teamData.setTeamNumber(cursor.getInt(0));
-                    teamData.setMatchNumber(cursor.getInt(1));
-                    teamData.setAlliance(cursor.getInt(2) > 0);
-                    //Auto
-                    teamData.setRobotAuto(cursor.getInt(3) > 0);
-                    teamData.setNumberTotesAuto(cursor.getInt(4));
-                    teamData.setNumberContainersAuto(cursor.getInt(5));
-                    teamData.setNumberStackedTotesAuto(cursor.getInt(6));
-                    teamData.setContainers_center(cursor.getInt(7));
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                TeamData teamData = new TeamData();
+                //main
+                teamData.setTeamNumber(cursor.getInt(0));
+                teamData.setMatchNumber(cursor.getInt(1));
+                teamData.setAlliance(cursor.getInt(2) > 0);
+                //Auto
+                teamData.setRobotAuto(cursor.getInt(3) > 0);
+                teamData.setNumberTotesAuto(cursor.getInt(4));
+                teamData.setNumberContainersAuto(cursor.getInt(5));
+                teamData.setNumberStackedTotesAuto(cursor.getInt(6));
+                teamData.setContainers_center(cursor.getInt(7));
 
-                    //Tele-op
+                //Tele-op
 
-                    teamData.setToteLevel1(cursor.getInt(8));
-                    teamData.setToteLevel2(cursor.getInt(9));
-                    teamData.setToteLevel3(cursor.getInt(10));
-                    teamData.setToteLevel4(cursor.getInt(11));
-                    teamData.setToteLevel5(cursor.getInt(12));
-                    teamData.setToteLevel6(cursor.getInt(13));
-                    teamData.setCanLevel1(cursor.getInt(14));
-                    teamData.setCanLevel2(cursor.getInt(15));
-                    teamData.setCanLevel3(cursor.getInt(16));
-                    teamData.setCanLevel4(cursor.getInt(17));
-                    teamData.setCanLevel5(cursor.getInt(18));
-                    teamData.setCanLevel6(cursor.getInt(19));
+                teamData.setToteLevel1(cursor.getInt(8));
+                teamData.setToteLevel2(cursor.getInt(9));
+                teamData.setToteLevel3(cursor.getInt(10));
+                teamData.setToteLevel4(cursor.getInt(11));
+                teamData.setToteLevel5(cursor.getInt(12));
+                teamData.setToteLevel6(cursor.getInt(13));
+                teamData.setCanLevel1(cursor.getInt(14));
+                teamData.setCanLevel2(cursor.getInt(15));
+                teamData.setCanLevel3(cursor.getInt(16));
+                teamData.setCanLevel4(cursor.getInt(17));
+                teamData.setCanLevel5(cursor.getInt(18));
+                teamData.setCanLevel6(cursor.getInt(19));
 
-                    teamData.setNoodle(cursor.getInt(20));
-                    teamData.setCoop(cursor.getInt(21));
-                    teamData.setNotes(cursor.getString(22));
+                teamData.setNoodle(cursor.getInt(20));
+                teamData.setCoop(cursor.getInt(21));
+                teamData.setNotes(cursor.getString(22));
 
 
-                    // Adding contact to list
-                    teamDataList.add(teamData);
-                } while (cursor.moveToNext());
-            }
-
-            // return contact list
-            return teamDataList;
+                // Adding contact to list
+                teamDataList.add(teamData);
+            } while (cursor.moveToNext());
         }
+
+        // return contact list
+        return teamDataList;
+    }
+
+    public ArrayList<String[]> getAllTeamDataAsArrayList() {
+       ArrayList<String[]>  teamDataList = new ArrayList<String[]>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + TABLE_TEAM;
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+        if (cursor.moveToFirst()) {
+            do {
+                String[] teamData = new String[COLUMN_COUNT - 1];
+                teamData[0] = (cursor.getString(0));
+                teamData[1] = (cursor.getString(1));
+                teamData[2] = (cursor.getString(2));
+                teamData[3] = (cursor.getString(3));
+                teamData[4] = (cursor.getString(4));
+                teamData[5] = (cursor.getString(5));
+                teamData[6] = (cursor.getString(6));
+                teamData[7] = (cursor.getString(7));
+                teamData[8] = (cursor.getString(8));
+                teamData[9] = (cursor.getString(9));
+                teamData[10] = (cursor.getString(10));
+                teamData[11] = (cursor.getString(11));
+                teamData[12] = (cursor.getString(12));
+                teamData[13] = (cursor.getString(13));
+                teamData[14] = (cursor.getString(14));
+                teamData[15] = (cursor.getString(15));
+                teamData[16] = (cursor.getString(16));
+                teamData[17] = (cursor.getString(17));
+                teamData[18] = (cursor.getString(18));
+                teamData[19] = (cursor.getString(19));
+                teamData[20] = (cursor.getString(20));
+                teamData[21] = (cursor.getString(21));
+                teamData[22] = (cursor.getString(22));
+
+                teamDataList.add(teamData);
+            } while (cursor.moveToNext());
+        }
+        return teamDataList;
+    }
 
     public boolean checkIfEmpty() {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -255,7 +302,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         //gets sorted data by a column name
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if (columnName.equals(KEY_ALLIANCE)||columnName.equals(KEY_ROBOT_AUTO)||columnName.equals(KEY_COOP)||columnName.equals(KEY_ROBOT_AUTO)) {
+        if (columnName.equals(KEY_ALLIANCE) || columnName.equals(KEY_ROBOT_AUTO) || columnName.equals(KEY_COOP) || columnName.equals(KEY_ROBOT_AUTO)) {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC";
         } else {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC";
@@ -306,8 +353,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     teamData[i] = c.getString(i);
 
                 }
-                Log.d("teamData21",teamData[21]);
-                Log.d("teamData22",teamData[22]);
+                Log.d("teamData21", teamData[21]);
+                Log.d("teamData22", teamData[22]);
                 teamsData.add(teamData);
 
             } while (c.moveToNext());
@@ -318,6 +365,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         EventBus.getDefault().postSticky(teamsData);
         return teamsData;
     }
+
     public String[] getOneTeamsDataSummary(String teamNumber) {
         SQLiteDatabase db = this.getWritableDatabase();
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
@@ -384,24 +432,24 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     public String[] getOneTeamsDataAverage(String teamNumber, TeamData teamData) {
 
-      String[] dataString = getOneTeamsDataSummary(teamNumber);
+        String[] dataString = getOneTeamsDataSummary(teamNumber);
 
         double[] dataDouble = new double[22];
 
-        for(int i = 0; i < dataString.length-1; i ++){
-            dataDouble[i] = Integer.parseInt(dataString[i]) / (double)teamData.getMatches().size();
-            dataString[i] = String.format("%.3f",dataDouble[i]);
+        for (int i = 0; i < dataString.length - 1; i++) {
+            dataDouble[i] = Integer.parseInt(dataString[i]) / (double) teamData.getMatches().size();
+            dataString[i] = String.format("%.3f", dataDouble[i]);
         }
-       return  dataString;
+        return dataString;
     }
 
-        public ArrayList<String> getTeamMatches(){
+    public ArrayList<String> getTeamMatches() {
         ArrayList<String> teamMatches = new ArrayList<String>();
         for (int i = 0; i < teamsData.size(); i++) {
-            teamMatches.add(i,"Match: "+teamsData.get(i)[1]);
+            teamMatches.add(i, "Match: " + teamsData.get(i)[1]);
         }
-        teamMatches.add(teamMatches.size(),"Summary");
-        teamMatches.add(teamMatches.size(),"Average");
+        teamMatches.add(teamMatches.size(), "Summary");
+        teamMatches.add(teamMatches.size(), "Average");
         return teamMatches;
     }
 
@@ -415,12 +463,53 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     }
 
-    public int getNumRows() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        String count = "SELECT COUNT(*) FROM " + TABLE_TEAM;
-        Cursor cursor = db.rawQuery(count, null);
-        return cursor.getCount();
+    public void makeCSV(boolean append) {
+
+        ArrayList<String[]> matches = getAllTeamDataAsArrayList();
+
+        try {
+            File sdCard = Environment.getExternalStorageDirectory();
+            File dir = new File(sdCard.getAbsolutePath());
+            dir.mkdirs();
+            File file = new File(dir, "match_data.csv");
+            CSVWriter writer;
+            if (!file.exists()) {
+                String[] columns = new String[23];
+                columns[0] = "Team Number";
+                columns[1] = "Match Number";
+                columns[2] = "Alliance";
+                columns[3] = "Robot in Auto Zone";
+                columns[4] = "Totes in Auto";
+                columns[5] = "Containers in Auto";
+                columns[6] = "Stack Totes in Auto";
+                columns[7] = "Containers from Center";
+                columns[8] = "Tote Level 1";
+                columns[9] = "Tote Level 2";
+                columns[10] = "Tote Level 3";
+                columns[11] = "Tote Level 4";
+                columns[12] = "Tote Level 5";
+                columns[13] = "Tote Level 6";
+                columns[14] = "Can Level 1";
+                columns[15] = "Can Level 2";
+                columns[16] = "Can Level 3";
+                columns[17] = "Can Level 4";
+                columns[18] = "Can Level 5";
+                columns[19] = "Can Level 6";
+                columns[20] = "Number of Noodles";
+                columns[21] = "Coopertition";
+                //Log.d("Column22",columns[22]);
+                columns[22] = "Notes";
+                matches.add(0, columns);
+            }
+            writer = new CSVWriter(new FileWriter(file, append), ',');
+            writer.writeAll(matches);
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+
 }
+
 
 

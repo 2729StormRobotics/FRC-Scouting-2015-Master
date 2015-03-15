@@ -38,16 +38,49 @@ public class MainActivity extends FragmentActivity {
 
     }
 
+        public void makeCSV(View view) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Make CSV")
+                    .setMessage("Are you sure you want to make a CSV File?")
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            new AlertDialog.Builder(getApplicationContext())
+                                    .setTitle("Append")
+                                    .setMessage("Would you like to append new data to CSV File?")
+                                    .setPositiveButton(R.string.append, new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            DatabaseHandler.getInstance(getApplicationContext()).makeCSV(true);
+                                            Toast.makeText(getApplicationContext(), "Data appended to the CSV File", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .setNegativeButton(R.string.overwrite, new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            DatabaseHandler.getInstance(getApplicationContext()).makeCSV(false);
+                                            Toast.makeText(getApplicationContext(), "CSV File overwritten with new data", Toast.LENGTH_SHORT).show();
+                                        }
+                                    })
+                                    .setIcon(android.R.drawable.ic_dialog_alert)
+                                    .show();
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
 
 
     public void clearDatabase(View view) {
         new AlertDialog.Builder(this)
-                .setTitle("Exit")
-                .setMessage("Are you sure you want to exit?")
+                .setTitle("Delete Data")
+                .setMessage("Are you sure you want to delete all data?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         DatabaseHandler.getInstance(getApplicationContext()).clearTable();
-                        Toast.makeText(getApplicationContext(), "Data Cleared", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Data Deleted", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {

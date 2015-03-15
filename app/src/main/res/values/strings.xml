@@ -12,6 +12,9 @@
     <string name="scan">Scan</string>
     <string name="Analyze">Analyze</string>
     <string name="cleardb">Clear Database</string>
+    <string name="makeCSV">Make CSV</string>
+    <string name="append">Append</string>
+    <string name="overwrite">Overwrite</string>
 
     <!-- Database Strings -->
     <string name="auto_download">Download Auto XML</string>
