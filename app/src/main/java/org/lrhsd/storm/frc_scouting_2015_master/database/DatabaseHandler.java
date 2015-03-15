@@ -255,7 +255,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-                String[] teamData = new String[COLUMN_COUNT - 1];
+                String[] teamData = new String[COLUMN_COUNT];
                 teamData[0] = (cursor.getString(0));
                 teamData[1] = (cursor.getString(1));
                 teamData[2] = (cursor.getString(2));
