@@ -463,7 +463,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     }
 
-    public void makeCSV(boolean append) {
+    public void makeCSV() {
 
         ArrayList<String[]> matches = getAllTeamDataAsArrayList();
 
@@ -473,7 +473,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             dir.mkdirs();
             File file = new File(dir, "match_data.csv");
             CSVWriter writer;
-            if (!file.exists()) {
+
                 String[] columns = new String[23];
                 columns[0] = "Team Number";
                 columns[1] = "Match Number";
@@ -500,8 +500,8 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 //Log.d("Column22",columns[22]);
                 columns[22] = "Notes";
                 matches.add(0, columns);
-            }
-            writer = new CSVWriter(new FileWriter(file, append), ',');
+
+            writer = new CSVWriter(new FileWriter(file, false), ',');
             writer.writeAll(matches);
             writer.close();
         } catch (IOException e) {

@@ -44,23 +44,8 @@ public class MainActivity extends FragmentActivity {
                     .setMessage("Are you sure you want to make a CSV File?")
                     .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            new AlertDialog.Builder(getApplicationContext())
-                                    .setTitle("Append")
-                                    .setMessage("Would you like to append new data to CSV File?")
-                                    .setPositiveButton(R.string.append, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            DatabaseHandler.getInstance(getApplicationContext()).makeCSV(true);
-                                            Toast.makeText(getApplicationContext(), "Data appended to the CSV File", Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .setNegativeButton(R.string.overwrite, new DialogInterface.OnClickListener() {
-                                        public void onClick(DialogInterface dialog, int which) {
-                                            DatabaseHandler.getInstance(getApplicationContext()).makeCSV(false);
-                                            Toast.makeText(getApplicationContext(), "CSV File overwritten with new data", Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .setIcon(android.R.drawable.ic_dialog_alert)
-                                    .show();
+                            DatabaseHandler.getInstance(getApplicationContext()).makeCSV();
+                            Toast.makeText(getApplicationContext(), "CSV File Created", Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
