@@ -1,5 +1,6 @@
 package org.lrhsd.storm.frc_scouting_2015_master.database;
 
+import android.app.Activity;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,7 +12,10 @@ import android.widget.AdapterView;
 
 import com.opencsv.CSVWriter;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -190,6 +194,77 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
     }
 
+    public void makeDatabaseFromCSV(Activity a) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        clearTable();
+        File sdCard = Environment.getExternalStorageDirectory();
+        File dir = new File(sdCard.getAbsolutePath());
+        dir.mkdirs();
+        File file = new File(dir, "match_data.csv");
+
+        try {
+            FileReader fileReader = new FileReader(file);
+            BufferedReader buffer = new BufferedReader(fileReader);
+            db.beginTransaction();
+            String line = "";
+
+            String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
+                    KEY_TEAM_NUMBER + ", "
+                    + KEY_MATCH_NUMBER + ", "
+                    + KEY_NOTES +
+                    ") values(";
+            String str2 = " );";
+
+            buffer.readLine();
+            while ((line = buffer.readLine()) != null) {
+
+
+                StringBuilder sb = new StringBuilder(str1);
+                String[] str = line.split(",");
+                sb.append(str[0] + ",");
+                sb.append(str[1] + ",");
+                sb.append(str[2] + ",");
+                sb.append(str[3] + ",");
+                sb.append(str[4] + ",");
+                sb.append(str[5] + ",");
+                sb.append(str[6] + ",");
+                sb.append(str[7] + ",");
+                sb.append(str[8] + ",");
+                sb.append(str[9] + ",");
+                sb.append(str[10] + ",");
+                sb.append(str[11] + ",");
+                sb.append(str[12] + ",");
+                sb.append(str[13] + ",");
+                sb.append(str[14] + ",");
+                sb.append(str[15] + ",");
+                sb.append(str[16] + ",");
+                sb.append(str[17] + ",");
+                sb.append(str[18] + ",");
+                sb.append(str[19] + ",");
+                sb.append(str[20] + ",");
+                Log.d("str20", str[22]);
+                sb.append(str[21] + ",");
+                sb.append(str[22]);
+
+                sb.append(str2);
+                //Log.d("sb", sb.toString());
+                db.execSQL(sb.toString());
+            }
+            db.setTransactionSuccessful();
+            db.endTransaction();
+
+            // Inserting Row
+                                            /*db.insert(TABLE_TEAM, null, values);*/
+            db.close(); // Closing database connection
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
     public void clearTable() {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TABLE_TEAM, null, null);
@@ -248,7 +323,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     }
 
     public ArrayList<String[]> getAllTeamDataAsArrayList() {
-       ArrayList<String[]>  teamDataList = new ArrayList<String[]>();
+        ArrayList<String[]> teamDataList = new ArrayList<String[]>();
         // Select All Query
         String selectQuery = "SELECT  * FROM " + TABLE_TEAM;
         SQLiteDatabase db = this.getWritableDatabase();
@@ -474,32 +549,32 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             File file = new File(dir, "match_data.csv");
             CSVWriter writer;
 
-                String[] columns = new String[23];
-                columns[0] = "Team Number";
-                columns[1] = "Match Number";
-                columns[2] = "Alliance";
-                columns[3] = "Robot in Auto Zone";
-                columns[4] = "Totes in Auto";
-                columns[5] = "Containers in Auto";
-                columns[6] = "Stack Totes in Auto";
-                columns[7] = "Containers from Center";
-                columns[8] = "Tote Level 1";
-                columns[9] = "Tote Level 2";
-                columns[10] = "Tote Level 3";
-                columns[11] = "Tote Level 4";
-                columns[12] = "Tote Level 5";
-                columns[13] = "Tote Level 6";
-                columns[14] = "Can Level 1";
-                columns[15] = "Can Level 2";
-                columns[16] = "Can Level 3";
-                columns[17] = "Can Level 4";
-                columns[18] = "Can Level 5";
-                columns[19] = "Can Level 6";
-                columns[20] = "Number of Noodles";
-                columns[21] = "Coopertition";
-                //Log.d("Column22",columns[22]);
-                columns[22] = "Notes";
-                matches.add(0, columns);
+            String[] columns = new String[23];
+            columns[0] = "Team Number";
+            columns[1] = "Match Number";
+            columns[2] = "Alliance";
+            columns[3] = "Robot in Auto Zone";
+            columns[4] = "Totes in Auto";
+            columns[5] = "Containers in Auto";
+            columns[6] = "Stack Totes in Auto";
+            columns[7] = "Containers from Center";
+            columns[8] = "Tote Level 1";
+            columns[9] = "Tote Level 2";
+            columns[10] = "Tote Level 3";
+            columns[11] = "Tote Level 4";
+            columns[12] = "Tote Level 5";
+            columns[13] = "Tote Level 6";
+            columns[14] = "Can Level 1";
+            columns[15] = "Can Level 2";
+            columns[16] = "Can Level 3";
+            columns[17] = "Can Level 4";
+            columns[18] = "Can Level 5";
+            columns[19] = "Can Level 6";
+            columns[20] = "Number of Noodles";
+            columns[21] = "Coopertition";
+            //Log.d("Column22",columns[22]);
+            columns[22] = "Notes";
+            matches.add(0, columns);
 
             writer = new CSVWriter(new FileWriter(file, false), ',');
             writer.writeAll(matches);

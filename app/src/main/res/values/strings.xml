@@ -13,6 +13,7 @@
     <string name="Analyze">Analyze</string>
     <string name="cleardb">Clear Database</string>
     <string name="makeCSV">Make CSV</string>
+    <string name="makeDatabase">Make Database from CSV</string>
     <string name="append">Append</string>
     <string name="overwrite">Overwrite</string>
 

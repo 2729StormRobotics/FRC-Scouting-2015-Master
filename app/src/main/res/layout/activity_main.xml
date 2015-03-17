@@ -15,10 +15,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/logo"
-        android:layout_below="@+id/button2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="46dp" />
+        android:layout_below="@+id/button4" />
 
     <Button
         android:id="@+id/btn_move"
@@ -64,7 +63,8 @@
         android:layout_alignParentStart="true"
         android:onClick="makeCSV"
         android:layout_below="@+id/button3"
-        android:layout_alignParentRight="true" />
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -73,7 +73,8 @@
         android:text="@string/website"
         android:id="@+id/textView21"
         android:textColor="#ffffffff"
-        android:layout_alignTop="@+id/imageView"
+        android:layout_marginBottom="27dp"
+        android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -84,9 +85,9 @@
         android:text="@string/twitter"
         android:id="@+id/textView22"
         android:textColor="#ffffffff"
-        android:layout_below="@+id/textView21"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_above="@+id/textView21"
+        android:layout_alignParentLeft="true" />
 
     <Button
         android:id="@+id/button3"
@@ -103,5 +104,19 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="10dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#ffffffff"
+        android:nestedScrollingEnabled="false"
+        android:text="@string/makeDatabase"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:onClick="makeDatabaseFromCSV"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

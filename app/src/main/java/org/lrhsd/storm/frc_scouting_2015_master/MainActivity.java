@@ -1,5 +1,6 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -37,6 +38,28 @@ public class MainActivity extends FragmentActivity {
         startActivity(intent);
 
     }
+
+    public void makeDatabaseFromCSV(View view){
+        final Activity a = this;
+        new AlertDialog.Builder(this)
+                .setTitle("Make Database")
+                .setMessage("Are you sure you want to make a database from the CSV? All data will be in the database will be overwritten.")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        DatabaseHandler.getInstance(getApplicationContext()).makeDatabaseFromCSV(a);
+                        Toast.makeText(getApplicationContext(), "Database Created", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // do nothing
+                    }
+                })
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+    }
+
+
 
         public void makeCSV(View view) {
             new AlertDialog.Builder(this)
