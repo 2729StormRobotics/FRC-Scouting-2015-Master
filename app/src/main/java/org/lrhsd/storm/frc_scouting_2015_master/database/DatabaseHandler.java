@@ -211,8 +211,29 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
                     KEY_TEAM_NUMBER + ", "
                     + KEY_MATCH_NUMBER + ", "
+                    + KEY_ALLIANCE + ", "
+                    + KEY_ROBOT_AUTO + ", "
+                    + KEY_NUMBER_TOTES_AUTO + ", "
+                    + KEY_NUMBER_CONTAINERS_AUTO + ", "
+                    + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
+                    + KEY_CONTAINERS_CENTER_AUTO + ", "
+                    + KEY_TOTE_LEVEL1 + ", "
+                    + KEY_TOTE_LEVEL2 + ", "
+                    + KEY_TOTE_LEVEL3 + ", "
+                    + KEY_TOTE_LEVEL4 + ", "
+                    + KEY_TOTE_LEVEL5 + ", "
+                    + KEY_TOTE_LEVEL6 + ", "
+                    + KEY_CAN_LEVEL1 + ", "
+                    + KEY_CAN_LEVEL2 + ", "
+                    + KEY_CAN_LEVEL3 + ", "
+                    + KEY_CAN_LEVEL4 + ", "
+                    + KEY_CAN_LEVEL5 + ", "
+                    + KEY_CAN_LEVEL6 + ", "
+                    + KEY_NOODLE + ", "
+                    + KEY_COOP + ", "
                     + KEY_NOTES +
                     ") values(";
+
             String str2 = " );";
 
             buffer.readLine();
