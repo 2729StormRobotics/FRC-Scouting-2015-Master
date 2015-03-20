@@ -5,7 +5,7 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "org.lrhsd.storm.frc_scouting_2015_master"
+        applicationId "org.stormroboticsnj.frc_scouting_2015_master"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
