@@ -1,4 +1,4 @@
-package org.lrhsd.storm.frc_scouting_2015_master;
+package org.stormroboticsnj.frc_scouting_2015_master;
 
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
-import org.lrhsd.storm.frc_scouting_2015_master.scanner.ScannerActivity;
+import org.stormroboticsnj.frc_scouting_2015_master.scanner.ScannerActivity;
 
 public class MainActivity extends FragmentActivity {
 

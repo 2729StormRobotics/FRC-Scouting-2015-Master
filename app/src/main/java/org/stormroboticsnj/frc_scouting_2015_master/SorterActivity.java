@@ -1,22 +1,18 @@
-package org.lrhsd.storm.frc_scouting_2015_master;
+package org.stormroboticsnj.frc_scouting_2015_master;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
-
 import android.widget.AdapterView;
-
 import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ListView;
 import android.widget.Spinner;
 
-import org.lrhsd.storm.frc_scouting_2015_master.adapters.CustomArrayAdapter;
-import org.lrhsd.storm.frc_scouting_2015_master.adapters.CustomCursorAdapter;
-import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+import org.stormroboticsnj.frc_scouting_2015_master.adapters.CustomArrayAdapter;
+import org.stormroboticsnj.frc_scouting_2015_master.adapters.CustomCursorAdapter;
+import org.stormroboticsnj.frc_scouting_2015_master.database.DatabaseHandler;
 
 import java.util.ArrayList;
 

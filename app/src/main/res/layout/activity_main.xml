@@ -57,7 +57,6 @@
         android:text="@string/website"
         android:id="@+id/textView21"
         android:textColor="#ffffffff"
-        android:layout_marginBottom="27dp"
         android:layout_alignBottom="@+id/imageView"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

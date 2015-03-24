@@ -1,4 +1,4 @@
-package org.lrhsd.storm.frc_scouting_2015_master.database;
+package org.stormroboticsnj.frc_scouting_2015_master.database;
 
 import android.app.Activity;
 import android.content.Context;

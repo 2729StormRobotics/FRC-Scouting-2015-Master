@@ -1,14 +1,13 @@
-package org.lrhsd.storm.frc_scouting_2015_master.parser;
+package org.stormroboticsnj.frc_scouting_2015_master.parser;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.widget.Toast;
 
-import org.lrhsd.storm.frc_scouting_2015_master.MainActivity;
-import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
-import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
+import org.stormroboticsnj.frc_scouting_2015_master.MainActivity;
+import org.stormroboticsnj.frc_scouting_2015_master.database.DatabaseHandler;
+import org.stormroboticsnj.frc_scouting_2015_master.database.TeamData;
 
 import java.util.ArrayList;
 import java.util.List;

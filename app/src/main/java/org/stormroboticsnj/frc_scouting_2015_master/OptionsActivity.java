@@ -1,22 +1,24 @@
-package org.lrhsd.storm.frc_scouting_2015_master;
+package org.stormroboticsnj.frc_scouting_2015_master;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Toast;
 
-import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+import org.stormroboticsnj.frc_scouting_2015_master.database.DatabaseHandler;
 
 public class OptionsActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_options);
-    }
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+        setContentView(org.stormroboticsnj.frc_scouting_2015_master.R.layout.activity_options);
+          }
 
 
     public void makeDatabaseFromCSV(View view){

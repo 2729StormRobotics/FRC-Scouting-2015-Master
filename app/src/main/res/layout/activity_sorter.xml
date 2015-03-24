@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/black"
     android:padding="15dp"
-    tools:context="org.lrhsd.storm.frc_scouting_2015_master.SorterActivity">
+    tools:context="org.stormroboticsnj.frc_scouting_2015_master.SorterActivity">
 
     <GridView
         android:id="@+id/list"

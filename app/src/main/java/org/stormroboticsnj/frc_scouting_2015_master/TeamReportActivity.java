@@ -1,4 +1,4 @@
-package org.lrhsd.storm.frc_scouting_2015_master;
+package org.stormroboticsnj.frc_scouting_2015_master;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -12,9 +12,9 @@ import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
 
-import org.lrhsd.storm.frc_scouting_2015_master.adapters.CustomArrayAdapter;
-import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
-import org.lrhsd.storm.frc_scouting_2015_master.database.TeamData;
+import org.stormroboticsnj.frc_scouting_2015_master.adapters.CustomArrayAdapter;
+import org.stormroboticsnj.frc_scouting_2015_master.database.DatabaseHandler;
+import org.stormroboticsnj.frc_scouting_2015_master.database.TeamData;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class TeamReportActivity extends ActionBarActivity implements AdapterView
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
         setContentView(R.layout.activity_team_report_layout);
-        search = (EditText) findViewById(R.id.searchReport);
+        search = (EditText) findViewById(org.stormroboticsnj.frc_scouting_2015_master.R.id.searchReport);
         _team = EventBus.getDefault().removeStickyEvent(String.class);
         _teamsData = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsData(_team);
         _teamMatches = DatabaseHandler.getInstance(getApplicationContext()).getTeamMatches();

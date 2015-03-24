@@ -1,4 +1,4 @@
-package org.lrhsd.storm.frc_scouting_2015_master.adapters;
+package org.stormroboticsnj.frc_scouting_2015_master.adapters;
 
 
 import android.content.Context;
@@ -9,10 +9,9 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
-import org.lrhsd.storm.frc_scouting_2015_master.R;
-import org.lrhsd.storm.frc_scouting_2015_master.database.DatabaseHandler;
+import org.stormroboticsnj.frc_scouting_2015_master.R;
+import org.stormroboticsnj.frc_scouting_2015_master.database.DatabaseHandler;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CustomCursorAdapter extends CursorAdapter {

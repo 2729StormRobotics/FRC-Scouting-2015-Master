@@ -1,11 +1,11 @@
-package org.lrhsd.storm.frc_scouting_2015_master.database;
+package org.stormroboticsnj.frc_scouting_2015_master.database;
 
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import org.lrhsd.storm.frc_scouting_2015_master.R;
-import org.lrhsd.storm.frc_scouting_2015_master.TeamReportActivity;
+import org.stormroboticsnj.frc_scouting_2015_master.R;
+import org.stormroboticsnj.frc_scouting_2015_master.TeamReportActivity;
 
 import java.util.ArrayList;
 
