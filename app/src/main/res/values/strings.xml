@@ -16,6 +16,7 @@
     <string name="makeDatabase">Make Database from CSV</string>
     <string name="append">Append</string>
     <string name="overwrite">Overwrite</string>
+    <string name="options">Options</string>
 
     <!-- Database Strings -->
     <string name="auto_download">Download Auto XML</string>
@@ -57,5 +58,6 @@
 
     <string name="website">www.stormroboticsnj.org</string>
     <string name="twitter">twitter.com/stormroboticsnj</string>
+    <string name="title_activity_options">Options</string>
 
 </resources>

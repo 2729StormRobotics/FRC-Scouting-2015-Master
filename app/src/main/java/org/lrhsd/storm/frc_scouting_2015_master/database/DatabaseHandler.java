@@ -19,7 +19,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import de.greenrobot.event.EventBus;
@@ -398,7 +397,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         //gets sorted data by a column name
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if (columnName.equals(KEY_ALLIANCE) || columnName.equals(KEY_ROBOT_AUTO) || columnName.equals(KEY_COOP) || columnName.equals(KEY_ROBOT_AUTO)) {
+        if (columnName.equals(KEY_ALLIANCE) ||  columnName.equals(KEY_COOP) || columnName.equals(KEY_ROBOT_AUTO)) {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC";
         } else {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC";
@@ -409,17 +408,6 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         return cursor;
     }
 
-    public HashMap<String, Integer> getRankedColumn(String column) {
-        //returns a hashmap with a rank of the team and their rank of that column
-        Cursor cursor = getSortedTeamData(column);
-        HashMap<String, Integer> hashMap = new HashMap<>();
-
-        for (int i = 0; i < cursor.getCount(); i++) {
-            String teamNumber = cursor.getString(0);
-            hashMap.put(teamNumber, i + 1);
-        }
-        return hashMap;
-    }
 
     public boolean checkIfTeamIsInDatabase(String team) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -445,7 +433,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         if (c.moveToFirst()) {
             do {
                 String[] teamData = new String[23];
-                for (int i = 0; i < 23; i++) {
+                for (int i = 0; i < teamData.length; i++) {
                     teamData[i] = c.getString(i);
 
                 }
@@ -467,76 +455,45 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         String selectQuery = "SELECT * FROM " + TABLE_TEAM + " WHERE " + KEY_TEAM_NUMBER + " = " + teamNumber;
         Cursor c = db.rawQuery(selectQuery, null);
         //Log.d("Cursor",c+"");
-        int[] dataInt = new int[19];
-        ArrayList<Integer[]> teamsDataSum = new ArrayList<Integer[]>();
-        if (c.moveToFirst()) {
-            do {
-                Integer[] teamData = new Integer[23];
-                for (int i = 0; i < 23; i++) {
-                    teamData[i] = c.getInt(i);
 
-                }
-                teamsDataSum.add(teamData);
-            } while (c.moveToNext());
+        String[] dataSum = new String[23];
+        for(int i = 0; i < dataSum.length - 1; i ++){
+            dataSum[i] = String.valueOf(0);
         }
-        for (int i = 0; i < teamsDataSum.size(); i++) {
-            for (int t = 5; t < 22; t++) {
-                dataInt[t - 4] = dataInt[t - 4] + teamsDataSum.get(i)[t];
-            }
-        }
-        String[] dataString = new String[22];
-        for (int i = 2; i < 19; i++) {
-            dataString[i] = String.valueOf(dataInt[i]);
-        }
-        int numNo = 0;
-        int numYes = 0;
-        int robotNumYes = 0;
-        int robotNumNo = 0;
+        dataSum[22] = "";
+
         if (c.moveToFirst()) {
             do {
-                if (c.getString(3).equals("No")) {
-                    robotNumNo++;
-                } else {
-                    robotNumYes++;
-                }
-            } while (c.moveToNext());
-            if (c.moveToFirst()) {
-                do {
-                    if (c.getString(21).equals("No")) {
-                        numNo++;
-                    } else {
-                        numYes++;
+                for(int i = 0; i < dataSum.length; i ++){
+                    if(i != 22){
+                        dataSum[i] = String.valueOf(Integer.parseInt(dataSum[i]) + c.getInt(i));
+                    }else{
+
+                        dataSum[i] = dataSum[i] + c.getString(i) +"\n";
                     }
-                } while (c.moveToNext());
-            }
-            dataString[0] = String.valueOf(robotNumYes);
-            dataString[1] = String.valueOf(robotNumNo);
-            dataString[19] = String.valueOf(numYes);
-            dataString[20] = String.valueOf(numNo);
-            String notes = "";
-            if (c.moveToFirst()) {
-                do {
-                    notes = notes + c.getString(22) + "\n";
-                } while (c.moveToNext());
-            }
-            dataString[21] = notes;
-
+                }
+            } while (c.moveToNext());
         }
 
-        return dataString;
+        String[] importantDataSum = new String[dataSum.length - 3];
+
+        for(int i = 0; i < importantDataSum.length; i++){
+            importantDataSum[i] = dataSum[i + 3];
+        }
+
+    return  importantDataSum;
     }
 
     public String[] getOneTeamsDataAverage(String teamNumber, TeamData teamData) {
 
-        String[] dataString = getOneTeamsDataSummary(teamNumber);
+        String[] avg = getOneTeamsDataSummary(teamNumber);
 
-        double[] dataDouble = new double[22];
-
-        for (int i = 0; i < dataString.length - 1; i++) {
-            dataDouble[i] = Integer.parseInt(dataString[i]) / (double) teamData.getMatches().size();
-            dataString[i] = String.format("%.3f", dataDouble[i]);
+        for(int i = 0; i < avg.length - 1; i++){
+            avg[i] = String.valueOf(String.format("%.2f" , Double.parseDouble(avg[i]) / teamData.getMatches().size()));
         }
-        return dataString;
+
+        return  avg;
+
     }
 
     public ArrayList<String> getTeamMatches() {

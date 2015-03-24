@@ -1,6 +1,5 @@
 package org.lrhsd.storm.frc_scouting_2015_master;
 
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
@@ -8,9 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ScrollView;
 import android.widget.Spinner;
@@ -81,16 +78,18 @@ public class TeamReportActivity extends ActionBarActivity implements AdapterView
         Log.d("team",""+team);
         Log.d("teamNum",teamNum);
 
+        int numMatches = team.getMatches().size();
+
         View view = LayoutInflater.from(this).inflate(R.layout.team_report_data_layout, null);
         if(matchNum==-1){
             String[] teamDataSum;
             teamDataSum = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsDataSummary(teamNum);
-            team.teamReportSum(teamNum, view, this, teamDataSum);
+            team.teamReportSum(teamNum, view, this, teamDataSum,numMatches);
         }else if(matchNum==-2) {
             String[] teamDataSum;
             team.setMatches(_teamsData);
             teamDataSum = DatabaseHandler.getInstance(getApplicationContext()).getOneTeamsDataAverage(teamNum,team);
-            team.teamReportSum(teamNum, view, this, teamDataSum);
+            team.teamReportSum(teamNum, view, this, teamDataSum, numMatches);
         }else{
             team.setMatches(_teamsData);
             team.teamReport(teamNum, matchNum, view ,team,this);
