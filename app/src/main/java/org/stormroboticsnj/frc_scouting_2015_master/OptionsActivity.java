@@ -16,6 +16,7 @@ public class OptionsActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getActionBar().hide();
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(org.stormroboticsnj.frc_scouting_2015_master.R.layout.activity_options);
           }
