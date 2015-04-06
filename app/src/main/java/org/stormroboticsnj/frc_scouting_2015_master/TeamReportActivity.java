@@ -2,7 +2,6 @@ package org.stormroboticsnj.frc_scouting_2015_master;
 
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,9 +33,6 @@ public class TeamReportActivity extends ActionBarActivity implements AdapterView
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.hide();
         setContentView(R.layout.activity_team_report_layout);
         search = (EditText) findViewById(org.stormroboticsnj.frc_scouting_2015_master.R.id.searchReport);
         _team = EventBus.getDefault().removeStickyEvent(String.class);
