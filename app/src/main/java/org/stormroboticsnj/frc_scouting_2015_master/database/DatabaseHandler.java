@@ -26,36 +26,35 @@ import de.greenrobot.event.EventBus;
 public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnItemSelectedListener {
 
     // Contacts Table Columns names
-    // private static final String KEY_ID = "id";
     //main
-    public static final String KEY_TEAM_NUMBER = "_id";
+    public static final String KEY_TEAM_NUMBER  = "_id";
     public static final String KEY_MATCH_NUMBER = "match_number";
-    public static final String KEY_ALLIANCE = "alliance";
+    public static final String KEY_ALLIANCE     = "alliance";
     //auto
-    public static final String KEY_ROBOT_AUTO = "robot_auto";
-    // public static final String KEY_TOTE_AUTO = "tote_auto";
-    public static final String KEY_NUMBER_TOTES_AUTO = "number_totes_auto";
-    //  public static final String KEY_CONTAINER_AUTO = "container_auto";
-    public static final String KEY_NUMBER_CONTAINERS_AUTO = "number_containers_auto";
-    //   public static final String KEY_ASSISTED_TOTES_AUTO = "assisted_totes_auto";
+    public static final String KEY_ROBOT_AUTO                = "robot_auto";
+    public static final String KEY_NUMBER_TOTES_AUTO         = "number_totes_auto";
+    public static final String KEY_NUMBER_CONTAINERS_AUTO    = "number_containers_auto";
     public static final String KEY_NUMBER_TOTES_STACKED_AUTO = "number_totes_stacked_auto";
-    public static final String KEY_CONTAINERS_CENTER_AUTO = "containers_center_auto";
-    public static final String KEY_TOTE_LEVEL1 = "tote_level1";
+    public static final String KEY_CONTAINERS_CENTER_AUTO    = "containers_center_auto";
+    public static final String KEY_TOTE_LEVEL1               = "tote_level1";
     //telop
     public static final String KEY_TOTE_LEVEL2 = "tote_level2";
     public static final String KEY_TOTE_LEVEL3 = "tote_level3";
     public static final String KEY_TOTE_LEVEL4 = "tote_level4";
     public static final String KEY_TOTE_LEVEL5 = "tote_level5";
     public static final String KEY_TOTE_LEVEL6 = "tote_level6";
-    public static final String KEY_CAN_LEVEL1 = "can_level1";
-    public static final String KEY_CAN_LEVEL2 = "can_level2";
-    public static final String KEY_CAN_LEVEL3 = "can_level3";
-    public static final String KEY_CAN_LEVEL4 = "can_level4";
-    public static final String KEY_CAN_LEVEL5 = "can_level5";
-    public static final String KEY_CAN_LEVEL6 = "can_level6";
-    public static final String KEY_NOODLE = "noodle";
-    public static final String KEY_COOP = "coop";
-    public static final String KEY_NOTES = "notes";
+    public static final String KEY_CAN_LEVEL1  = "can_level1";
+    public static final String KEY_CAN_LEVEL2  = "can_level2";
+    public static final String KEY_CAN_LEVEL3  = "can_level3";
+    public static final String KEY_CAN_LEVEL4  = "can_level4";
+    public static final String KEY_CAN_LEVEL5  = "can_level5";
+    public static final String KEY_CAN_LEVEL6  = "can_level6";
+    public static final String KEY_NOODLE      = "noodle";
+    public static final String KEY_COOPLEVEL1  = "coopLevel1";
+    public static final String KEY_COOPLEVEL2  = "coopLevel2";
+    public static final String KEY_COOPLEVEL3  = "coopLevel3";
+    public static final String KEY_COOPLEVEL4  = "coopLevel4";
+    public static final String KEY_NOTES       = "notes";
     // Database Version
     private static final int DATABASE_VERSION = 1;
     // Database Name
@@ -68,7 +67,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     private String matchNum;
     private ArrayList<String[]> teamsData;
 
-    private final static int COLUMN_COUNT = 23;
+    private final static int COLUMN_COUNT = 26;
 
     public DatabaseHandler(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -92,32 +91,34 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public void onCreate(SQLiteDatabase db) {
         //creates table
         String CREATE_TEAM = "CREATE TABLE " + TABLE_TEAM + "("
-                + KEY_TEAM_NUMBER + " INTEGER,"
-                + KEY_MATCH_NUMBER + " INTEGER,"
-                + KEY_ALLIANCE + " INTEGER,"
-                + KEY_ROBOT_AUTO + " INTEGER,"
-                + KEY_NUMBER_TOTES_AUTO + " INTEGER,"
-                + KEY_NUMBER_CONTAINERS_AUTO + " INTEGER,"
+                + KEY_TEAM_NUMBER               + " INTEGER,"
+                + KEY_MATCH_NUMBER              + " INTEGER,"
+                + KEY_ALLIANCE                  + " INTEGER,"
+                + KEY_ROBOT_AUTO                + " INTEGER,"
+                + KEY_NUMBER_TOTES_AUTO         + " INTEGER,"
+                + KEY_NUMBER_CONTAINERS_AUTO    + " INTEGER,"
                 + KEY_NUMBER_TOTES_STACKED_AUTO + " INTEGER,"
-                + KEY_CONTAINERS_CENTER_AUTO + " INTEGER,"
-                + KEY_TOTE_LEVEL1 + " INTEGER,"
-                + KEY_TOTE_LEVEL2 + " INTEGER,"
-                + KEY_TOTE_LEVEL3 + " INTEGER,"
-                + KEY_TOTE_LEVEL4 + " INTEGER,"
-                + KEY_TOTE_LEVEL5 + " INTEGER,"
-                + KEY_TOTE_LEVEL6 + " INTEGER,"
-                + KEY_CAN_LEVEL1 + " INTEGER,"
-                + KEY_CAN_LEVEL2 + " INTEGER,"
-                + KEY_CAN_LEVEL3 + " INTEGER,"
-                + KEY_CAN_LEVEL4 + " INTEGER,"
-                + KEY_CAN_LEVEL5 + " INTEGER,"
-                + KEY_CAN_LEVEL6 + " INTEGER,"
-                + KEY_NOODLE + " INTEGER,"
-                + KEY_COOP + " INTEGER,"
-                + KEY_NOTES + " TEXT"
+                + KEY_CONTAINERS_CENTER_AUTO    + " INTEGER,"
+                + KEY_TOTE_LEVEL1               + " INTEGER,"
+                + KEY_TOTE_LEVEL2               + " INTEGER,"
+                + KEY_TOTE_LEVEL3               + " INTEGER,"
+                + KEY_TOTE_LEVEL4               + " INTEGER,"
+                + KEY_TOTE_LEVEL5               + " INTEGER,"
+                + KEY_TOTE_LEVEL6               + " INTEGER,"
+                + KEY_CAN_LEVEL1                + " INTEGER,"
+                + KEY_CAN_LEVEL2                + " INTEGER,"
+                + KEY_CAN_LEVEL3                + " INTEGER,"
+                + KEY_CAN_LEVEL4                + " INTEGER,"
+                + KEY_CAN_LEVEL5                + " INTEGER,"
+                + KEY_CAN_LEVEL6                + " INTEGER,"
+                + KEY_NOODLE                    + " INTEGER,"
+                + KEY_COOPLEVEL1                + " INTEGER,"
+                + KEY_COOPLEVEL2                + " INTEGER,"
+                + KEY_COOPLEVEL3                + " INTEGER,"
+                + KEY_COOPLEVEL4                + " INTEGER,"
+                + KEY_NOTES                     + " TEXT"
                 + ")";
         db.execSQL(CREATE_TEAM);
-        // Log.d("Number of Rows",getNumRows()+"");
     }
 
     // Upgrading database
@@ -131,61 +132,66 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     }
 
     public void addTeamData(List<String[]> matches) {
-        Log.d("bitch got called", matches.get(0)[0]);
         SQLiteDatabase db = this.getWritableDatabase();
 
         String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
-                KEY_TEAM_NUMBER + ", "
-                + KEY_MATCH_NUMBER + ", "
-                + KEY_ALLIANCE + ", "
-                + KEY_ROBOT_AUTO + ", "
-                + KEY_NUMBER_TOTES_AUTO + ", "
-                + KEY_NUMBER_CONTAINERS_AUTO + ", "
+                KEY_TEAM_NUMBER                 + ", "
+                + KEY_MATCH_NUMBER              + ", "
+                + KEY_ALLIANCE                  + ", "
+                + KEY_ROBOT_AUTO                + ", "
+                + KEY_NUMBER_TOTES_AUTO         + ", "
+                + KEY_NUMBER_CONTAINERS_AUTO    + ", "
                 + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
-                + KEY_CONTAINERS_CENTER_AUTO + ", "
-                + KEY_TOTE_LEVEL1 + ", "
-                + KEY_TOTE_LEVEL2 + ", "
-                + KEY_TOTE_LEVEL3 + ", "
-                + KEY_TOTE_LEVEL4 + ", "
-                + KEY_TOTE_LEVEL5 + ", "
-                + KEY_TOTE_LEVEL6 + ", "
-                + KEY_CAN_LEVEL1 + ", "
-                + KEY_CAN_LEVEL2 + ", "
-                + KEY_CAN_LEVEL3 + ", "
-                + KEY_CAN_LEVEL4 + ", "
-                + KEY_CAN_LEVEL5 + ", "
-                + KEY_CAN_LEVEL6 + ", "
-                + KEY_NOODLE + ", "
-                + KEY_COOP + ", "
+                + KEY_CONTAINERS_CENTER_AUTO    + ", "
+                + KEY_TOTE_LEVEL1               + ", "
+                + KEY_TOTE_LEVEL2               + ", "
+                + KEY_TOTE_LEVEL3               + ", "
+                + KEY_TOTE_LEVEL4               + ", "
+                + KEY_TOTE_LEVEL5               + ", "
+                + KEY_TOTE_LEVEL6               + ", "
+                + KEY_CAN_LEVEL1                + ", "
+                + KEY_CAN_LEVEL2                + ", "
+                + KEY_CAN_LEVEL3                + ", "
+                + KEY_CAN_LEVEL4                + ", "
+                + KEY_CAN_LEVEL5                + ", "
+                + KEY_CAN_LEVEL6                + ", "
+                + KEY_NOODLE                    + ", "
+                + KEY_COOPLEVEL1                + ", "
+                + KEY_COOPLEVEL2                + ", "
+                + KEY_COOPLEVEL3                + ", "
+                + KEY_COOPLEVEL4                + ", "
                 + KEY_NOTES +
                 ") values(";
         String str2 = " );";
 
         for (int i = 0; i < matches.size(); i++) {
             StringBuilder sb = new StringBuilder(str1);
-            sb.append(matches.get(i)[0] + ",");
-            sb.append(matches.get(i)[1] + ",");
-            sb.append(matches.get(i)[2] + ",");
-            sb.append(matches.get(i)[3] + ",");
-            sb.append(matches.get(i)[4] + ",");
-            sb.append(matches.get(i)[5] + ",");
-            sb.append(matches.get(i)[6] + ",");
-            sb.append(matches.get(i)[7] + ",");
-            sb.append(matches.get(i)[8] + ",");
-            sb.append(matches.get(i)[9] + ",");
-            sb.append(matches.get(i)[10] + ",");
-            sb.append(matches.get(i)[11] + ",");
-            sb.append(matches.get(i)[12] + ",");
-            sb.append(matches.get(i)[13] + ",");
-            sb.append(matches.get(i)[14] + ",");
-            sb.append(matches.get(i)[15] + ",");
-            sb.append(matches.get(i)[16] + ",");
-            sb.append(matches.get(i)[17] + ",");
-            sb.append(matches.get(i)[18] + ",");
-            sb.append(matches.get(i)[19] + ",");
-            sb.append(matches.get(i)[20] + ",");
-            sb.append(matches.get(i)[21] + ",");
-            sb.append("'" + matches.get(i)[22] + "'");
+            sb.append(matches.get(i)[0]        + ",");
+            sb.append(matches.get(i)[1]        + ",");
+            sb.append(matches.get(i)[2]        + ",");
+            sb.append(matches.get(i)[3]        + ",");
+            sb.append(matches.get(i)[4]        + ",");
+            sb.append(matches.get(i)[5]        + ",");
+            sb.append(matches.get(i)[6]        + ",");
+            sb.append(matches.get(i)[7]        + ",");
+            sb.append(matches.get(i)[8]        + ",");
+            sb.append(matches.get(i)[9]        + ",");
+            sb.append(matches.get(i)[10]       + ",");
+            sb.append(matches.get(i)[11]       + ",");
+            sb.append(matches.get(i)[12]       + ",");
+            sb.append(matches.get(i)[13]       + ",");
+            sb.append(matches.get(i)[14]       + ",");
+            sb.append(matches.get(i)[15]       + ",");
+            sb.append(matches.get(i)[16]       + ",");
+            sb.append(matches.get(i)[17]       + ",");
+            sb.append(matches.get(i)[18]       + ",");
+            sb.append(matches.get(i)[19]       + ",");
+            sb.append(matches.get(i)[20]       + ",");
+            sb.append(matches.get(i)[21]       + ",");
+            sb.append(matches.get(i)[22]       + ",");
+            sb.append(matches.get(i)[23]       + ",");
+            sb.append(matches.get(i)[24]       + ",");
+            sb.append("'" + matches.get(i)[25] + "'");
             sb.append(str2);
             //Log.d("SQL",sb.toString());
             db.execSQL(sb.toString());
@@ -208,28 +214,31 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             String line = "";
 
             String str1 = "INSERT INTO " + TABLE_TEAM + " (" +
-                    KEY_TEAM_NUMBER + ", "
-                    + KEY_MATCH_NUMBER + ", "
-                    + KEY_ALLIANCE + ", "
-                    + KEY_ROBOT_AUTO + ", "
-                    + KEY_NUMBER_TOTES_AUTO + ", "
-                    + KEY_NUMBER_CONTAINERS_AUTO + ", "
+                    KEY_TEAM_NUMBER                 + ", "
+                    + KEY_MATCH_NUMBER              + ", "
+                    + KEY_ALLIANCE                  + ", "
+                    + KEY_ROBOT_AUTO                + ", "
+                    + KEY_NUMBER_TOTES_AUTO         + ", "
+                    + KEY_NUMBER_CONTAINERS_AUTO    + ", "
                     + KEY_NUMBER_TOTES_STACKED_AUTO + ", "
-                    + KEY_CONTAINERS_CENTER_AUTO + ", "
-                    + KEY_TOTE_LEVEL1 + ", "
-                    + KEY_TOTE_LEVEL2 + ", "
-                    + KEY_TOTE_LEVEL3 + ", "
-                    + KEY_TOTE_LEVEL4 + ", "
-                    + KEY_TOTE_LEVEL5 + ", "
-                    + KEY_TOTE_LEVEL6 + ", "
-                    + KEY_CAN_LEVEL1 + ", "
-                    + KEY_CAN_LEVEL2 + ", "
-                    + KEY_CAN_LEVEL3 + ", "
-                    + KEY_CAN_LEVEL4 + ", "
-                    + KEY_CAN_LEVEL5 + ", "
-                    + KEY_CAN_LEVEL6 + ", "
-                    + KEY_NOODLE + ", "
-                    + KEY_COOP + ", "
+                    + KEY_CONTAINERS_CENTER_AUTO    + ", "
+                    + KEY_TOTE_LEVEL1               + ", "
+                    + KEY_TOTE_LEVEL2               + ", "
+                    + KEY_TOTE_LEVEL3               + ", "
+                    + KEY_TOTE_LEVEL4               + ", "
+                    + KEY_TOTE_LEVEL5               + ", "
+                    + KEY_TOTE_LEVEL6               + ", "
+                    + KEY_CAN_LEVEL1                + ", "
+                    + KEY_CAN_LEVEL2                + ", "
+                    + KEY_CAN_LEVEL3                + ", "
+                    + KEY_CAN_LEVEL4                + ", "
+                    + KEY_CAN_LEVEL5                + ", "
+                    + KEY_CAN_LEVEL6                + ", "
+                    + KEY_NOODLE                    + ", "
+                    + KEY_COOPLEVEL1                + ", "
+                    + KEY_COOPLEVEL2                + ", "
+                    + KEY_COOPLEVEL3                + ", "
+                    + KEY_COOPLEVEL4                + ", "
                     + KEY_NOTES +
                     ") values(";
 
@@ -241,16 +250,16 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
 
                 StringBuilder sb = new StringBuilder(str1);
                 String[] str = line.split(",");
-                sb.append(str[0] + ",");
-                sb.append(str[1] + ",");
-                sb.append(str[2] + ",");
-                sb.append(str[3] + ",");
-                sb.append(str[4] + ",");
-                sb.append(str[5] + ",");
-                sb.append(str[6] + ",");
-                sb.append(str[7] + ",");
-                sb.append(str[8] + ",");
-                sb.append(str[9] + ",");
+                sb.append(str[0]  + ",");
+                sb.append(str[1]  + ",");
+                sb.append(str[2]  + ",");
+                sb.append(str[3]  + ",");
+                sb.append(str[4]  + ",");
+                sb.append(str[5]  + ",");
+                sb.append(str[6]  + ",");
+                sb.append(str[7]  + ",");
+                sb.append(str[8]  + ",");
+                sb.append(str[9]  + ",");
                 sb.append(str[10] + ",");
                 sb.append(str[11] + ",");
                 sb.append(str[12] + ",");
@@ -262,9 +271,11 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 sb.append(str[18] + ",");
                 sb.append(str[19] + ",");
                 sb.append(str[20] + ",");
-                Log.d("str20", str[22]);
                 sb.append(str[21] + ",");
-                sb.append(str[22]);
+                sb.append(str[22] + ",");
+                sb.append(str[23] + ",");
+                sb.append(str[24] + ",");
+                sb.append(str[25]);
 
                 sb.append(str2);
                 //Log.d("sb", sb.toString());
@@ -329,8 +340,11 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 teamData.setCanLevel6(cursor.getInt(19));
 
                 teamData.setNoodle(cursor.getInt(20));
-                teamData.setCoop(cursor.getInt(21));
-                teamData.setNotes(cursor.getString(22));
+                teamData.setCoopLevel1(cursor.getInt(21));
+                teamData.setCoopLevel2(cursor.getInt(22));
+                teamData.setCoopLevel3(cursor.getInt(23));
+                teamData.setCoopLevel4(cursor.getInt(24));
+                teamData.setNotes(cursor.getString(25));
 
 
                 // Adding contact to list
@@ -351,16 +365,16 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         if (cursor.moveToFirst()) {
             do {
                 String[] teamData = new String[COLUMN_COUNT];
-                teamData[0] = (cursor.getString(0));
-                teamData[1] = (cursor.getString(1));
-                teamData[2] = (cursor.getString(2));
-                teamData[3] = (cursor.getString(3));
-                teamData[4] = (cursor.getString(4));
-                teamData[5] = (cursor.getString(5));
-                teamData[6] = (cursor.getString(6));
-                teamData[7] = (cursor.getString(7));
-                teamData[8] = (cursor.getString(8));
-                teamData[9] = (cursor.getString(9));
+                teamData[0]  = (cursor.getString(0));
+                teamData[1]  = (cursor.getString(1));
+                teamData[2]  = (cursor.getString(2));
+                teamData[3]  = (cursor.getString(3));
+                teamData[4]  = (cursor.getString(4));
+                teamData[5]  = (cursor.getString(5));
+                teamData[6]  = (cursor.getString(6));
+                teamData[7]  = (cursor.getString(7));
+                teamData[8]  = (cursor.getString(8));
+                teamData[9]  = (cursor.getString(9));
                 teamData[10] = (cursor.getString(10));
                 teamData[11] = (cursor.getString(11));
                 teamData[12] = (cursor.getString(12));
@@ -374,6 +388,9 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                 teamData[20] = (cursor.getString(20));
                 teamData[21] = (cursor.getString(21));
                 teamData[22] = (cursor.getString(22));
+                teamData[23] = (cursor.getString(23));
+                teamData[24] = (cursor.getString(24));
+                teamData[25] = (cursor.getString(25));
 
                 teamDataList.add(teamData);
             } while (cursor.moveToNext());
@@ -397,7 +414,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         //gets sorted data by a column name
         List<ArrayList> teamDataList = new ArrayList<ArrayList>();
         String selectQuery;
-        if (columnName.equals(KEY_ALLIANCE) ||  columnName.equals(KEY_COOP) || columnName.equals(KEY_ROBOT_AUTO)) {
+        if (columnName.equals(KEY_ALLIANCE) || columnName.equals(KEY_ROBOT_AUTO)) {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " ASC";
         } else {
             selectQuery = "SELECT  * FROM " + TABLE_TEAM + " ORDER BY " + columnName + " DESC";
@@ -432,13 +449,11 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         TeamData team = new TeamData();
         if (c.moveToFirst()) {
             do {
-                String[] teamData = new String[23];
+                String[] teamData = new String[COLUMN_COUNT];
                 for (int i = 0; i < teamData.length; i++) {
                     teamData[i] = c.getString(i);
 
                 }
-                Log.d("teamData21", teamData[21]);
-                Log.d("teamData22", teamData[22]);
                 teamsData.add(teamData);
 
             } while (c.moveToNext());
@@ -456,16 +471,16 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
         Cursor c = db.rawQuery(selectQuery, null);
         //Log.d("Cursor",c+"");
 
-        String[] dataSum = new String[23];
+        String[] dataSum = new String[COLUMN_COUNT];
         for(int i = 0; i < dataSum.length - 1; i ++){
             dataSum[i] = String.valueOf(0);
         }
-        dataSum[22] = "";
+        dataSum[25] = "";
 
         if (c.moveToFirst()) {
             do {
                 for(int i = 0; i < dataSum.length; i ++){
-                    if(i != 22){
+                    if(i != 25){
                         dataSum[i] = String.valueOf(Integer.parseInt(dataSum[i]) + c.getInt(i));
                     }else{
 
@@ -527,7 +542,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             File file = new File(dir, "match_data.csv");
             CSVWriter writer;
 
-            String[] columns = new String[23];
+            String[] columns = new String[COLUMN_COUNT];
             columns[0] = "Team Number";
             columns[1] = "Match Number";
             columns[2] = "Alliance";
@@ -549,9 +564,12 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             columns[18] = "Can Level 5";
             columns[19] = "Can Level 6";
             columns[20] = "Number of Noodles";
-            columns[21] = "Coopertition";
+            columns[21] = "Coop Level 1";
+            columns[22] = "Coop Level 2";
+            columns[23] = "Coop Level 3";
+            columns[24] = "Coop Level 4";
             //Log.d("Column22",columns[22]);
-            columns[22] = "Notes";
+            columns[25] = "Notes";
             matches.add(0, columns);
 
             writer = new CSVWriter(new FileWriter(file, false), ',');
@@ -563,6 +581,3 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     }
 
 }
-
-
-

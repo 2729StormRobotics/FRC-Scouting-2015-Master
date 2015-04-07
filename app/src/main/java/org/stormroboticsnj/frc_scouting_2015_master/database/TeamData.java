@@ -40,8 +40,12 @@ public class TeamData {
     int canLevel5 = 0;
     int canLevel6 = 0;
 
+    int coopLevel1 = 0;
+    int coopLevel2 = 0;
+    int coopLevel3 = 0;
+    int coopLevel4 = 0;
+
     int noodle = 0;
-    int coop = 0;
     String notes = "";
 
 
@@ -82,7 +86,7 @@ public class TeamData {
                     int number_totes_auto, int number_containers_auto,
                     int number_totes_stacked_auto, int containers_center, int tote_level1, int tote_level2, int tote_level3,
                     int tote_level4, int tote_level5, int tote_level6, int can_level1, int can_level2,
-                    int can_level3, int can_level4, int can_level5, int can_level6, int noodle, int coop, String notes
+                    int can_level3, int can_level4, int can_level5, int can_level6, int noodle, int coopLevel1, int coopLevel2, int coopLevel3, int coopLevel4, String notes
     ) {
         this.team_number = team_number;
         this.match_number = match_number;
@@ -112,7 +116,10 @@ public class TeamData {
         this.canLevel6 = can_level6;
 
         this.noodle = noodle;
-        this.coop = coop;
+        this.coopLevel1 = coopLevel1;
+        this.coopLevel2 = coopLevel2;
+        this.coopLevel3 = coopLevel3;
+        this.coopLevel4 = coopLevel4;
         this.notes = notes;
 
 
@@ -291,16 +298,26 @@ public class TeamData {
         this.noodle = noodle;
     }
 
-    public int getCoop() {
-        return coop;
+    public int getCoopLevel1() {return coopLevel1;}
+
+    public void setCoopLevel1(int coop) {
+        this.coopLevel1 = coop;
     }
 
-    public void setCoop(int coop) {
-        this.coop = coop;
+    public int getCoopLevel2() {return coopLevel2;}
+
+    public void setCoopLevel2(int coop) {
+        this.coopLevel2 = coop;
     }
 
-    public String[] getTeamReport() {
-        return null;
+    public int getCoopLevel3() {return coopLevel3;}
+
+    public void setCoopLevel3(int coop) {this.coopLevel3 = coop;}
+
+    public int getCoopLevel4() {return coopLevel4;}
+
+    public void setCoopLevel4(int coop) {
+        this.coopLevel4 = coop;
     }
 
     public void teamReport(String team, int matchNum, View act,TeamData teamData,TeamReportActivity act1) {
@@ -326,57 +343,7 @@ public class TeamData {
         TextView noodle = (TextView) act.findViewById(R.id.column_noodle);
         TextView coop = (TextView) act.findViewById(R.id.column_coop);
         TextView robotInfo = (TextView) act.findViewById(R.id.RobotInfo);
-        /*textViews[0]=teamNum;
-        textViews[1]=robotAuto;
-        textViews[2]=numTotesAuto;
-        textViews[3]=numContainAuto;
-        textViews[4]=numStackedTotesAuto;
-        textViews[5]=containersCenterAuto;
-        textViews[6]=toteLevel1;
-        textViews[7]=toteLevel2;
-        textViews[8]=toteLevel3;
-        textViews[9]=toteLevel4;
-        textViews[10]=toteLevel5;
-        textViews[11]=toteLevel6;
-        textViews[12]=canLevel1;
-        textViews[13]=canLevel2;
-        textViews[14]=canLevel3;
-        textViews[15]=canLevel4;
-        textViews[16]=canLevel5;
-        textViews[17]=canLevel6;
-        textViews[18]=noodle;
-        textViews[19]=coop;
-        textViews[20]=robotInfo;
 
-        text[0]="RobotAuto:";
-        text[1]="Number of Totes Auto:";
-        text[2]="Number of Container Auto:";
-        text[3]="Number of Stacked Totes in Auto:";
-        text[4]="Number of Containers from Center:";
-        text[5]="Tote Level 1:";
-        text[6]="Tote Level 2:";
-        text[7]="Tote Level 3:";
-        text[8]="Tote Level 4:";
-        text[9]="Tote Level 5:";
-        text[10]="Tote Level 6:";
-        text[11]="Can Level 1:";
-        text[12]="Can Level 2:";
-        text[13]="Can Level 3:";
-        text[14]="Can Level 4:";
-        text[15]="Can Level 5:";
-        text[16]="Can Level 6:";
-        text[17]="Noodle";
-        text[18]="Coop";
-        text[19]="Robot Info";*/
-
-        /*int k = 0;
-        for(int i=1;i<21;i++){
-            if(k<19){
-                k++;
-            }
-            textViews[i].setText(text[k]+"\n"+teamData.getMatches().get(matchNum)[i+2]);
-        }
-        Log.d("get(matchnum)",teamData.getMatches().get(matchNum)[22]);*/
 
         teamNum.setText(team);
         robotAuto.setText("Robot Auto:"+"\n"+teamData.getMatches().get(matchNum)[3]);
