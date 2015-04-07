@@ -30,7 +30,7 @@
 
     <string-array name="choices">
         <item>Team Number</item>
-        <item>Match #</item>
+        <item>Match Number</item>
         <item>Alliance</item>
         <item>Robot in Auto</item>
         <item>Number of totes in Auto</item>
@@ -50,7 +50,10 @@
         <item>Container level 5</item>
         <item>Container level 6</item>
         <item>Noodle</item>
-        <item>Co-opertition</item>
+        <item>Coop Level 1</item>
+        <item>Coop Level 2</item>
+        <item>Coop Level 3</item>
+        <item>Coop Level 4</item>
     </string-array>
 
     <string name="sort">Sort</string>

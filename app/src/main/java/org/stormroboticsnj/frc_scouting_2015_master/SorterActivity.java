@@ -27,7 +27,7 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
             DatabaseHandler.KEY_ROBOT_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_AUTO, DatabaseHandler.KEY_NUMBER_CONTAINERS_AUTO, DatabaseHandler.KEY_NUMBER_TOTES_STACKED_AUTO,
             DatabaseHandler.KEY_CONTAINERS_CENTER_AUTO, DatabaseHandler.KEY_TOTE_LEVEL1, DatabaseHandler.KEY_TOTE_LEVEL2, DatabaseHandler.KEY_TOTE_LEVEL3, DatabaseHandler.KEY_TOTE_LEVEL4,
             DatabaseHandler.KEY_TOTE_LEVEL5, DatabaseHandler.KEY_TOTE_LEVEL6, DatabaseHandler.KEY_CAN_LEVEL1, DatabaseHandler.KEY_CAN_LEVEL2, DatabaseHandler.KEY_CAN_LEVEL3,
-            DatabaseHandler.KEY_CAN_LEVEL4, DatabaseHandler.KEY_CAN_LEVEL5, DatabaseHandler.KEY_CAN_LEVEL6, DatabaseHandler.KEY_NOODLE, DatabaseHandler.KEY_COOP};
+            DatabaseHandler.KEY_CAN_LEVEL4, DatabaseHandler.KEY_CAN_LEVEL5, DatabaseHandler.KEY_CAN_LEVEL6, DatabaseHandler.KEY_NOODLE, DatabaseHandler.KEY_COOPLEVEL1,DatabaseHandler.KEY_COOPLEVEL2,DatabaseHandler.KEY_COOPLEVEL3,DatabaseHandler.KEY_COOPLEVEL4};
     ArrayList<String> columnNames = new ArrayList<String>();
 
     public void setColumnNames(ArrayList<String> columnNames) {
@@ -60,7 +60,10 @@ public class SorterActivity extends Activity implements AdapterView.OnItemSelect
         columnNames.add("Container Level 5");
         columnNames.add("Container Level 6");
         columnNames.add("Noodle");
-        columnNames.add("Coop");
+        columnNames.add("Coop Level 1");
+        columnNames.add("Coop Level 2");
+        columnNames.add("Coop Level 3");
+        columnNames.add("Coop Level 4");
 
         setContentView(R.layout.activity_sorter);
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
