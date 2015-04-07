@@ -55,7 +55,7 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
     public static final String KEY_COOPLEVEL4  = "coopLevel4";
     public static final String KEY_NOTES       = "notes";
     // Database Version
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     // Database Name
     private static final String DATABASE_NAME = "Team_Manager";
     // Contacts table name

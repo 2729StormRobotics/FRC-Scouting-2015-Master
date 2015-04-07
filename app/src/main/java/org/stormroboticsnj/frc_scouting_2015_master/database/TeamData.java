@@ -342,9 +342,9 @@ public class TeamData {
         TextView canLevel6 = (TextView) act.findViewById(R.id.column_can_level_6);
         TextView noodle = (TextView) act.findViewById(R.id.column_noodle);
         TextView coop1 = (TextView) act.findViewById(R.id.coop1);
-        TextView coop2 = (TextView) act.findViewById(R.id.coop1);
-        TextView coop3 = (TextView) act.findViewById(R.id.coop1);
-        TextView coop4 = (TextView) act.findViewById(R.id.coop1);
+        TextView coop2 = (TextView) act.findViewById(R.id.coop2);
+        TextView coop3 = (TextView) act.findViewById(R.id.coop3);
+        TextView coop4 = (TextView) act.findViewById(R.id.coop4);
         TextView robotInfo = (TextView) act.findViewById(R.id.RobotInfo);
 
 
@@ -368,9 +368,9 @@ public class TeamData {
         canLevel6.setText("Can Level 6:"+"\n"+teamData.getMatches().get(matchNum)[19]);
         noodle.setText("Noodles in Cans:"+"\n"+teamData.getMatches().get(matchNum)[20]);
         coop1.setText("Coop Level 1:"+"\n"+teamData.getMatches().get(matchNum)[21]);
-        coop2.setText("Coop Level 1:"+"\n"+teamData.getMatches().get(matchNum)[22]);
-        coop3.setText("Coop Level 1:"+"\n"+teamData.getMatches().get(matchNum)[23]);
-        coop4.setText("Coop Level 1:"+"\n"+teamData.getMatches().get(matchNum)[24]);
+        coop2.setText("Coop Level 2:"+"\n"+teamData.getMatches().get(matchNum)[22]);
+        coop3.setText("Coop Level 3:"+"\n"+teamData.getMatches().get(matchNum)[23]);
+        coop4.setText("Coop Level 4:"+"\n"+teamData.getMatches().get(matchNum)[24]);
         robotInfo.setText("Robot Info:"+"\n"+teamData.getMatches().get(matchNum)[25]);
     }
 
