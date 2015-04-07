@@ -209,7 +209,7 @@
         android:layout_alignParentLeft="true" />
 
     <TextView
-        android:id="@+id/column_coop"
+        android:id="@+id/coop1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
@@ -224,11 +224,44 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/RobotInfo"
+        android:id="@+id/coop2"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/column_coop"
+        android:layout_below="@+id/coop1"
         android:layout_alignParentLeft="true"
         android:textColor="#ffffffff" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/coop3"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/coop2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/coop4"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/coop3"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Small Text"
+        android:id="@+id/RobotInfo"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/coop4"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
 </RelativeLayout>

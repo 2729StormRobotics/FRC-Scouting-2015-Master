@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 
@@ -483,7 +482,6 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
                     if(i != 25){
                         dataSum[i] = String.valueOf(Integer.parseInt(dataSum[i]) + c.getInt(i));
                     }else{
-
                         dataSum[i] = dataSum[i] + c.getString(i) +"\n";
                     }
                 }
