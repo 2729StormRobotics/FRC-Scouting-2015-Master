@@ -541,16 +541,16 @@ public class DatabaseHandler extends SQLiteOpenHelper implements AdapterView.OnI
             CSVWriter writer;
 
             String[] columns = new String[COLUMN_COUNT];
-            columns[0] = "Team Number";
-            columns[1] = "Match Number";
-            columns[2] = "Alliance";
-            columns[3] = "Robot in Auto Zone";
-            columns[4] = "Totes in Auto";
-            columns[5] = "Containers in Auto";
-            columns[6] = "Stack Totes in Auto";
-            columns[7] = "Containers from Center";
-            columns[8] = "Tote Level 1";
-            columns[9] = "Tote Level 2";
+            columns[0]  = "Team Number";
+            columns[1]  = "Match Number";
+            columns[2]  = "Alliance";
+            columns[3]  = "Robot in Auto Zone";
+            columns[4]  = "Totes in Auto";
+            columns[5]  = "Containers in Auto";
+            columns[6]  = "Stack Totes in Auto";
+            columns[7]  = "Containers from Center";
+            columns[8]  = "Tote Level 1";
+            columns[9]  = "Tote Level 2";
             columns[10] = "Tote Level 3";
             columns[11] = "Tote Level 4";
             columns[12] = "Tote Level 5";
